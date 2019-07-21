@@ -1,0 +1,19 @@
+<html>
+<script src='https://d3js.org/d3.v5.min.js'></script>
+<body>
+<svg width=100 height=350>
+<circle fill='red'></circle>
+<circle fill='orange'></circle>
+<circle fill='yellow'></circle>
+<circle fill='green'></circle>
+<circle fill='blue'></circle>
+<circle fill='purple'></circle>
+</svg>
+</body>
+<script>
+var data = [4,8,15,16,23,42];
+var circles = d3.select("svg").selectAll("circle").data(data);
+circles.attr("cx", function(d) {return 50;})
+.attr("cy", function(d,i) {return 50*(i+1);})
+.attr("r",function(d) {return d;});
+</script></html>
