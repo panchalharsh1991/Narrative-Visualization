@@ -1,19 +1,45 @@
 <html>
 <script src='https://d3js.org/d3.v5.min.js'></script>
-<body>
-<svg width=100 height=350>
-<circle fill='red'></circle>
-<circle fill='orange'></circle>
-<circle fill='yellow'></circle>
-<circle fill='green'></circle>
-<circle fill='blue'></circle>
-<circle fill='purple'></circle>
+<style> circle {fill: lightblue; stroke: black;} </style>
+<body onload='init()'>
+<svg width=300 height=300>
 </svg>
-</body>
 <script>
-var data = [4,8,15,16,23,42];
-var circles = d3.select("svg").selectAll("circle").data(data);
-circles.attr("cx", function(d) {return 50;})
-.attr("cy", function(d,i) {return 50*(i+1);})
-.attr("r",function(d) {return d;});
-</script></html>
+async function init() {
+var width = 200;
+var height = 200;
+var margin = 50;
+var x = d3.scaleLog().domain([10,150]).range([0,width]).base(10);
+var y = d3.scaleLog().domain([10,150]).range([height,0]).base(10);
+
+const data = await d3.csv("https://flunky.github.io/cars2017.csv");
+var xValue = function(d) { return d.AverageCityMPG;},
+    xMap = function(d) { return x(xValue(d));};
+var yValue = function(d) { return d.AverageHighwayMPG;},
+    yMap = function(d) { return y(yValue(d));}
+
+
+d3.select("svg")
+.append("g")
+.attr("transform","translate("+ margin +","+ margin +")")
+.selectAll('circle')
+.data(data)
+.enter()
+.append('circle')
+.attr("cx", xMap)
+.attr("cy", yMap)
+.attr("r", function(d) {return +d.EngineCylinders+2;});
+
+d3.select("svg")
+.append("g")
+.attr("transform","translate("+ margin +","+ margin +")")
+.call(d3.axisLeft(y).tickValues([10,20,50,100]).tickFormat(d3.format("~s")));
+
+d3.select("svg")
+.append("g")
+.attr("transform","translate("+ margin +","+ (margin+height) +")")
+.call(d3.axisBottom(x).tickValues([10,20,50,100]).tickFormat(d3.format("~s")));
+}
+</script>
+</body>
+</html>
