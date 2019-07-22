@@ -2,7 +2,6 @@ function loadcsvdata( dataloaded ) {
     d3.dsv(",", "./crime.csv", function(d) {
 
         const dataobj = {
-			ucr_part: d.UCR_PART,
 			year: +d.YEAR,
             month: d.MONTH_NAME,
 			day: d.DAY_OF_WEEK,
