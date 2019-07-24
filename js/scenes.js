@@ -84,6 +84,14 @@ function showPaperBars() {
         });
 }
 
+function animateScene( forward ) {
+    if (frame > (animateFunctions.length-1)) return;
+
+    const animateFunction = animateFunctions[frame][(forward?0:1)];
+    if (animateFunction)
+        animateFunction();
+}
+
 function animateScene0() {
 
     initializeChartArea();
