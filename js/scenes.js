@@ -56,7 +56,7 @@ function createPaperBars() {
         .classed("bar-papers-rect",true)
         .attr("x", function(d,i){return i*(100);})
         .attr("y", function (d) {return y_offenseCount(d.offenseCount);})
-		.attr("width", 900)
+		.attr("width", 100)
         .attr("height", function(d){
 			console.log(y_offenseCount(d.offenseCount));
 			return (chart_dimensions.height - y_offenseCount(+d.offenseCount));})
