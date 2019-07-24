@@ -11,6 +11,11 @@ function loadcsvdata( dataloaded ) {
 			desc: d.OFFENSE_DESCRIPTION
 			street: d.STREET
         };
+		
+		if (!offenseGroups[dataobj.offense])
+				offenseGroups[dataobj.offense] = { year: dataobj.year, offenseCount: 0};
+
+		offenseGroups[dataobj.year].offenseCount++;
 
         return dataobj;
 
