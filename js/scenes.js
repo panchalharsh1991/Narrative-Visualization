@@ -57,7 +57,7 @@ function createPaperBars() {
         .attr("x", function(d,i){return i*(100);})
         .attr("y", function (d) {return y_offenceCount(d.offenceCount);})
 		.attr("width", 900)
-        .attr("height", function(d){return chart_dimensions.height - y_offenceCount(d.offenceCount);});
+        .attr("height", function(d){return (chart_dimensions.height - y_offenceCount(+d.offenceCount));});
 }
 
 function showPaperBars() {
