@@ -88,7 +88,7 @@ function createOffenseCountAxis() {
         .attr("id", "yAxisPapersG")
         .classed("y-axis-papers",true)
         .attr("transform", "translate(" + margin.left + "," + (margin.top + chart_dimensions.height + margin.bottom) + ")")
-        .call(yAxisPapers);
+        .call(yAxis);
 
     d3.select("svg").append("text")
         .attr("id", "yAxisPapersLabel")
