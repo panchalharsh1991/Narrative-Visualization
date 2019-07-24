@@ -17,7 +17,7 @@ function loadcsvdata( dataloaded ) {
 
 		offenseGroups[dataobj.offense].offenseCount++;
 
-		console.log(offenseGroups);
+		//console.log(offenseGroups);
         return dataobj;
 
     }).then(function(data) {
