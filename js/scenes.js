@@ -32,7 +32,7 @@ const x_offences = d3.scaleBand();
 
 function calculateScales() {
     const referenceData = d3.values(offenseGroups);
-
+	console.log(referenceData);
     x_offences.range([0, chart_dimensions.width])
         .domain(d3.keys(offenseGroups));
 
