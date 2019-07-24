@@ -108,3 +108,27 @@ function animateScene0() {
     createPaperBars();
     showPaperBars();
 }
+
+function animateScene1() {
+}
+
+function animateScene2() {
+}
+
+function animateScene3() {
+}
+
+function animateScene4() {
+}
+
+function deanimateScene1() {
+}
+
+function deanimateScene2() {
+}
+
+function deanimateScene3() {
+}
+
+function deanimateScene4() {
+}	
