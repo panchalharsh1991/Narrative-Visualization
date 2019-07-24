@@ -1,8 +1,8 @@
 var dataSet;
 var svg;
 
-const canvas = {width: 900, height: 500};
-const margin = {top: 50, bottom: 70, right: 70, left: 50};
+const canvas = {width: 900, height: 700};
+const margin = {top: 150, bottom: 70, right: 150, left: 50};
 const chart_dimensions = {
     width: canvas.width - (margin.right + margin.left),
     height: canvas.height - (margin.top + margin.bottom)
