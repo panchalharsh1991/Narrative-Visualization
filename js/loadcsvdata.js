@@ -15,7 +15,7 @@ function loadcsvdata( dataloaded ) {
 		if (!offenseGroups[dataobj.offense])
 				offenseGroups[dataobj.offense] = { year: dataobj.year, offenseCount: 0};
 
-		offenseGroups[dataobj.year].offenseCount++;
+		offenseGroups[dataobj.offense].offenseCount++;
 
         return dataobj;
 
