@@ -12,6 +12,10 @@ let brush;
 
 var frame = -1;
 
+var animateFunctions = [
+    [animateScene0, null]
+];
+
 const offenseGroups = {};
 
 const y_offenceCount = d3.scaleLinear();
