@@ -36,23 +36,8 @@ function calculateScales() {
     x_offences.range([0, chart_dimensions.width])
         .domain(d3.keys(offenseGroups));
 
-    x_offences.invert = (
-        function(){
-            const domain = x_offences.domain();
-            const range = x_offences.range();
-            const scale = d3.scaleQuantize().domain(range).range(domain);
-
-            return function(x){
-                return scale(x)
-            }
-        }
-    )();
-
     y_offenceCount.domain([0, d3.max(referenceData, function(d) { return d.offenceCount; })])
         .range([0, chart_dimensions.height]);
-
-    y_offenceCount.domain([0, d3.max(referenceData, function(d) { return d.offenceCount; })])
-        .range([chart_dimensions.height, 0]);
 
 }
 
