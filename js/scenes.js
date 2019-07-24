@@ -48,7 +48,7 @@ function initializeChartArea() {
         .attr("width", canvas.width)
         .attr("height", canvas.height);
 }
-function createPaperBars() {
+function createOffenseCountBars() {
     d3.select(".chart")
 		.selectAll(".bar-papers-group")
         .data(d3.values(offenseGroups))
@@ -67,7 +67,7 @@ function createPaperBars() {
         .attr("height",0);
 }
 
-function showPaperBars() {
+function showOffenseCountBars() {
 
     d3.selectAll(".bar-papers-rect")
         .transition()
@@ -106,7 +106,7 @@ function showOffenseCountAxis() {
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
         .call(yAxis)
         .selectAll("text")
-        .attr("x", -30)
+        .attr("x", -50)
         .attr("y", 0)
         .attr("dx", 0)
         .attr("dy", "0.35em")
@@ -158,8 +158,8 @@ function animateScene0() {
     initializeChartArea();
     calculateScales();
 
-    createPaperBars();
-	showPaperBars();
+    createOffenseCountBars();
+	showOffenseCountBars();
 	createOffenseCountAxis();
 	showOffenseCountAxis();
 	showOffenseAxis();
