@@ -54,11 +54,10 @@ function createPaperBars() {
             })
         .append("rect")
         .classed("bar-papers-rect",true)
-        .attr("width", 900)
-        .attr("height", 0)
-        .attr("x", 100)
-        .attr("y", function (d) {
-		return y_offenceCount(d.offenceCount);});
+        .attr("x", function(d,i){return i*(100);})
+        .attr("y", function (d) {return y_offenceCount(d.offenceCount);})
+		.attr("width", 900)
+        .attr("height", function(d){return chart_dimensions.height - y_offenceCount(d.offenceCount);});
 }
 
 function showPaperBars() {
@@ -88,7 +87,7 @@ function animateScene0() {
     calculateScales();
 
     createPaperBars();
-	showPaperBars();
+	//showPaperBars();
 }
 
 function animateScene1() {
