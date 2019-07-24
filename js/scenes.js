@@ -42,7 +42,7 @@ function initializeChartArea() {
 }
 function createPaperBars() {
     d3.select(".chart")
-	.selectAll(".bar-papers-group")
+		.selectAll(".bar-papers-group")
         .data(d3.values(offenseGroups))
         .enter()
         .append("g")
@@ -54,12 +54,9 @@ function createPaperBars() {
         .append("rect")
         .classed("bar-papers-rect",true)
         .attr("x", x_offenses.bandwidth()/2)
-        .attr("y", function (d) {return y_offenseCount(d.offenseCount);})
+        .attr("y", chart_dimensions.height)
 		.attr("width", x_offenses.bandwidth()/2 - 1)
-        .attr("height", function(d){
-			console.log(y_offenseCount(d.offenseCount));
-			return (chart_dimensions.height - y_offenseCount(+d.offenseCount));})
-		.attr("fill","red");
+        .attr("height",0);
 }
 
 function showPaperBars() {
@@ -89,7 +86,7 @@ function animateScene0() {
     calculateScales();
 
     createPaperBars();
-	//showPaperBars();
+	showPaperBars();
 }
 
 function animateScene1() {
