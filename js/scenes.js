@@ -28,13 +28,11 @@ const x_offenses = d3.scaleBand();
 function calculateScales() {
     const referenceData = d3.values(offenseGroups);
 	console.log(referenceData);
-    //x_offenses.range([0, chart_dimensions.width])
-      //  .domain(d3.keys(offenseGroups));
-	//console.log(x_offenses);
+	x_offenses.range([0, chart_dimensions.width])
+        .domain(d3.keys(offenseGroups));
 
     y_offenseCount.domain([0, d3.max(referenceData, function(d) { return d.offenseCount; })])
         .range([0, chart_dimensions.height]);
-	//console.log(y_offenseCount);
 }
 
 function initializeChartArea() {
@@ -51,13 +49,13 @@ function createPaperBars() {
         .classed("bar-papers-group",true)
         .attr("transform",
             function (d) {
-                return "translate(" + (margin.left) + ", " + margin.top + ")";
+                return "translate(" + (margin.left + (x_offenses(d.offense)-x_offenses.bandwidth()/2)) + ", " + margin.top + ")";
             })
         .append("rect")
         .classed("bar-papers-rect",true)
-        .attr("x", function(d,i){return i*(100);})
+        .attr("x", x_year.bandwidth()/2)
         .attr("y", function (d) {return y_offenseCount(d.offenseCount);})
-		.attr("width", 100)
+		.attr("width", x_offenses.bandwidth()/2 - 1)
         .attr("height", function(d){
 			console.log(y_offenseCount(d.offenseCount));
 			return (chart_dimensions.height - y_offenseCount(+d.offenseCount));})
