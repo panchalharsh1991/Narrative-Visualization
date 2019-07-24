@@ -53,7 +53,7 @@ function createPaperBars() {
             })
         .append("rect")
         .classed("bar-papers-rect",true)
-        .attr("x", x_year.bandwidth()/2)
+        .attr("x", x_offenses.bandwidth()/2)
         .attr("y", function (d) {return y_offenseCount(d.offenseCount);})
 		.attr("width", x_offenses.bandwidth()/2 - 1)
         .attr("height", function(d){
