@@ -59,7 +59,8 @@ function createPaperBars() {
 		.attr("width", 900)
         .attr("height", function(d){
 			console.log(y_offenseCount(d.offenseCount));
-			return (chart_dimensions.height - y_offenseCount(+d.offenseCount));});
+			return (chart_dimensions.height - y_offenseCount(+d.offenseCount));})
+		.attr("fill","Red");
 }
 
 function showPaperBars() {
