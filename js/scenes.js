@@ -22,8 +22,14 @@ var animateFunctions = [
 
 const offenseGroups = {};
 let chart;
-const y_offenseCount = d3.scaleLinear();
+
 const x_offenses = d3.scaleBand();
+const x_year = d3.scaleBand();
+
+const y_offenseCount = d3.scaleLinear();
+const y_offenseCount_axis = d3.scaleLinear();
+const yAxis = d3.axisLeft();
+
 
 function calculateScales() {
     const referenceData = d3.values(offenseGroups);
@@ -33,6 +39,8 @@ function calculateScales() {
 
     y_offenseCount.domain([0, d3.max(referenceData, function(d) { return d.offenseCount; })])
         .range([0, chart_dimensions.height]);
+	y_offenseCount_axis.domain([0, d3.max(referenceData, function(d) { return d.papers; })])
+        .range([chart_dimensions.height, 0]);
 }
 
 function initializeChartArea() {
@@ -72,6 +80,72 @@ function showPaperBars() {
         });
 }
 
+function createOffenseCountAxis() {
+    yAxis.scale(y_offenseCount_axis)
+        .tickSize(10).ticks(20);
+
+    d3.select(".chart").append("g")
+        .attr("id", "yAxisPapersG")
+        .classed("y-axis-papers",true)
+        .attr("transform", "translate(" + margin.left + "," + (margin.top + chart_dimensions.height + margin.bottom) + ")")
+        .call(yAxisPapers);
+
+    d3.select("svg").append("text")
+        .attr("id", "yAxisPapersLabel")
+        .attr("transform",
+            "translate(8," + (margin.top + chart_dimensions.height + margin.bottom + chart_dimensions.height / 2) + ")" +
+            ", rotate(-90)")
+        .style("text-anchor", "middle")
+        .text("Number of Offense");
+}
+
+function showOffenseCountAxis() {
+    d3.select("#yAxisPapersG")
+        .transition()
+        .duration(1000)
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+        .call(yAxis)
+        .selectAll("text")
+        .attr("x", -30)
+        .attr("y", 0)
+        .attr("dx", 0)
+        .attr("dy", "0.35em")
+        .style("text-anchor", "start");
+
+    d3.select("#yAxisPapersLabel")
+        .transition()
+        .duration(1000)
+        .attr("transform",
+            "translate(8," + (margin.top + chart_dimensions.height / 2) + ")" +
+            ", rotate(-90)");
+}
+
+function showOffenseAxis() {
+    const xAxis = d3.axisBottom().scale(x_offenses)
+        .tickSize(10).ticks(d3.keys(offenseGroups));
+
+    d3.select(".chart").append("g")
+        .attr("id", "xAxisG")
+        .classed("x axis",true)
+        .attr("transform", "translate(" + margin.left + "," + (margin.top + chart_dimensions.height) + ")")
+        .call(xAxis)
+        .selectAll("text")
+        .attr("x", -35)
+        .attr("y", 0)
+        .attr("dx", 0)
+        .attr("dy", "0.35em")
+        .attr("transform", "rotate(-90)")
+        .style("text-anchor", "start");
+
+    d3.select(".chart").append("text")
+        .attr("transform",
+            "translate(" + (margin.left + chart_dimensions.width / 2) + " ," +
+            (margin.top + chart_dimensions.height + 50) + ")")
+        .style("text-anchor", "middle")
+        .text("Offense Group");
+}
+
+
 function animateScene( forward ) {
     if (frame > (animateFunctions.length-1)) return;
 
@@ -87,6 +161,9 @@ function animateScene0() {
 
     createPaperBars();
 	showPaperBars();
+	createOffenseCountAxis();
+	showOffenseCountAxis();
+	showOffenseAxis();
 }
 
 function animateScene1() {
