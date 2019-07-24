@@ -10,7 +10,7 @@ const chart_dimensions = {
 
 let brush;
 
-var frame = -1;
+var frame = -1;	
 
 var animateFunctions = [
     [animateScene0, null],
@@ -130,11 +130,11 @@ function showOffenseAxis() {
         .attr("transform", "translate(" + margin.left + "," + (margin.top + chart_dimensions.height) + ")")
         .call(xAxis)
         .selectAll("text")
-        .attr("x", -35)
-        .attr("y", 0)
+        .attr("x", -40)
+        .attr("y", 20)
         .attr("dx", 0)
         .attr("dy", "0.35em")
-        .attr("transform", "rotate(-90)")
+        .attr("transform", "rotate(0)")
         .style("text-anchor", "start");
 
     d3.select(".chart").append("text")
