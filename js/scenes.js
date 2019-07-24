@@ -88,7 +88,7 @@ function animateScene0() {
     calculateScales();
 
     createPaperBars();
-    //showPaperBars();
+	showPaperBars();
 }
 
 function animateScene1() {
