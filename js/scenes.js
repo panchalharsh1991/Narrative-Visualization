@@ -43,17 +43,18 @@ function initializeChartArea() {
         .attr("height", canvas.height);
 }
 function createPaperBars() {
-    d3.select(".chart").selectAll(".bar-papers-group")
+    d3.select(".chart")
+	//.selectAll(".bar-papers-group")
         .data(d3.values(offenseGroups))
         .enter()
         .append("g")
-        .classed("bar-papers-group",true)
+        //.classed("bar-papers-group",true)
         .attr("transform",
             function (d) {
                 return "translate(" + (margin.left) + ", " + margin.top + ")";
             })
         .append("rect")
-        .classed("bar-papers-rect",true)
+        //.classed("bar-papers-rect",true)
         .attr("x", function(d,i){return i*(100);})
         .attr("y", function (d) {return y_offenseCount(d.offenseCount);})
 		.attr("width", 100)
