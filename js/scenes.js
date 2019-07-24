@@ -21,24 +21,20 @@ var animateFunctions = [
 ];
 
 const offenseGroups = {};
-
-const y_offenceCount = d3.scaleLinear();
-const y_offenceCount_axis = d3.scaleLinear();
 let chart;
-
-const yAxisOffences = d3.axisLeft();
+const y_offenceCount = d3.scaleLinear();
 const x_offences = d3.scaleBand();
-
 
 function calculateScales() {
     const referenceData = d3.values(offenseGroups);
 	console.log(referenceData);
     x_offences.range([0, chart_dimensions.width])
         .domain(d3.keys(offenseGroups));
+	console.log(x_offences);
 
     y_offenceCount.domain([0, d3.max(referenceData, function(d) { return d.offenceCount; })])
         .range([0, chart_dimensions.height]);
-
+	console.log(y_offenceCount);
 }
 
 function initializeChartArea() {
