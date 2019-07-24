@@ -28,13 +28,13 @@ const x_offences = d3.scaleBand();
 function calculateScales() {
     const referenceData = d3.values(offenseGroups);
 	console.log(referenceData);
-    x_offences.range([0, chart_dimensions.width])
-        .domain(d3.keys(offenseGroups));
-	console.log(x_offences);
+    //x_offences.range([0, chart_dimensions.width])
+      //  .domain(d3.keys(offenseGroups));
+	//console.log(x_offences);
 
     y_offenceCount.domain([0, d3.max(referenceData, function(d) { return d.offenceCount; })])
         .range([0, chart_dimensions.height]);
-	console.log(y_offenceCount);
+	//console.log(y_offenceCount);
 }
 
 function initializeChartArea() {
@@ -54,9 +54,9 @@ function createPaperBars() {
             })
         .append("rect")
         .classed("bar-papers-rect",true)
-        .attr("width", x_offences.bandwidth() / 2 - 1)
+        .attr("width", 900)
         .attr("height", 0)
-        .attr("x", x_offences.bandwidth() / 2)
+        .attr("x", 100)
         .attr("y", chart_dimensions.height);
 }
 
