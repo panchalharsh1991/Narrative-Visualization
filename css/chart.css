@@ -1,0 +1,37 @@
+li {
+    font-size: 12px;
+}
+
+
+div {
+    display: block;
+}
+
+.bar-papers-rect {
+    fill: orange;
+}
+
+.y-axis-papers line {
+    stroke: orange;
+}
+
+.y-axis-papers path {
+    stroke: orange;
+}
+
+.y-axis-papers text {
+    fill: orange;
+}
+
+#yAxisPapersLabel {
+    fill: orange;
+}
+
+.bar-papers-rect:hover {
+    fill: darkorange;
+}
+
+.chart text {
+    font: 11px sans-serif;
+    text-anchor: end;
+}
