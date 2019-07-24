@@ -1,7 +1,7 @@
 var dataSet;
 var svg;
 
-const canvas = {width: 900, height: 700};
+const canvas = {width: 900, height: 900};
 const margin = {top: 150, bottom: 70, right: 150, left: 50};
 const chart_dimensions = {
     width: canvas.width - (margin.right + margin.left),
@@ -39,7 +39,7 @@ function calculateScales() {
 
     y_offenseCount.domain([0, d3.max(referenceData, function(d) { return d.offenseCount; })])
         .range([0, chart_dimensions.height]);
-	y_offenseCount_axis.domain([0, d3.max(referenceData, function(d) { return d.papers; })])
+	y_offenseCount_axis.domain([0, d3.max(referenceData, function(d) { return d.offenseCount; })])
         .range([chart_dimensions.height, 0]);
 }
 
@@ -144,7 +144,6 @@ function showOffenseAxis() {
         .style("text-anchor", "middle")
         .text("Offense Group");
 }
-
 
 function animateScene( forward ) {
     if (frame > (animateFunctions.length-1)) return;
