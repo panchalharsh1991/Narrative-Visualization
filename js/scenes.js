@@ -13,7 +13,11 @@ let brush;
 var frame = -1;
 
 var animateFunctions = [
-    [animateScene0, null]
+    [animateScene0, null],
+    [animateScene1, deanimateScene1],
+    [animateScene2,deanimateScene2],
+    [animateScene3,deanimateScene3],
+    [animateScene4,deanimateScene4]
 ];
 
 const offenseGroups = {};
