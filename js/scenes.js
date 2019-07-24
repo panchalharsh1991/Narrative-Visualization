@@ -2,7 +2,7 @@ var dataSet;
 var svg;
 
 const canvas = {width: 900, height: 900};
-const margin = {top: 150, bottom: 70, right: 150, left: 50};
+const margin = {top: 150, bottom: 70, right: 150, left: 70};
 const chart_dimensions = {
     width: canvas.width - (margin.right + margin.left),
     height: canvas.height - (margin.top + margin.bottom)
@@ -96,7 +96,7 @@ function createOffenseCountAxis() {
             "translate(8," + (margin.top + chart_dimensions.height + margin.bottom + chart_dimensions.height / 2) + ")" +
             ", rotate(-90)")
         .style("text-anchor", "middle")
-        .text("Number of Offense");
+        .text("Number of Records");
 }
 
 function showOffenseCountAxis() {
