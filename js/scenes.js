@@ -22,19 +22,19 @@ var animateFunctions = [
 
 const offenseGroups = {};
 let chart;
-const y_offenceCount = d3.scaleLinear();
-const x_offences = d3.scaleBand();
+const y_offenseCount = d3.scaleLinear();
+const x_offenses = d3.scaleBand();
 
 function calculateScales() {
     const referenceData = d3.values(offenseGroups);
 	console.log(referenceData);
-    //x_offences.range([0, chart_dimensions.width])
+    //x_offenses.range([0, chart_dimensions.width])
       //  .domain(d3.keys(offenseGroups));
-	//console.log(x_offences);
+	//console.log(x_offenses);
 
-    y_offenceCount.domain([0, d3.max(referenceData, function(d) { return d.offenceCount; })])
+    y_offenseCount.domain([0, d3.max(referenceData, function(d) { return d.offenseCount; })])
         .range([0, chart_dimensions.height]);
-	//console.log(y_offenceCount);
+	//console.log(y_offenseCount);
 }
 
 function initializeChartArea() {
@@ -55,11 +55,11 @@ function createPaperBars() {
         .append("rect")
         .classed("bar-papers-rect",true)
         .attr("x", function(d,i){return i*(100);})
-        .attr("y", function (d) {return y_offenceCount(d.offenceCount);})
+        .attr("y", function (d) {return y_offenseCount(d.offenseCount);})
 		.attr("width", 900)
         .attr("height", function(d){
-			console.log(y_offenceCount(d.offenceCount));
-			return (chart_dimensions.height - y_offenceCount(+d.offenceCount));});
+			console.log(y_offenseCount(d.offenseCount));
+			return (chart_dimensions.height - y_offenseCount(+d.offenseCount));});
 }
 
 function showPaperBars() {
@@ -68,10 +68,10 @@ function showPaperBars() {
         .transition()
         .duration(1000)
         .attr("height", function (d) {
-            return y_offenceCount(d.offenceCount);
+            return y_offenseCount(d.offenseCount);
         })
         .attr("y", function (d) {
-            return (chart_dimensions.height - y_offenceCount(d.offenceCount));
+            return (chart_dimensions.height - y_offenseCount(d.offenseCount));
         });
 }
 
