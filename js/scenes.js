@@ -61,7 +61,7 @@ function createPaperBars() {
         .classed("bar-papers-group",true)
         .attr("transform",
             function (d) {
-                return "translate(" + (margin.left + ", " + margin.top + ")";
+                return "translate(" + (margin.left) + ", " + margin.top + ")";
             })
         .append("rect")
         .classed("bar-papers-rect",true)

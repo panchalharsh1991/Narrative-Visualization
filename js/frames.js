@@ -1,5 +1,5 @@
 function initializeVisualization() {
-    loaddata( dataloaded );
+    loadcsvdata( dataloaded );
 }
 
 function dataloaded() {

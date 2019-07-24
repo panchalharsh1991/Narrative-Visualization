@@ -8,7 +8,7 @@ function loadcsvdata( dataloaded ) {
 			hour: +d.HOUR,
 			date: d.OCCURRED_ON_DATE,
             offense: d.OFFENSE_CODE_GROUP,
-			desc: d.OFFENSE_DESCRIPTION
+			desc: d.OFFENSE_DESCRIPTION,
 			street: d.STREET
         };
 		
