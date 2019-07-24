@@ -57,7 +57,8 @@ function createPaperBars() {
         .attr("width", 900)
         .attr("height", 0)
         .attr("x", 100)
-        .attr("y", chart_dimensions.height);
+        .attr("y", function (d) {
+		return y_offenceCount(d.offenceCount);});
 }
 
 function showPaperBars() {
@@ -87,7 +88,7 @@ function animateScene0() {
     calculateScales();
 
     createPaperBars();
-    showPaperBars();
+    //showPaperBars();
 }
 
 function animateScene1() {
