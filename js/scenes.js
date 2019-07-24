@@ -121,8 +121,8 @@ function showOffenseCountAxis() {
 }
 
 function showOffenseAxis() {
-    const xAxis = d3.axisBottom().scale(x_offenses)
-        .tickSize(10).ticks(d3.keys(offenseGroups));
+    const xAxis = d3.axisBottom().scale(x_offenses);
+        //.tickSize(10).ticks(d3.keys(offenseGroups));
 
     d3.select(".chart").append("g")
         .attr("id", "xAxisG")
