@@ -34,12 +34,10 @@ function loadcsvdata( dataloaded ) {
 
 		offensesByMonth[dataobj.month].offenseCount++;
 		
-		offenseGroups.sort(function(x, y){
-					return d3.ascending(x.offenseCount, y.offenseCount);
-					});
-		console.log(offenseGroups.sort(function(x, y){
-					return d3.ascending(x.offenseCount, y.offenseCount);
-					}));
+		var test = offenseGroups.sort(function(x, y){
+							return d3.ascending(x.offenseCount, y.offenseCount);
+									});
+		console.log(test);
         return dataobj;
 
     }).then(function(data) {
