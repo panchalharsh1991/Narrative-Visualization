@@ -57,7 +57,7 @@ function createOffenseCountBars() {
         .classed("bar-papers-group",true)
         .attr("transform",
             function (d) {
-                return "translate(" + (margin.left + (x_offenses(d.offense)-x_offenses.bandwidth()/2)) + ", " + margin.top + ")";
+                return "translate(" + (margin.left + (20 + x_offenses(d.offense)-x_offenses.bandwidth()/2)) + ", " + margin.top + ")";
             })
         .append("rect")
         .classed("bar-papers-rect",true)
@@ -121,8 +121,8 @@ function showOffenseCountAxis() {
 }
 
 function showOffenseAxis() {
-    const xAxis = d3.axisBottom().scale(x_offenses);
-        //.tickSize(10).ticks(d3.keys(offenseGroups));
+    const xAxis = d3.axisBottom().scale(x_offenses)
+        .ticks(d3.keys(offenseGroups));
 
     d3.select(".chart").append("g")
         .attr("id", "xAxisG")
