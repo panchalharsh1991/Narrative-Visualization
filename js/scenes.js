@@ -336,7 +336,7 @@ var div = d3.select("body").append("div");
 	
     d3.select(".chart")
 		.selectAll(".bar-papers-group")
-        .data(d3.values(offensesByDay))
+        .data(d3.values(offensesByHour))
         .enter()
         .append("g")
         .classed("bar-papers-group",true)
@@ -388,7 +388,7 @@ function createOffensesByHourCountAxis() {
         .attr("id", "yAxisPapersG")
         .classed("y-axis-papers",true)
         .attr("transform", "translate(" + margin.left + "," + (margin.top + chart_dimensions.height + margin.bottom) + ")")
-        .call(yAxis2);
+        .call(yAxis3);
 
     d3.select("svg").append("text")
         .attr("id", "yAxisPapersLabel")
