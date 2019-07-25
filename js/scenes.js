@@ -98,9 +98,9 @@ var div = d3.select("body").append("div");
     d3.select(".chart")
 		.selectAll(".bar-papers-group")
         .data(d3.values(offenseGroups))
-		.sort(function(x,y){
+		/*.sort(function(x,y){
 						return d3.ascending(x.offenseCount,y.offenseCount);
-						})
+						})*/
         .enter()
         .append("g")
         .classed("bar-papers-group",true)
@@ -240,9 +240,9 @@ var div = d3.select("body").append("div");
     d3.select(".chart")
 		.selectAll(".bar-papers-group")
         .data(d3.values(offensesByDay))
-		.sort(function(x,y){
+		/*.sort(function(x,y){
 						return d3.ascending(x.day_index,y.day_index);
-						})
+						})*/
         .enter()
         .append("g")
         .classed("bar-papers-group",true)
@@ -358,9 +358,9 @@ var div = d3.select("body").append("div");
     d3.select(".chart")
 		.selectAll(".bar-papers-group")
         .data(d3.values(offensesByHour))
-		.sort(function(x,y){
+		/*.sort(function(x,y){
 						return d3.ascending(x.hour,y.hour);
-						})
+						})*/
         .enter()
         .append("g")
         .classed("bar-papers-group",true)
@@ -476,9 +476,9 @@ var div = d3.select("body").append("div");
     d3.select(".chart")
 		.selectAll(".bar-papers-group")
         .data(d3.values(offensesByMonth))
-		.sort(function(x,y){
+		/*.sort(function(x,y){
 						return d3.ascending(x.month_index,y.month_index);
-						})
+						})*/
         .enter()
         .append("g")
         .classed("bar-papers-group",true)
