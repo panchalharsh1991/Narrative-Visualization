@@ -29,15 +29,11 @@ var x_offenses = d3.scaleBand();
 var y_offenseCount = d3.scaleLinear();
 var y_offenseCount_axis = d3.scaleLinear();
 var yAxis = d3.axisLeft();
+var xAxis = d3.axisBottom();
 
 function calculateScales(data) {
     var referenceData = d3.values(data);
 	console.log(referenceData);
-	
-	x_offenses = d3.scaleBand();
-	y_offenseCount = d3.scaleLinear();
-	y_offenseCount_axis = d3.scaleLinear();
-	yAxis = d3.axisLeft();
 	
 	x_offenses.range([0, chart_dimensions.width])
         .domain(d3.keys(data));
@@ -142,8 +138,8 @@ function showOffenseCountAxis() {
             ", rotate(-90)");
 }
 
-function showOffenseAxis(data) {
-    var xAxis = d3.axisBottom().scale(x_offenses)
+function showOffenseAxis(data,desc) {
+    xAxis.scale(x_offenses)
         .ticks(d3.keys(data));
 
     d3.select(".chart").append("g")
@@ -165,7 +161,7 @@ function showOffenseAxis(data) {
             "translate(" + (margin.left + chart_dimensions.width / 2) + " ," +
             (margin.top + chart_dimensions.height + 50) + ")")
         .style("text-anchor", "middle")
-        .text("Offense Group");
+        .text(desc);
 }
 
 function wrap(text, width) {
@@ -208,7 +204,7 @@ function animateScene0() {
 	showOffenseCountBars();
 	createOffenseCountAxis();
 	showOffenseCountAxis();
-	showOffenseAxis(offenseGroups);
+	showOffenseAxis(offenseGroups,"Offense Group");
 }
 
 function animateScene1() {
@@ -219,7 +215,7 @@ function animateScene1() {
 	showOffenseCountBars();
 	createOffenseCountAxis();
 	showOffenseCountAxis();
-	showOffenseAxis(offensesByDay);
+	showOffenseAxis(offensesByDay,"Days of Week");
 }
 
 function animateScene2() {
