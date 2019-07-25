@@ -34,6 +34,11 @@ function calculateScales(data) {
     var referenceData = d3.values(data);
 	console.log(referenceData);
 	
+	x_offenses = d3.scaleBand();
+	y_offenseCount = d3.scaleLinear();
+	y_offenseCount_axis = d3.scaleLinear();
+	yAxis = d3.axisLeft();
+	
 	x_offenses.range([0, chart_dimensions.width])
         .domain(d3.keys(data));
     y_offenseCount.domain([0, d3.max(referenceData, function(d) { return d.offenseCount; })])
