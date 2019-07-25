@@ -68,7 +68,7 @@ var div = d3.select("body").append("div");
 		.attr("width", x_offenses.bandwidth()/2 - 1)
         .attr("height",0)
 		.on("mouseover", function (d) {
-			console.log(d3.event.pageX + ":" + d3.event.pageX);
+			console.log(d3.event.pageX + ":" + d3.event.pageY);
 			div.transition()
             .duration(200)
             .style("opacity", .9);
