@@ -253,13 +253,13 @@ function showOffensesByDayCountBars() {
 
 function createOffensesByDayCountAxis() {
     yAxis2.scale(y_offensesByDayCount_axis);
-        //.tickSize(10).ticks(20);
+        .tickSize(10).ticks(20);
 
     d3.select(".chart").append("g")
         .attr("id", "yAxisPapersG")
         .classed("y-axis-papers",true)
         .attr("transform", "translate(" + margin.left + "," + (margin.top + chart_dimensions.height + margin.bottom) + ")")
-        .call(yAxis);
+        .call(yAxis2);
 
     d3.select("svg").append("text")
         .attr("id", "yAxisPapersLabel")
