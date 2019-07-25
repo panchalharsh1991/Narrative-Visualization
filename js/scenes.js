@@ -122,7 +122,8 @@ function showOffenseCountAxis() {
 
 function showOffenseAxis() {
     const xAxis = d3.axisBottom().scale(x_offenses)
-        .ticks(d3.keys(offenseGroups));
+        .ticks(d3.keys(offenseGroups))
+		.call(wrap, x_offenses.bandwidth());
 
     d3.select(".chart").append("g")
         .attr("id", "xAxisG")
@@ -130,7 +131,7 @@ function showOffenseAxis() {
         .attr("transform", "translate(" + margin.left + "," + (margin.top + chart_dimensions.height) + ")")
         .call(xAxis)
         .selectAll("text")
-        .attr("x", -40)
+        .attr("x", -20)
         .attr("y", 20)
         .attr("dx", 0)
         .attr("dy", "0.35em")
@@ -143,6 +144,30 @@ function showOffenseAxis() {
             (margin.top + chart_dimensions.height + 50) + ")")
         .style("text-anchor", "middle")
         .text("Offense Group");
+}
+
+function wrap(text, width) {
+  text.each(function() {
+    var text = d3.select(this),
+        words = text.text().split(/\s+/).reverse(),
+        word,
+        line = [],
+        lineNumber = 0,
+        lineHeight = 1.1, // ems
+        y = text.attr("y"),
+        dy = parseFloat(text.attr("dy")),
+        tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em")
+    while (word = words.pop()) {
+      line.push(word)
+      tspan.text(line.join(" "))
+      if (tspan.node().getComputedTextLength() > width) {
+        line.pop()
+        tspan.text(line.join(" "))
+        line = [word]
+        tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", `${++lineNumber * lineHeight + dy}em`).text(word)
+      }
+    }
+  })
 }
 
 function animateScene( forward ) {
