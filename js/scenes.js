@@ -31,7 +31,7 @@ var y_offenseCount_axis = d3.scaleLinear();
 var yAxis = d3.axisLeft();
 
 function calculateScales(data) {
-    var referenceData = d3.values();
+    var referenceData = d3.values(data);
 	console.log(referenceData);
 	
 	x_offenses.range([0, chart_dimensions.width])
