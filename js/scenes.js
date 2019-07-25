@@ -252,7 +252,7 @@ function showOffensesByDayCountBars() {
 }
 
 function createOffensesByDayCountAxis() {
-    yAxis2.scale(y_offensesByDayCount_axis);
+    yAxis2.scale(y_offensesByDayCount_axis)
         .tickSize(10).ticks(20);
 
     d3.select(".chart").append("g")
