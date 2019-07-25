@@ -20,7 +20,7 @@ var animateFunctions = [
     [animateScene4,deanimateScene4]
 ];
 
-const offenseGroups = {};
+const offenseGroups = [];
 const offensesByDay = {};
 const offensesByHour = {};
 const offensesByMonth = {};
