@@ -337,7 +337,7 @@ function animateScene0() {
 }
 
 function animateScene1() {
-	d3.select(".chart").remove();
+	d3.select(".chart").empty();
 	initializeChartArea();
     calculateScales();
 
