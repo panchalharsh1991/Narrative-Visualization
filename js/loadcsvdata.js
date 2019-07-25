@@ -18,12 +18,12 @@ function loadcsvdata( dataloaded ) {
 		offenseGroups[dataobj.offense].offenseCount++;
 		
 		if (!offensesByDay[dataobj.day])
-				offensesByDay[dataobj.day] = { day: dataobj.day, offenseCount: 0};
+				offensesByDay[dataobj.day] = { offense: dataobj.day, offenseCount: 0};
 
 		offensesByDay[dataobj.day].offenseCount++;
 		
 		if (!offensesByHour[dataobj.hour])
-				offensesByHour[dataobj.hour] = { hour: dataobj.hour, offenseCount: 0};
+				offensesByHour[dataobj.hour] = { offense: dataobj.hour, offenseCount: 0};
 
 		offensesByHour[dataobj.hour].offenseCount++;
 
