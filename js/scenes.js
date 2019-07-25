@@ -588,22 +588,22 @@ function animateScene0() {
 	initializeChartArea();
     calculateScales();
 
-    createOffensesByMonthCountBars();
-	showOffensesByMonthCountBars();
-	createOffensesByMonthCountAxis();
-	showOffensesByMonthCountAxis();
-	showMonthsAxis();
+    createOffenseCountBars();
+	showOffenseCountBars();
+	createOffenseCountAxis();
+	showOffenseCountAxis();
+	showOffenseAxis();
 }
 
 function animateScene1() {
 	initializeChartArea();
     calculateScales();
 
-    createOffenseCountBars();
-	showOffenseCountBars();
-	createOffenseCountAxis();
-	showOffenseCountAxis();
-	showOffenseAxis();
+    createOffensesByMonthCountBars();
+	showOffensesByMonthCountBars();
+	createOffensesByMonthCountAxis();
+	showOffensesByMonthCountAxis();
+	showMonthsAxis();
 }
 
 function animateScene2() {
