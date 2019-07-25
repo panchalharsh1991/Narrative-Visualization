@@ -33,22 +33,6 @@ function loadcsvdata( dataloaded ) {
 				offensesByMonth[dataobj.month] = { month: dataobj.month, index: dataobj.month_index, offenseCount: 0};
 
 		offensesByMonth[dataobj.month].offenseCount++;
-
-	offenseGroups.sort(function(x,y){
-						return d3.ascending(x.offenseCount,y.offenseCount);
-						});
-	
-	offensesByDay.sort(function(x,y){
-						return d3.ascending(x.day_index,y.day_index);
-						});
-	
-	offensesByHour.sort(function(x,y){
-						return d3.ascending(x.hour,y.hour);
-						});
-
-	offensesByMonth.sort(function(x,y){
-						return d3.ascending(x.month_index,y.month_index);
-						});
 		
         return dataobj;
 

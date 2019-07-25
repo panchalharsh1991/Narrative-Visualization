@@ -48,24 +48,12 @@ const yAxis4 = d3.axisLeft();
 
 function calculateScales() {
     const referenceData = d3.values(offenseGroups);
-	referenceData.sort(function(x,y){
-						return d3.ascending(x.offenseCount,y.offenseCount);
-						});
 	console.log(referenceData);
 	const referenceData2 = d3.values(offensesByDay);
-	referenceData2.sort(function(x,y){
-						return d3.ascending(x.day_index,y.day_index);
-						});
 	console.log(referenceData2);
 	const referenceData3 = d3.values(offensesByHour);
-	referenceData3.sort(function(x,y){
-						return d3.ascending(x.hour,y.hour);
-						});
 	console.log(referenceData3);
 	const referenceData4 = d3.values(offensesByMonth);
-	referenceData4.sort(function(x,y){
-						return d3.ascending(x.month_index,y.month_index);
-						});
 	console.log(referenceData4);
 	
 	x_offenses.range([0, chart_dimensions.width])
@@ -110,6 +98,9 @@ var div = d3.select("body").append("div");
     d3.select(".chart")
 		.selectAll(".bar-papers-group")
         .data(d3.values(offenseGroups))
+		.sort(function(x,y){
+						return d3.ascending(x.offenseCount,y.offenseCount);
+						})
         .enter()
         .append("g")
         .classed("bar-papers-group",true)
@@ -249,6 +240,9 @@ var div = d3.select("body").append("div");
     d3.select(".chart")
 		.selectAll(".bar-papers-group")
         .data(d3.values(offensesByDay))
+		.sort(function(x,y){
+						return d3.ascending(x.day_index,y.day_index);
+						})
         .enter()
         .append("g")
         .classed("bar-papers-group",true)
@@ -364,6 +358,9 @@ var div = d3.select("body").append("div");
     d3.select(".chart")
 		.selectAll(".bar-papers-group")
         .data(d3.values(offensesByHour))
+		.sort(function(x,y){
+						return d3.ascending(x.hour,y.hour);
+						})
         .enter()
         .append("g")
         .classed("bar-papers-group",true)
@@ -479,6 +476,9 @@ var div = d3.select("body").append("div");
     d3.select(".chart")
 		.selectAll(".bar-papers-group")
         .data(d3.values(offensesByMonth))
+		.sort(function(x,y){
+						return d3.ascending(x.month_index,y.month_index);
+						})
         .enter()
         .append("g")
         .classed("bar-papers-group",true)
