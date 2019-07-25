@@ -101,7 +101,7 @@ var div = d3.select("body").append("div");
 	
     d3.select(".chart")
 		.selectAll(".bar-papers-group")
-        .data(referenceData)
+        .data(d3.values(referenceData))
 		//.data(d3.values(offenseGroups))
         .enter()
         .append("g")
