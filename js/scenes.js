@@ -326,23 +326,14 @@ function animateScene( forward ) {
 }
 
 function animateScene0() {
-	initializeChartArea();
-    calculateScales();
-
-    createOffensesByDayCountBars();
-	showOffensesByDayCountBars();
-	createOffensesByDayCountAxis();
-	showOffensesByDayCountAxis();
-	showDaysAxis();
-
-    /*initializeChartArea();
+    initializeChartArea();
     calculateScales();
 
     createOffenseCountBars();
 	showOffenseCountBars();
 	createOffenseCountAxis();
 	showOffenseCountAxis();
-	showOffenseAxis();*/
+	showOffenseAxis();
 }
 
 function animateScene1() {
