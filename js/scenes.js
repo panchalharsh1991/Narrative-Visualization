@@ -534,7 +534,7 @@ function showOffensesByMonthCountAxis() {
         .transition()
         .duration(1000)
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-        .call(yAxis3)
+        .call(yAxis4)
         .selectAll("text")
         .attr("x", -50)
         .attr("y", 0)
