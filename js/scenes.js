@@ -66,17 +66,17 @@ function createOffenseCountBars() {
 		.attr("width", x_offenses.bandwidth()/2 - 1)
         .attr("height",0)
 		.on("mouseover", function (d) {
-         tooltipDiv.transition()
+			div.transition()
             .duration(200)
-             .style("opacity", .9);
-         tooltipDiv.html(d.offenseCount)
-             .style("left", (d3.event.pageX) + "px")
-             .style("top", (d3.event.pageY - 28) + "px");
+            .style("opacity", .9);
+			div.html(d.offenseCount)
+            .style("left", (d3.event.pageX) + "px")
+            .style("top", (d3.event.pageY - 28) + "px");
      })
 		.on("mouseout", function (d) {
-         tooltipDiv.transition()
-             .duration(1000)
-             .style("opacity", 0);
+			div.transition()
+            .duration(1000)
+            .style("opacity", 0);
      });
 }
 
