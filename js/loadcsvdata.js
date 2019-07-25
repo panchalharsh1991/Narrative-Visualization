@@ -30,7 +30,7 @@ function loadcsvdata( dataloaded ) {
 		if (!offensesByMonth[dataobj.month])
 				offensesByMonth[dataobj.month] = { month: dataobj.month, offenseCount: 0};
 
-		offensesByHour[dataobj.month].offenseCount++;
+		offensesByMonth[dataobj.month].offenseCount++;
 
 		//console.log(offenseGroups);
         return dataobj;
