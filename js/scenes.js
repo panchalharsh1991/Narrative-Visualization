@@ -77,7 +77,20 @@ function showOffenseCountBars() {
         })
         .attr("y", function (d) {
             return (chart_dimensions.height - y_offenseCount(d.offenseCount));
-        });
+        })
+		.on("mouseover", function (d) {
+         tooltipDiv.transition()
+            .duration(200)
+             .style("opacity", .9);
+         tooltipDiv.html(d.offenseCount)
+             .style("left", (d3.event.pageX) + "px")
+             .style("top", (d3.event.pageY - 28) + "px");
+     })
+     .on("mouseout", function (d) {
+         tooltipDiv.transition()
+             .duration(1000)
+             .style("opacity", 0);
+     });
 }
 
 function createOffenseCountAxis() {
@@ -156,7 +169,7 @@ function wrap(text, width) {
         lineHeight = 1.1, // ems
         y = text.attr("y"),
         dy = parseFloat(text.attr("dy")),
-        tspan = text.text(null).append("tspan").attr("x", -30).attr("y", y).attr("dy", dy + "em")
+        tspan = text.text(null).append("tspan").attr("x", -20).attr("y", y).attr("dy", dy + "em")
     while (word = words.pop()) {
       line.push(word)
       tspan.text(line.join(" "))
@@ -164,7 +177,7 @@ function wrap(text, width) {
         line.pop()
         tspan.text(line.join(" "))
         line = [word]
-        tspan = text.append("tspan").attr("x", -30).attr("y", y).attr("dy", `${++lineNumber * lineHeight + dy}em`).text(word)
+        tspan = text.append("tspan").attr("x", -20).attr("y", y).attr("dy", `${++lineNumber * lineHeight + dy}em`).text(word)
       }
     }
   })
