@@ -44,7 +44,7 @@ const x_months = d3.scaleBand();
 const y_offensesByMonthCount = d3.scaleLinear();
 const y_offensesByMonthCount_axis = d3.scaleLinear();
 const yAxis4 = d3.axisLeft();
-const referenceData = {};
+const referenceData;
 
 function calculateScales() {
     referenceData = d3.values(offenseGroups);
