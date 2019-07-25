@@ -37,7 +37,7 @@ function loadcsvdata( dataloaded ) {
 		offenseGroups.sort((a,b) => (a.offenseCount > b.offenseCount) ? 1 : ((b.offenseCount > a.offenseCount) ? -1 : 0));
 		offensesByDay.sort((a,b) => (a.day_index > b.day_index) ? 1 : ((b.day_index > a.day_index) ? -1 : 0));
 		offensesByHour.sort((a,b) => (a.hour > b.hour) ? 1 : ((b.hour > a.hour) ? -1 : 0));
-		offensesByMonth.sort((a,b) => (a.month_index > b.month_index) ? 1 : ((b.month_index > a.month_index
+		offensesByMonth.sort((a,b) => (a.month_index > b.month_index) ? 1 : ((b.month_index > a.month_index) ? -1 : 0));
 		
         return dataobj;
 
