@@ -32,9 +32,23 @@ const y_offenseCount = d3.scaleLinear();
 const y_offenseCount_axis = d3.scaleLinear();
 const yAxis = d3.axisLeft();
 
+function sortObject(obj) {
+    var arr = [];
+    for (var prop in obj) {
+        if (obj.hasOwnProperty(prop)) {
+            arr.push({
+                'key': prop,
+                'value': obj[prop]
+            });
+        }
+    }
+    arr.sort(function(a, b) { return a.value - b.value; });
+    return arr;
+}
+
 
 function calculateScales() {
-    const referenceData = d3.values(offenseGroups);
+    const referenceData = sortObject(d3.values(offenseGroups));
 	console.log(referenceData);
 	console.log(d3.values(offensesByDay));
 	console.log(d3.values(offensesByHour));
