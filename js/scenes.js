@@ -52,9 +52,9 @@ function calculateScales() {
 		
 	x_days.range([0, chart_dimensions.width])
         .domain(d3.keys(offensesByDay));
-    y_offenseByDayCount.domain([0, d3.max(referenceData2, function(d) { return d.offenseCount; })])
+    y_offensesByDayCount.domain([0, d3.max(referenceData2, function(d) { return d.offenseCount; })])
         .range([0, chart_dimensions.height]);
-	y_offenseByDayCount_axis.domain([0, d3.max(referenceData2, function(d) { return d.offenseCount; })])
+	y_offensesByDayCount_axis.domain([0, d3.max(referenceData2, function(d) { return d.offenseCount; })])
         .range([chart_dimensions.height, 0]);	
 }
 
