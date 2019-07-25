@@ -326,6 +326,14 @@ function animateScene( forward ) {
 }
 
 function animateScene0() {
+	initializeChartArea();
+    calculateScales();
+
+    createOffensesByDayCountBars();
+	showOffensesByDayCountBars();
+	createOffensesCountAxis();
+	showOffensesCountAxis();
+	showDaysAxis();
 
     /*initializeChartArea();
     calculateScales();
