@@ -47,6 +47,9 @@ const yAxis4 = d3.axisLeft();
 
 
 function calculateScales() {
+	offenseGroups.sort(function(x,y){
+						return d3.ascending(x.offenseCount,y.offenseCount);
+						})
     const referenceData = d3.values(offenseGroups);
 	console.log(referenceData);
 	const referenceData2 = d3.values(offensesByDay);
@@ -98,9 +101,6 @@ var div = d3.select("body").append("div");
     d3.select(".chart")
 		.selectAll(".bar-papers-group")
         .data(d3.values(offenseGroups))
-		/*.sort(function(x,y){
-						return d3.ascending(x.offenseCount,y.offenseCount);
-						})*/
         .enter()
         .append("g")
         .classed("bar-papers-group",true)
