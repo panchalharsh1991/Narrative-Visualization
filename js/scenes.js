@@ -63,6 +63,7 @@ function initializeChartArea() {
         .attr("width", canvas.width)
         .attr("height", canvas.height);
 }
+
 function createOffenseCountBars() {
 var div = d3.select("body").append("div");
 	
