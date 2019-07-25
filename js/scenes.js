@@ -122,8 +122,7 @@ function showOffenseCountAxis() {
 
 function showOffenseAxis() {
     const xAxis = d3.axisBottom().scale(x_offenses)
-        .ticks(d3.keys(offenseGroups))
-		.call(wrap, x_offenses.bandwidth());
+        .ticks(d3.keys(offenseGroups));
 
     d3.select(".chart").append("g")
         .attr("id", "xAxisG")
@@ -131,6 +130,7 @@ function showOffenseAxis() {
         .attr("transform", "translate(" + margin.left + "," + (margin.top + chart_dimensions.height) + ")")
         .call(xAxis)
         .selectAll("text")
+		.call(wrap, x_offenses.bandwidth())
         .attr("x", -20)
         .attr("y", 20)
         .attr("dx", 0)
