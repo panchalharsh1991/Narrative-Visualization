@@ -20,10 +20,10 @@ var animateFunctions = [
     [animateScene4,deanimateScene4]
 ];
 
-const offenseGroups = {};
-const offensesByDay = {};
-const offensesByHour = {};
-const offensesByMonth = {};
+var offenseGroups = {};
+var offensesByDay = {};
+var offensesByHour = {};
+var offensesByMonth = {};
 
 const x_offenses = d3.scaleBand();
 const y_offenseCount = d3.scaleLinear();
