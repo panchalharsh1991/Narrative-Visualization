@@ -48,12 +48,24 @@ const yAxis4 = d3.axisLeft();
 
 function calculateScales() {
     const referenceData = d3.values(offenseGroups);
+	referenceData.sort(function(x,y){
+						return d3.ascending(x.offenseCount,y.offenseCount);
+						});
 	console.log(referenceData);
-	const referenceData2 = d3.values(offensesByDay)
+	const referenceData2 = d3.values(offensesByDay);
+	referenceData2.sort(function(x,y){
+						return d3.ascending(x.day_index,y.day_index);
+						});
 	console.log(referenceData2);
-	const referenceData3 = d3.values(offensesByHour)
+	const referenceData3 = d3.values(offensesByHour);
+	referenceData3.sort(function(x,y){
+						return d3.ascending(x.hour,y.hour);
+						});
 	console.log(referenceData3);
-	const referenceData4 = d3.values(offensesByMonth)
+	const referenceData4 = d3.values(offensesByMonth);
+	referenceData4.sort(function(x,y){
+						return d3.ascending(x.month_index,y.month_index);
+						});
 	console.log(referenceData4);
 	
 	x_offenses.range([0, chart_dimensions.width])

@@ -4,7 +4,9 @@ function loadcsvdata( dataloaded ) {
         const dataobj = {
 			year: +d.YEAR,
             month: d.MONTH_NAME,
+			month_index: +d.MONTH,
 			day: d.DAY_OF_WEEK,
+			day_index: +d.DAY,
 			hour: +d.HOUR,
 			date: d.OCCURRED_ON_DATE,
             offense: d.OFFENSE_CODE_GROUP,
@@ -18,7 +20,7 @@ function loadcsvdata( dataloaded ) {
 		offenseGroups[dataobj.offense].offenseCount++;
 		
 		if (!offensesByDay[dataobj.day])
-				offensesByDay[dataobj.day] = { day: dataobj.day, offenseCount: 0};
+				offensesByDay[dataobj.day] = { day: dataobj.day, index: dataobj.day_index, offenseCount: 0};
 
 		offensesByDay[dataobj.day].offenseCount++;
 		
@@ -28,7 +30,7 @@ function loadcsvdata( dataloaded ) {
 		offensesByHour[dataobj.hour].offenseCount++;
 		
 		if (!offensesByMonth[dataobj.month])
-				offensesByMonth[dataobj.month] = { month: dataobj.month, offenseCount: 0};
+				offensesByMonth[dataobj.month] = { month: dataobj.month, index: dataobj.month_index, offenseCount: 0};
 
 		offensesByMonth[dataobj.month].offenseCount++;
 
