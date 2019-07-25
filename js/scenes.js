@@ -49,6 +49,8 @@ function initializeChartArea() {
         .attr("height", canvas.height);
 }
 function createOffenseCountBars() {
+var div = d3.select("body").append("div");
+	
     d3.select(".chart")
 		.selectAll(".bar-papers-group")
         .data(d3.values(offenseGroups))
