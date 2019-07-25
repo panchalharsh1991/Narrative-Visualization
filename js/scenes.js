@@ -23,7 +23,6 @@ var animateFunctions = [
 const offenseGroups = {};
 const offensesByDay = {};
 const offensesByHour = {};
-let chart;
 
 const x_offenses = d3.scaleBand();
 const y_offenseCount = d3.scaleLinear();
@@ -59,7 +58,8 @@ function calculateScales() {
 }
 
 function initializeChartArea() {
-    chart = d3.select(".chart")
+	d3.select(".chart").selectAll("*").remove();
+    var chart = d3.select(".chart")
         .attr("width", canvas.width)
         .attr("height", canvas.height);
 }
