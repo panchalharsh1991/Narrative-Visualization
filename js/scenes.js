@@ -342,8 +342,8 @@ function animateScene1() {
 
     createOffensesByDayCountBars();
 	showOffensesByDayCountBars();
-	createOffensesCountAxis();
-	showOffensesCountAxis();
+	createOffensesByDayCountAxis();
+	showOffensesByDayCountAxis();
 	showDaysAxis();
 }
 
