@@ -97,9 +97,7 @@ var div = d3.select("body").append("div");
 	
     d3.select(".chart")
 		.selectAll(".bar-papers-group")
-        .data(d3.values(offenseGroups).sort(function(x,y){
-						return d3.ascending(x.offenseCount,y.offenseCount);
-						}))
+        .data(d3.values(offenseGroups))
         .enter()
         .append("g")
         .classed("bar-papers-group",true)
@@ -238,9 +236,7 @@ var div = d3.select("body").append("div");
 	
     d3.select(".chart")
 		.selectAll(".bar-papers-group")
-        .data(d3.values(offensesByDay).sort(function(x,y){
-						return d3.ascending(x.day_index,y.day_index);
-						}))
+        .data(d3.values(offensesByDay))
         .enter()
         .append("g")
         .classed("bar-papers-group",true)
@@ -355,9 +351,7 @@ var div = d3.select("body").append("div");
 	
     d3.select(".chart")
 		.selectAll(".bar-papers-group")
-        .data(d3.values(offensesByHour).sort(function(x,y){
-						return d3.ascending(x.hour,y.hour);
-						}))
+        .data(d3.values(offensesByHour))
         .enter()
         .append("g")
         .classed("bar-papers-group",true)
@@ -472,9 +466,7 @@ var div = d3.select("body").append("div");
 	
     d3.select(".chart")
 		.selectAll(".bar-papers-group")
-        .data(d3.values(offensesByMonth).sort(function(x,y){
-						return d3.ascending(x.month_index,y.month_index);
-						}))
+        .data(d3.values(offensesByMonth))
         .enter()
         .append("g")
         .classed("bar-papers-group",true)
