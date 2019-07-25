@@ -140,7 +140,7 @@ function showOffenseAxis() {
 
     d3.select(".chart").append("text")
         .attr("transform",
-            "translate(" + (margin.left + chart_dimensions.width / 2) + " ," +
+            "translate(" + ((margin.left-20) + chart_dimensions.width / 2) + " ," +
             (margin.top + chart_dimensions.height + 50) + ")")
         .style("text-anchor", "middle")
         .text("Offense Group");
