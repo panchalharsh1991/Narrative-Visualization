@@ -8,10 +8,10 @@ div {
 }
 
 .bar-papers-rect {
-    fill: orange;
+    fill: steelblue;
 }
 
-.y-axis-papers line {
+/*.y-axis-papers line {
     stroke: orange;
 }
 
@@ -26,9 +26,9 @@ div {
 #yAxisPapersLabel {
     fill: orange;
 }
-
+*/
 .bar-papers-rect:hover {
-    fill: darkorange;
+    fill: blue;
 }
 
 .chart text {
