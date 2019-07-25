@@ -21,6 +21,8 @@ var animateFunctions = [
 ];
 
 const offenseGroups = {};
+const offensesByDay = {};
+const offensesByHour = {};
 let chart;
 
 const x_offenses = d3.scaleBand();
@@ -34,6 +36,8 @@ const yAxis = d3.axisLeft();
 function calculateScales() {
     const referenceData = d3.values(offenseGroups);
 	console.log(referenceData);
+	console.log(d3.values(offensesByDay));
+	console.log(d3.values(offensesByHour));
 	x_offenses.range([0, chart_dimensions.width])
         .domain(d3.keys(offenseGroups));
 
