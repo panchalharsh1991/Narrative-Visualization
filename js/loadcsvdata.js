@@ -26,6 +26,11 @@ function loadcsvdata( dataloaded ) {
 				offensesByHour[dataobj.hour] = { hour: dataobj.hour, offenseCount: 0};
 
 		offensesByHour[dataobj.hour].offenseCount++;
+		
+		if (!offensesByMonth[dataobj.month])
+				offensesByMonth[dataobj.month] = { month: dataobj.month, offenseCount: 0};
+
+		offensesByHour[dataobj.month].offenseCount++;
 
 		//console.log(offenseGroups);
         return dataobj;
