@@ -156,7 +156,7 @@ function wrap(text, width) {
         lineHeight = 1.1, // ems
         y = text.attr("y"),
         dy = parseFloat(text.attr("dy")),
-        tspan = text.text(null).append("tspan").attr("x", -20).attr("y", y).attr("dy", dy + "em")
+        tspan = text.text(null).append("tspan").attr("x", -30).attr("y", y).attr("dy", dy + "em")
     while (word = words.pop()) {
       line.push(word)
       tspan.text(line.join(" "))
@@ -164,7 +164,7 @@ function wrap(text, width) {
         line.pop()
         tspan.text(line.join(" "))
         line = [word]
-        tspan = text.append("tspan").attr("x", -20).attr("y", y).attr("dy", `${++lineNumber * lineHeight + dy}em`).text(word)
+        tspan = text.append("tspan").attr("x", -30).attr("y", y).attr("dy", `${++lineNumber * lineHeight + dy}em`).text(word)
       }
     }
   })
