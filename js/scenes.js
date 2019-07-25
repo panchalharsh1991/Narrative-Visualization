@@ -34,13 +34,19 @@ const y_offensesByDayCount = d3.scaleLinear();
 const y_offensesByDayCount_axis = d3.scaleLinear();
 const yAxis2 = d3.axisLeft();
 
+const x_hours = d3.scaleBand();
+const y_offensesByHourCount = d3.scaleLinear();
+const y_offensesByHourCount_axis = d3.scaleLinear();
+const yAxis3 = d3.axisLeft();
+
 
 function calculateScales() {
     const referenceData = d3.values(offenseGroups);
 	console.log(referenceData);
 	const referenceData2 = d3.values(offensesByDay)
 	console.log(referenceData2);
-	//console.log(d3.values(offensesByHour));
+	const referenceData3 = d3.values(offensesByHour)
+	console.log(referenceData3);
 	
 	x_offenses.range([0, chart_dimensions.width])
         .domain(d3.keys(offenseGroups));
@@ -54,7 +60,14 @@ function calculateScales() {
     y_offensesByDayCount.domain([0, d3.max(referenceData2, function(d) { return d.offenseCount; })])
         .range([0, chart_dimensions.height]);
 	y_offensesByDayCount_axis.domain([0, d3.max(referenceData2, function(d) { return d.offenseCount; })])
-        .range([chart_dimensions.height, 0]);	
+        .range([chart_dimensions.height, 0]);
+
+	x_hours.range([0, chart_dimensions.width])
+        .domain(d3.keys(offensesByHour));
+    y_offensesByHourCount.domain([0, d3.max(referenceData3, function(d) { return d.offenseCount; })])
+        .range([0, chart_dimensions.height]);
+	y_offensesByHourCount_axis.domain([0, d3.max(referenceData3, function(d) { return d.offenseCount; })])
+        .range([chart_dimensions.height, 0]);		
 }
 
 function initializeChartArea() {
@@ -315,7 +328,122 @@ function showDaysAxis() {
             "translate(" + (margin.left + chart_dimensions.width / 2) + " ," +
             (margin.top + chart_dimensions.height + 50) + ")")
         .style("text-anchor", "middle")
-        .text("Days");
+        .text("Days of Week");
+}
+
+function createOffensesByHourCountBars() {
+var div = d3.select("body").append("div");
+	
+    d3.select(".chart")
+		.selectAll(".bar-papers-group")
+        .data(d3.values(offensesByDay))
+        .enter()
+        .append("g")
+        .classed("bar-papers-group",true)
+        .attr("transform",
+            function (d) {
+                return "translate(" + (margin.left + (20 + x_hours(d.hour)-x_hours.bandwidth()/2)) + ", " + margin.top + ")";
+            })
+        .append("rect")
+        .classed("bar-papers-rect",true)
+        .attr("x", x_hours.bandwidth()/2)
+        .attr("y", chart_dimensions.height)
+		.attr("width", x_hours.bandwidth()/2 - 1)
+        .attr("height",0)
+		.on("mouseover", function (d) {
+			//console.log(d3.event.pageX + ":" + d3.event.pageY);
+			div.transition()
+            .duration(200)
+            .style("opacity", .9);
+			div.html(d.offenseCount)
+			.style("position","absolute")
+            .style("left", (d3.event.pageX) + "px")
+            .style("top", (d3.event.pageY - 28) + "px");
+     })
+		.on("mouseout", function (d) {
+			div.transition()
+            .duration(1000)
+            .style("opacity", 0);
+     });
+}
+
+function showOffensesByHourCountBars() {
+
+    d3.selectAll(".bar-papers-rect")
+        .transition()
+        .duration(1000)
+        .attr("height", function (d) {
+            return y_offensesByHourCount(d.offenseCount);
+        })
+        .attr("y", function (d) {
+            return (chart_dimensions.height - y_offensesByHourCount(d.offenseCount));
+        });
+}
+
+function createOffensesByHourCountAxis() {
+    yAxis3.scale(y_offensesByHourCount_axis)
+        .tickSize(10).ticks(20);
+
+    d3.select(".chart").append("g")
+        .attr("id", "yAxisPapersG")
+        .classed("y-axis-papers",true)
+        .attr("transform", "translate(" + margin.left + "," + (margin.top + chart_dimensions.height + margin.bottom) + ")")
+        .call(yAxis2);
+
+    d3.select("svg").append("text")
+        .attr("id", "yAxisPapersLabel")
+        .attr("transform",
+            "translate(8," + (margin.top + chart_dimensions.height + margin.bottom + chart_dimensions.height / 2) + ")" +
+            ", rotate(-90)")
+        .style("text-anchor", "middle")
+        .text("Number of Records");
+}
+
+function showOffensesByHourCountAxis() {
+    d3.select("#yAxisPapersG")
+        .transition()
+        .duration(1000)
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+        .call(yAxis3)
+        .selectAll("text")
+        .attr("x", -50)
+        .attr("y", 0)
+        .attr("dx", 0)
+        .attr("dy", "0.35em")
+        .style("text-anchor", "start");
+
+    d3.select("#yAxisPapersLabel")
+        .transition()
+        .duration(1000)
+        .attr("transform",
+            "translate(8," + (margin.top + chart_dimensions.height / 2) + ")" +
+            ", rotate(-90)");
+}
+
+function showHoursAxis() {
+    const xAxis = d3.axisBottom().scale(x_hours)
+        .ticks(d3.keys(offensesByHour));
+
+    d3.select(".chart").append("g")
+        .attr("id", "xAxisG")
+        .classed("x axis",true)
+        .attr("transform", "translate(" + margin.left + "," + (margin.top + chart_dimensions.height) + ")")
+        .call(xAxis)
+        .selectAll("text")
+		.call(wrap, x_hours.bandwidth())
+        .attr("x", -20)
+        .attr("y", 20)
+        .attr("dx", 0)
+        .attr("dy", "0.35em")
+        .attr("transform", "rotate(0)")
+        .style("text-anchor", "start");
+
+    d3.select(".chart").append("text")
+        .attr("transform",
+            "translate(" + (margin.left + chart_dimensions.width / 2) + " ," +
+            (margin.top + chart_dimensions.height + 50) + ")")
+        .style("text-anchor", "middle")
+        .text("Hours");
 }
 
 function animateScene( forward ) {
@@ -349,6 +477,14 @@ function animateScene1() {
 }
 
 function animateScene2() {
+	initializeChartArea();
+    calculateScales();
+
+    createOffensesByHourCountBars();
+	showOffensesByHourCountBars();
+	createOffensesByHourCountAxis();
+	showOffensesByHourCountAxis();
+	showHoursAxis();
 }
 
 function animateScene3() {
