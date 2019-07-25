@@ -140,7 +140,7 @@ function showOffenseAxis() {
 
     d3.select(".chart").append("text")
         .attr("transform",
-            "translate(" + ((margin.left-20) + chart_dimensions.width / 2) + " ," +
+            "translate(" + (margin.left + chart_dimensions.width / 2) + " ," +
             (margin.top + chart_dimensions.height + 50) + ")")
         .style("text-anchor", "middle")
         .text("Offense Group");
@@ -156,7 +156,7 @@ function wrap(text, width) {
         lineHeight = 1.1, // ems
         y = text.attr("y"),
         dy = parseFloat(text.attr("dy")),
-        tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em")
+        tspan = text.text(null).append("tspan").attr("x", -20).attr("y", y).attr("dy", dy + "em")
     while (word = words.pop()) {
       line.push(word)
       tspan.text(line.join(" "))
@@ -164,7 +164,7 @@ function wrap(text, width) {
         line.pop()
         tspan.text(line.join(" "))
         line = [word]
-        tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", `${++lineNumber * lineHeight + dy}em`).text(word)
+        tspan = text.append("tspan").attr("x", -20).attr("y", y).attr("dy", `${++lineNumber * lineHeight + dy}em`).text(word)
       }
     }
   })
