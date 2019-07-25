@@ -20,10 +20,10 @@ var animateFunctions = [
     [animateScene4,deanimateScene4]
 ];
 
-/*var offenseGroups = {};
-var offensesByDay = {};
-var offensesByHour = {};
-var offensesByMonth = {};*/
+const offenseGroups = {};
+const offensesByDay = {};
+const offensesByHour = {};
+const offensesByMonth = {};
 
 const x_offenses = d3.scaleBand();
 const y_offenseCount = d3.scaleLinear();
@@ -47,9 +47,9 @@ const yAxis4 = d3.axisLeft();
 
 
 function calculateScales() {
-	offenseGroups.sort(function(x,y){
+	/*.sort(function(x,y){
 						return d3.ascending(x.offenseCount,y.offenseCount);
-						})
+						})*/
     const referenceData = d3.values(offenseGroups);
 	console.log(referenceData);
 	const referenceData2 = d3.values(offensesByDay);
