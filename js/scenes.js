@@ -64,7 +64,20 @@ function createOffenseCountBars() {
         .attr("x", x_offenses.bandwidth()/2)
         .attr("y", chart_dimensions.height)
 		.attr("width", x_offenses.bandwidth()/2 - 1)
-        .attr("height",0);
+        .attr("height",0)
+		.on("mouseover", function (d) {
+         tooltipDiv.transition()
+            .duration(200)
+             .style("opacity", .9);
+         tooltipDiv.html(d.offenseCount)
+             .style("left", (d3.event.pageX) + "px")
+             .style("top", (d3.event.pageY - 28) + "px");
+     })
+		.on("mouseout", function (d) {
+         tooltipDiv.transition()
+             .duration(1000)
+             .style("opacity", 0);
+     });
 }
 
 function showOffenseCountBars() {
@@ -77,20 +90,7 @@ function showOffenseCountBars() {
         })
         .attr("y", function (d) {
             return (chart_dimensions.height - y_offenseCount(d.offenseCount));
-        })
-		.on("mouseover", function (d) {
-         tooltipDiv.transition()
-            .duration(200)
-             .style("opacity", .9);
-         tooltipDiv.html(d.offenseCount)
-             .style("left", (d3.event.pageX) + "px")
-             .style("top", (d3.event.pageY - 28) + "px");
-     })
-     .on("mouseout", function (d) {
-         tooltipDiv.transition()
-             .duration(1000)
-             .style("opacity", 0);
-     });
+        });
 }
 
 function createOffenseCountAxis() {
