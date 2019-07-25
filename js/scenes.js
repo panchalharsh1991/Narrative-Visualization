@@ -251,7 +251,7 @@ function showOffensesByDayCountBars() {
         });
 }
 
-function createOffenseCountAxis() {
+function createOffensesByDayCountAxis() {
     yAxis2.scale(y_offensesByDayCount_axis)
         .tickSize(10).ticks(20);
 
@@ -270,7 +270,7 @@ function createOffenseCountAxis() {
         .text("Number of Records");
 }
 
-function showOffenseCountAxis() {
+function showOffensesByDayCountAxis() {
     d3.select("#yAxisPapersG")
         .transition()
         .duration(1000)
@@ -331,8 +331,8 @@ function animateScene0() {
 
     createOffensesByDayCountBars();
 	showOffensesByDayCountBars();
-	createOffensesCountAxis();
-	showOffensesCountAxis();
+	createOffensesByDayCountAxis();
+	showOffensesByDayCountAxis();
 	showDaysAxis();
 
     /*initializeChartArea();
