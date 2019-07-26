@@ -252,7 +252,7 @@ var div = d3.select("body").append("div");
         .classed("bar-papers-group",true)
         .attr("transform",
             function (d) {
-                return "translate(" + (margin.left + (20 + x_days(d.day)-x_days.bandwidth()/2)) + ", " + margin.top + ")";
+                return "translate(" + (margin.left + (25 + x_days(d.day)-x_days.bandwidth()/2)) + ", " + margin.top + ")";
             })
         .append("rect")
         .classed("bar-papers-rect",true)
@@ -480,7 +480,7 @@ var div = d3.select("body").append("div");
         .classed("bar-papers-group",true)
         .attr("transform",
             function (d) {
-                return "translate(" + (margin.left + (20 + x_months(d.month)-x_months.bandwidth()/2)) + ", " + margin.top + ")";
+                return "translate(" + (margin.left + (16 + x_months(d.month)-x_months.bandwidth()/2)) + ", " + margin.top + ")";
             })
         .append("rect")
         .classed("bar-papers-rect",true)
