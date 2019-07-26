@@ -50,6 +50,14 @@ function calculateScales() {
     const referenceData = d3.values(offenseGroups).sort(function(x, y){
 						return d3.ascending(x.offenseCount, y.offenseCount);
 						});
+	var sortable = [];
+		for (var og in offenseGroups) {
+			sortable.push([og, maxSpeed[og]]);
+		}
+	sortable.sort(function(a, b) {
+					return a[1] - b[1];
+				});
+	console.log(sortable);			
 	console.log(offenseGroups);					
 	console.log(referenceData);
 	const referenceData2 = d3.values(offensesByDay);
