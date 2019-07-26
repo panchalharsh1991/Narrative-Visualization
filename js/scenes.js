@@ -48,9 +48,9 @@ const yAxis4 = d3.axisLeft();
 
 function calculateScales() {
     const referenceData = d3.values(offenseGroups);
-	/*referenceData.sort(function(x, y){
+	referenceData.sort(function(x, y){
 						return d3.ascending(x.offenseCount, y.offenseCount);
-						});*/
+						});
 	console.log(referenceData);
 	const referenceData2 = d3.values(offensesByDay);
 	console.log(referenceData2);
@@ -60,7 +60,8 @@ function calculateScales() {
 	console.log(referenceData4);
 	
 	x_offenses.range([0, chart_dimensions.width])
-        .domain(d3.keys(offenseGroups));
+        //.domain(d3.keys(offenseGroups));
+		.domain(d3.keys(referenceData));
     y_offenseCount.domain([0, d3.max(referenceData, function(d) { return d.offenseCount; })])
         .range([0, chart_dimensions.height]);
 	y_offenseCount_axis.domain([0, d3.max(referenceData, function(d) { return d.offenseCount; })])
@@ -96,11 +97,16 @@ function initializeChartArea() {
 }
 
 function createOffenseCountBars() {
-var div = d3.select("body").append("div");
+	const referenceData = d3.values(offenseGroups);
+	referenceData.sort(function(x, y){
+						return d3.ascending(x.offenseCount, y.offenseCount);
+						});
+	var div = d3.select("body").append("div");
 	
     d3.select(".chart")
 		.selectAll(".bar-papers-group")
-        .data(d3.values(offenseGroups))
+        //.data(d3.values(offenseGroups))
+		.data(d3.values(referenceData))
         .enter()
         .append("g")
         .classed("bar-papers-group",true)
@@ -186,8 +192,14 @@ function showOffenseCountAxis() {
 }
 
 function showOffenseAxis() {
+	const referenceData = d3.values(offenseGroups);
+	referenceData.sort(function(x, y){
+						return d3.ascending(x.offenseCount, y.offenseCount);
+						});
+	
     const xAxis = d3.axisBottom().scale(x_offenses)
-        .ticks(d3.keys(offenseGroups));
+        //.ticks(d3.keys(offenseGroups));
+		.ticks(d3.keys(referenceData))
 
     d3.select(".chart").append("g")
         .attr("id", "xAxisG")
