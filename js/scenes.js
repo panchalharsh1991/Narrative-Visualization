@@ -567,7 +567,7 @@ function showMonthsAxis() {
     d3.select(".chart").append("g")
         .attr("id", "xAxisG")
         .classed("x axis",true)
-        .attr("transform", "translate(" + margin.left + "," + (margin.top + chart_dimensions.height) + ")")
+        .attr("transform", "translate(" + (4+margin.left) + "," + (margin.top + chart_dimensions.height) + ")")
         .call(xAxis)
         .selectAll("text")
 		.call(wrap, x_months.bandwidth())
@@ -580,7 +580,7 @@ function showMonthsAxis() {
 
     d3.select(".chart").append("text")
         .attr("transform",
-            "translate(" + (4+(margin.left + chart_dimensions.width / 2)) + " ," +
+            "translate(" + (margin.left + chart_dimensions.width / 2) + " ," +
             (margin.top + chart_dimensions.height + 50) + ")")
         .style("text-anchor", "middle")
         .text("Months");
