@@ -111,7 +111,7 @@ function calculateScales3(){
 	const referenceData3 = d3.values(offensesByHour);
 	console.log(referenceData3);
 	const referenceData4 = d3.values(offensesByHourwithType);
-	console.log(referenceData3);
+	console.log(referenceData4);
 	
 	x_hours.range([0, chart_dimensions.width])
         .domain(d3.keys(offensesByHour));
