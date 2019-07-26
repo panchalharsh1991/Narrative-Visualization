@@ -39,10 +39,10 @@ function loadcsvdata( dataloaded ) {
 				return d3.ascending(x.offenseCount, y.offenseCount);
 		});*/
 		
-		offenseGroups.sort(function(x, y){
+var test = offenseGroups.sort(function(x, y){
 						return d3.ascending(x.offenseCount, y.offenseCount);
 						});
-			
+console.log(test);			
         return dataobj;
 
     }).then(function(data) {
