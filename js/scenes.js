@@ -45,6 +45,34 @@ const y_offensesByMonthCount = d3.scaleLinear();
 const y_offensesByMonthCount_axis = d3.scaleLinear();
 const yAxis4 = d3.axisLeft();
 
+const categoryMap = {
+    "Homicide" : "Homicide",
+	"Other Burglary" : "Other Burglary",
+	"Commercial Burglary" : "Commercial Burglary",
+	"Robbery" : "Robbery",
+	"Auto Theft" : "Auto Theft",
+	"Residential Burglary" : "Residential Burglary",
+	"Aggravated Assault" : "Aggravated Assault",
+	"Larceny From Motor Vehicle" : "Larceny From Motor Vehicle",
+	"Larceny" : "Larceny"
+};
+
+const legendColorMap = {
+        "Homicide": "#1f77b4",
+        "Other Burglary": "#d62728",
+        "Commercial Burglary": "#e377c2",
+        "Robbery": "#9467bd",
+        "Auto Theft": "#ff7f0e",
+        "Residential Burglary":"#2ca02c",
+        "Aggravated Assault":"#8c564b",
+        "Larceny From Motor Vehicle": "#17becf",
+        "Larceny": "#7f7f7f"
+};
+
+const categoryDiscreteColorScale = d3.scaleOrdinal()
+    .domain(d3.keys(legendColorMap))
+    .range(d3.values(legendColorMap));
+
 function calculateScales0(){
 	const referenceData = d3.values(offenseGroups);
 	console.log(referenceData);
