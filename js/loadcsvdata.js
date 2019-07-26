@@ -33,7 +33,7 @@ function loadcsvdata( dataloaded ) {
 		offensesByHour[dataobj.hour].offenseCount++;
 		
 		if (!offensesByHourwithType[dataobj.hour[dataobj.offense]])
-				offensesByHourwithType[dataobj.hour[dataobj.offense]] = { hour: dataobj.hour {offense: dataobj.offense, offenseCount: 0}};
+				offensesByHourwithType[dataobj.hour[dataobj.offense]] = { dataobj.hour : {offense: dataobj.offense, offenseCount: 0}};
 
 		offensesByHourwithType[dataobj.hour[dataobj.offense]].offenseCount++;
 		
