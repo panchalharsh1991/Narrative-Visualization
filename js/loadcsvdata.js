@@ -44,6 +44,7 @@ function loadcsvdata( dataloaded ) {
 							.sort(function(x, y){
 									return d3.ascending(x.offenseCount, y.offenseCount);
 								});
+		console.log(d3.values(offenseGroups));
 			
         return dataobj;
 
