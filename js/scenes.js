@@ -24,6 +24,7 @@ const offenseGroups = {};
 const offensesByDay = {};
 const offensesByHour = {};
 const offensesByMonth = {};
+const offensesByHourwithType = {};
 
 const x_offenses = d3.scaleBand();
 const y_offenseCount = d3.scaleLinear();
@@ -109,6 +110,9 @@ function calculateScales2(){
 function calculateScales3(){
 	const referenceData3 = d3.values(offensesByHour);
 	console.log(referenceData3);
+	const referenceData4 = d3.values(offensesByHourwithType);
+	console.log(referenceData3);
+	
 	x_hours.range([0, chart_dimensions.width])
         .domain(d3.keys(offensesByHour));
     y_offensesByHourCount.domain([0, d3.max(referenceData3, function(d) { return d.offenseCount; })])
@@ -612,9 +616,8 @@ function showMonthsAxis() {
 }
 
 function createOffensesByHourCircles() {
-	console.log(dataSet);
     d3.select(".chart")
-        .selectAll("circle").data(dataSet)
+        .selectAll("circle").data(d3.values(offensesByHourwithType))
         .enter()
         .append("circle")
         .attr("class", "circle-citations")
@@ -635,10 +638,10 @@ function showOffensesByHourCircles() {
         .delay(1000)
         .duration(1000)
         .attr("cy",function(d) {
-            if (d.count === 0)
+            if (d.offenseCount === 0)
                 return (margin.top+chart_dimensions.height);
             else
-                return (margin.top + chart_dimensions.height-y_offensesByHourCount(d.count)); })
+                return (margin.top + chart_dimensions.height-y_offensesByHourCount(d.offenseCount)); })
         .attr("r",5)
         .attr("fill","black")
         .attr("fill-opacity","0")

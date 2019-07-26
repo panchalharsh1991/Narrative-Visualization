@@ -11,9 +11,10 @@ function loadcsvdata( dataloaded ) {
 			date: d.OCCURRED_ON_DATE,
             offense: d.OFFENSE_CODE_GROUP,
 			desc: d.OFFENSE_DESCRIPTION,
-			street: d.STREET,
-			type: categoryMap[d.OFFENSE_CODE_GROUP],
-			count: +d["1"]
+			street: d.STREET
+			//,
+			//type: categoryMap[d.OFFENSE_CODE_GROUP],
+			//count: +d["1"]
         };
 		
 		if (!offenseGroups[dataobj.offense])
@@ -30,6 +31,11 @@ function loadcsvdata( dataloaded ) {
 				offensesByHour[dataobj.hour] = { hour: dataobj.hour, offenseCount: 0};
 
 		offensesByHour[dataobj.hour].offenseCount++;
+		
+		if (!offensesByHourwithType[dataobj.hour])
+				offensesByHourwithType[dataobj.hour] = { offense: {offense: dataobj.offense, offenseCount: 0});
+
+		offensesByHourwithType[dataobj.hour].offense.offenseCount++;
 		
 		if (!offensesByMonth[dataobj.month])
 				offensesByMonth[dataobj.month] = { month: dataobj.month, index: dataobj.month_index, offenseCount: 0};
