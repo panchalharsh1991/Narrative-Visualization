@@ -612,6 +612,7 @@ function showMonthsAxis() {
 }
 
 function createOffensesByHourCircles() {
+	console.log(dataSet);
     d3.select(".chart")
         .selectAll("circle").data(dataSet)
         .enter()
@@ -637,7 +638,7 @@ function showOffensesByHourCircles() {
             if (d.count === 0)
                 return (margin.top+chart_dimensions.height);
             else
-                return (margin.top + chart_dimensions.height-y_offensesByHourCount(d.count)) })
+                return (margin.top + chart_dimensions.height-y_offensesByHourCount(d.count)); })
         .attr("r",5)
         .attr("fill","black")
         .attr("fill-opacity","0")
