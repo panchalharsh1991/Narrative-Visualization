@@ -1,5 +1,3 @@
-const offensesGroups = {};
-
 function loadcsvdata( dataloaded ) {
     d3.dsv(",", "../crime.csv", function(d) {
 
@@ -36,15 +34,10 @@ function loadcsvdata( dataloaded ) {
 
 		offensesByMonth[dataobj.month].offenseCount++;
 		
-		/*var test = offenseGroups.sort(function(x, y){
-							return d3.ascending(x.offenseCount, y.offenseCount);
-									});
-		console.log(test);*/
-		offenseGroups = d3.values(offensesGroups)
-							.sort(function(x, y){
-									return d3.ascending(x.offenseCount, y.offenseCount);
-								});
-		console.log(d3.values(offenseGroups));
+		/*d3.values(offenseGroups)
+		.sort(function(x, y){
+				return d3.ascending(x.offenseCount, y.offenseCount);
+		});*/
 			
         return dataobj;
 
