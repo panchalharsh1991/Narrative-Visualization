@@ -13,7 +13,7 @@ function loadcsvdata( dataloaded ) {
 			desc: d.OFFENSE_DESCRIPTION,
 			street: d.STREET,
 			type: categoryMap[d.OFFENSE_CODE_GROUP],
-			count: +d["OFFENSE_CODE_GROUP"]
+			count: +d["1"]
         };
 		
 		if (!offenseGroups[dataobj.offense])
