@@ -366,7 +366,7 @@ var div = d3.select("body").append("div");
         .classed("bar-papers-group",true)
         .attr("transform",
             function (d) {
-                return "translate(" + (margin.left + (20 + x_hours(d.hour)-x_hours.bandwidth()/2)) + ", " + margin.top + ")";
+                return "translate(" + (margin.left + (10 + x_hours(d.hour)-x_hours.bandwidth()/2)) + ", " + margin.top + ")";
             })
         .append("rect")
         .classed("bar-papers-rect",true)
