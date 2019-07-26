@@ -1,3 +1,5 @@
+const offensesGroups = {};
+
 function loadcsvdata( dataloaded ) {
     d3.dsv(",", "../crime.csv", function(d) {
 
@@ -14,10 +16,10 @@ function loadcsvdata( dataloaded ) {
 			street: d.STREET
         };
 		
-		if (!offenseGroups[dataobj.offense])
-				offenseGroups[dataobj.offense] = { offense: dataobj.offense, offenseCount: 0};
+		if (!offensesGroups[dataobj.offense])
+				offensesGroups[dataobj.offense] = { offense: dataobj.offense, offenseCount: 0};
 
-		offenseGroups[dataobj.offense].offenseCount++;
+		offensesGroups[dataobj.offense].offenseCount++;
 		
 		if (!offensesByDay[dataobj.day])
 				offensesByDay[dataobj.day] = { day: dataobj.day, index: dataobj.day_index, offenseCount: 0};
@@ -38,6 +40,11 @@ function loadcsvdata( dataloaded ) {
 							return d3.ascending(x.offenseCount, y.offenseCount);
 									});
 		console.log(test);*/
+		offenseGroups = d3.values(offensesGroups)
+							.sort(function(x, y){
+									return d3.ascending(x.offenseCount, y.offenseCount);
+								});
+			
         return dataobj;
 
     }).then(function(data) {
