@@ -634,10 +634,10 @@ function showOffensesByHourCircles() {
         .delay(1000)
         .duration(1000)
         .attr("cy",function(d) {
-            if (d.citations === 0)
+            if (d.count === 0)
                 return (margin.top+chart_dimensions.height);
             else
-                return (margin.top + chart_dimensions.height-y_offensesByHourCount(d.offenseCount)) })
+                return (margin.top + chart_dimensions.height-y_offensesByHourCount(d.count)) })
         .attr("r",5)
         .attr("fill","black")
         .attr("fill-opacity","0")
