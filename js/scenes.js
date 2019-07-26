@@ -45,48 +45,54 @@ const y_offensesByMonthCount = d3.scaleLinear();
 const y_offensesByMonthCount_axis = d3.scaleLinear();
 const yAxis4 = d3.axisLeft();
 
-
-function calculateScales() {
-    const referenceData = d3.values(offenseGroups).sort(function(x, y){
-						return d3.ascending(x.offenseCount, y.offenseCount);
-						});			
-	console.log(offenseGroups);					
+function calculateScales0(){
+	const referenceData = d3.values(offenseGroups);
 	console.log(referenceData);
-	const referenceData2 = d3.values(offensesByDay);
-	console.log(referenceData2);
-	const referenceData3 = d3.values(offensesByHour);
-	console.log(referenceData3);
-	const referenceData4 = d3.values(offensesByMonth);
-	console.log(referenceData4);
-	
 	x_offenses.range([0, chart_dimensions.width])
         .domain(d3.keys(offenseGroups));
     y_offenseCount.domain([0, d3.max(referenceData, function(d) { return d.offenseCount; })])
         .range([0, chart_dimensions.height]);
 	y_offenseCount_axis.domain([0, d3.max(referenceData, function(d) { return d.offenseCount; })])
         .range([chart_dimensions.height, 0]);
-		
+}
+
+function calculateScales1(){
+	const referenceData4 = d3.values(offensesByMonth);
+	console.log(referenceData4);
+	x_months.range([0, chart_dimensions.width])
+        .domain(d3.keys(offensesByMonth));
+    y_offensesByMonthCount.domain([0, d3.max(referenceData4, function(d) { return d.offenseCount; })])
+        .range([0, chart_dimensions.height]);
+	y_offensesByMonthCount_axis.domain([0, d3.max(referenceData4, function(d) { return d.offenseCount; })])
+        .range([chart_dimensions.height, 0]);
+}
+
+function calculateScales2(){
+	const referenceData2 = d3.values(offensesByDay);
+	console.log(referenceData2);
 	x_days.range([0, chart_dimensions.width])
         .domain(d3.keys(offensesByDay));
     y_offensesByDayCount.domain([0, d3.max(referenceData2, function(d) { return d.offenseCount; })])
         .range([0, chart_dimensions.height]);
 	y_offensesByDayCount_axis.domain([0, d3.max(referenceData2, function(d) { return d.offenseCount; })])
         .range([chart_dimensions.height, 0]);
+}
 
+function calculateScales3(){
+	const referenceData3 = d3.values(offensesByHour);
+	console.log(referenceData3);
 	x_hours.range([0, chart_dimensions.width])
         .domain(d3.keys(offensesByHour));
     y_offensesByHourCount.domain([0, d3.max(referenceData3, function(d) { return d.offenseCount; })])
         .range([0, chart_dimensions.height]);
 	y_offensesByHourCount_axis.domain([0, d3.max(referenceData3, function(d) { return d.offenseCount; })])
         .range([chart_dimensions.height, 0]);
-
-	x_months.range([0, chart_dimensions.width])
-        .domain(d3.keys(offensesByMonth));
-    y_offensesByMonthCount.domain([0, d3.max(referenceData4, function(d) { return d.offenseCount; })])
-        .range([0, chart_dimensions.height]);
-	y_offensesByMonthCount_axis.domain([0, d3.max(referenceData4, function(d) { return d.offenseCount; })])
-        .range([chart_dimensions.height, 0]);		
 }
+
+function calculateScales4(){}
+
+
+function calculateScales() {}
 
 function initializeChartArea() {
 	d3.select(".chart").selectAll("*").remove();
@@ -574,7 +580,7 @@ function showMonthsAxis() {
 
     d3.select(".chart").append("text")
         .attr("transform",
-            "translate(" + (margin.left + chart_dimensions.width / 2) + " ," +
+            "translate(" + (4+(margin.left + chart_dimensions.width / 2)) + " ," +
             (margin.top + chart_dimensions.height + 50) + ")")
         .style("text-anchor", "middle")
         .text("Months");
@@ -590,7 +596,7 @@ function animateScene( forward ) {
 
 function animateScene0() {
 	initializeChartArea();
-    calculateScales();
+    calculateScales0();
 
     createOffenseCountBars();
 	showOffenseCountBars();
@@ -601,7 +607,7 @@ function animateScene0() {
 
 function animateScene1() {
 	initializeChartArea();
-    calculateScales();
+    calculateScales1();
 
     createOffensesByMonthCountBars();
 	showOffensesByMonthCountBars();
@@ -612,7 +618,7 @@ function animateScene1() {
 
 function animateScene2() {
 	initializeChartArea();
-    calculateScales();
+    calculateScales2();
 
     createOffensesByDayCountBars();
 	showOffensesByDayCountBars();
@@ -623,7 +629,7 @@ function animateScene2() {
 
 function animateScene3() {
 	initializeChartArea();
-    calculateScales();
+    calculateScales3();
 
     createOffensesByHourCountBars();
 	showOffensesByHourCountBars();
