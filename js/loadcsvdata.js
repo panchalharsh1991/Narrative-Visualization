@@ -11,7 +11,9 @@ function loadcsvdata( dataloaded ) {
 			date: d.OCCURRED_ON_DATE,
             offense: d.OFFENSE_CODE_GROUP,
 			desc: d.OFFENSE_DESCRIPTION,
-			street: d.STREET
+			street: d.STREET,
+			type: categoryMap[d.OFFENSE_CODE_GROUP],
+			count: +d["OFFENSE_CODE_GROUP"]
         };
 		
 		if (!offenseGroups[dataobj.offense])

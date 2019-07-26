@@ -583,6 +583,39 @@ function showMonthsAxis() {
         .text("Months");
 }
 
+function createOffensesByHourCircles() {
+    d3.select(".chart")
+        .selectAll("circle").data(dataSet)
+        .enter()
+        .append("circle")
+        .attr("class", "circle-citations")
+        .attr("cx", function(d) { return margin.left + x_hours(d.hour) + x_hours.bandwidth()/2} )
+        .attr("cy", chart_dimensions.height)
+        .attr("r", 0)
+        .attr("stroke", function (d) {
+            return categoryDiscreteColorScale(d.type);
+        })
+        .attr("fill", "black")
+        .attr("fill-opacity", "1")
+        .attr("stroke-width", 0);
+}
+
+function showOffensesByHourCircles() {
+    d3.selectAll(".circle-citations")
+        .transition()
+        .delay(1000)
+        .duration(1000)
+        .attr("cy",function(d) {
+            if (d.citations === 0)
+                return (margin.top+chart_dimensions.height);
+            else
+                return (margin.top + chart_dimensions.height-y_offensesByHourCount(d.offenseCount)) })
+        .attr("r",5)
+        .attr("fill","black")
+        .attr("fill-opacity","0")
+        .attr("stroke-width", 3);
+}
+
 function animateScene( forward ) {
     if (frame > (animateFunctions.length-1)) return;
 
@@ -636,6 +669,14 @@ function animateScene3() {
 }
 
 function animateScene4() {
+	initializeChartArea();
+    calculateScales3();
+	
+	createOffensesByHourCircles
+	showOffensesByHourCircles();
+	createOffensesByHourCountAxis();
+	showOffensesByHourCountAxis();
+	showHoursAxis();
 }
 
 function deanimateScene1() {
