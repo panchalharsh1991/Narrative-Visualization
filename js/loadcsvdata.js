@@ -14,10 +14,10 @@ function loadcsvdata( dataloaded ) {
 			street: d.STREET
         };
 		
-		if (!offensesGroups[dataobj.offense])
-				offensesGroups[dataobj.offense] = { offense: dataobj.offense, offenseCount: 0};
+		if (!offenseGroups[dataobj.offense])
+				offenseGroups[dataobj.offense] = { offense: dataobj.offense, offenseCount: 0};
 
-		offensesGroups[dataobj.offense].offenseCount++;
+		offenseGroups[dataobj.offense].offenseCount++;
 		
 		if (!offensesByDay[dataobj.day])
 				offensesByDay[dataobj.day] = { day: dataobj.day, index: dataobj.day_index, offenseCount: 0};
