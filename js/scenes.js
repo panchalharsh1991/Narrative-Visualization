@@ -52,7 +52,7 @@ function calculateScales() {
 						});
 	var sortable = [];
 		for (var og in offenseGroups) {
-			sortable.push([og, maxSpeed[og]]);
+			sortable.push([og, offenseGroups[og]]);
 		}
 	sortable.sort(function(a, b) {
 					return a[1] - b[1];
