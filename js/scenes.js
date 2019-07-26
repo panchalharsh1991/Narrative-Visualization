@@ -118,7 +118,11 @@ var div = d3.select("body").append("div");
 			//console.log(d3.event.pageX + ":" + d3.event.pageY);
 			div.transition()
             .duration(200)
-            .style("opacity", .9);
+            .append("rect")
+			.attr("width", 30)
+			.attr("height", 20)
+			.attr("fill", "white")
+			.style("opacity", 0.5);
 			div.html(d.offenseCount)
 			.style("position","absolute")
             .style("left", (d3.event.pageX) + "px")
