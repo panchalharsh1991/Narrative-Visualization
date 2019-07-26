@@ -701,7 +701,7 @@ function animateScene4() {
 	initializeChartArea();
     calculateScales3();
 	
-	createOffensesByHourCircles
+	createOffensesByHourCircles();
 	showOffensesByHourCircles();
 	createOffensesByHourCountAxis();
 	showOffensesByHourCountAxis();
