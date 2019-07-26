@@ -120,9 +120,6 @@ var div = d3.select("body").append("div");
             .duration(200)
 			.style("opacity", 0.5);
 			div.html(d.offenseCount)
-			.append("rect")
-			.attr("width", 30)
-			.attr("height", 20)
 			.attr("fill", "white")
 			.style("position","absolute")
             .style("left", (d3.event.pageX) + "px")
