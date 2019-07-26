@@ -47,10 +47,9 @@ const yAxis4 = d3.axisLeft();
 
 
 function calculateScales() {
-    const referenceData = d3.values(offenseGroups);
-	/*referenceData.sort(function(x, y){
+    const referenceData = d3.values(offenseGroups).sort(function(x, y){
 						return d3.ascending(x.offenseCount, y.offenseCount);
-						});*/
+						});
 	console.log(referenceData);
 	const referenceData2 = d3.values(offensesByDay);
 	console.log(referenceData2);
