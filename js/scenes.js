@@ -45,11 +45,12 @@ const y_offensesByMonthCount = d3.scaleLinear();
 const y_offensesByMonthCount_axis = d3.scaleLinear();
 const yAxis4 = d3.axisLeft();
 
-const referenceData = d3.values(offenseGroups).sort(function(x, y){
+
+function calculateScales() {
+    const referenceData = d3.values(offenseGroups).sort(function(x, y){
 						return d3.ascending(x.offenseCount, y.offenseCount);
 						});
-						
-function calculateScales() {
+	console.log(offenseGroups);					
 	console.log(referenceData);
 	const referenceData2 = d3.values(offensesByDay);
 	console.log(referenceData2);
