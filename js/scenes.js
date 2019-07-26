@@ -568,7 +568,7 @@ function showMonthsAxis() {
         .attr("transform", "translate(" + (margin.left) + "," + (margin.top + chart_dimensions.height) + ")")
         .call(xAxis)
         .selectAll("text")
-        .attr("x", -10)
+        .attr("x", -15)
         .attr("y", 13)
         .attr("dx", 0)
         .attr("dy", "0.35em")
