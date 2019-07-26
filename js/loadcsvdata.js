@@ -38,6 +38,10 @@ function loadcsvdata( dataloaded ) {
 							return d3.ascending(x.offenseCount, y.offenseCount);
 									});
 		console.log(test);*/
+		offenseGroups = d3.values(offenseGroups).sort(function(x, y){
+						return d3.ascending(x.offenseCount, y.offenseCount);
+						})
+		
         return dataobj;
 
     }).then(function(data) {

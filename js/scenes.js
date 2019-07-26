@@ -20,7 +20,7 @@ var animateFunctions = [
     [animateScene4,deanimateScene4]
 ];
 
-const offenseGroups = {};
+var offenseGroups = {};
 const offensesByDay = {};
 const offensesByHour = {};
 const offensesByMonth = {};
@@ -100,9 +100,7 @@ var div = d3.select("body").append("div");
 	
     d3.select(".chart")
 		.selectAll(".bar-papers-group")
-        .data(d3.values(offenseGroups).sort(function(x, y){
-						return d3.ascending(x.offenseCount, y.offenseCount);
-						}))
+        .data(d3.values(offenseGroups))
         .enter()
         .append("g")
         .classed("bar-papers-group",true)
