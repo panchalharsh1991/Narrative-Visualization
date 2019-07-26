@@ -366,7 +366,7 @@ var div = d3.select("body").append("div");
         .classed("bar-papers-group",true)
         .attr("transform",
             function (d) {
-                return "translate(" + (margin.left + (10 + x_hours(d.hour)-x_hours.bandwidth()/2)) + ", " + margin.top + ")";
+                return "translate(" + (margin.left + (8 + x_hours(d.hour)-x_hours.bandwidth()/2)) + ", " + margin.top + ")";
             })
         .append("rect")
         .classed("bar-papers-rect",true)
@@ -568,7 +568,7 @@ function showMonthsAxis() {
         .attr("transform", "translate(" + (margin.left) + "," + (margin.top + chart_dimensions.height) + ")")
         .call(xAxis)
         .selectAll("text")
-        .attr("x", -20)
+        .attr("x", -10)
         .attr("y", 13)
         .attr("dx", 0)
         .attr("dy", "0.35em")
