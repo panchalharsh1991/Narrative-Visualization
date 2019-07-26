@@ -37,12 +37,7 @@ function loadcsvdata( dataloaded ) {
 		/*d3.values(offenseGroups)
 		.sort(function(x, y){
 				return d3.ascending(x.offenseCount, y.offenseCount);
-		});*/
-		
-var test = d3.values(offenseGroups).sort(function(x, y){
-						return d3.ascending(x.offenseCount, y.offenseCount);
-						});
-console.log(test);			
+		});*/		
         return dataobj;
 
     }).then(function(data) {
