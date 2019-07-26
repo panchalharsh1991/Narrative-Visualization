@@ -571,7 +571,7 @@ function showMonthsAxis() {
         .call(xAxis)
         .selectAll("text")
 		.call(wrap, x_months.bandwidth())
-        .attr("x", -20)
+        .attr("x", -10)
         .attr("y", 20)
         .attr("dx", 0)
         .attr("dy", "0.35em")
