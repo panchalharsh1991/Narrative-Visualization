@@ -12,9 +12,6 @@ function loadcsvdata( dataloaded ) {
             offense: d.OFFENSE_CODE_GROUP,
 			desc: d.OFFENSE_DESCRIPTION,
 			street: d.STREET
-			//,
-			//type: categoryMap[d.OFFENSE_CODE_GROUP],
-			//count: +d["1"]
         };
 		
 		if (!offenseGroups[dataobj.offense])
@@ -46,19 +43,5 @@ function loadcsvdata( dataloaded ) {
     }).then(function(data) {
         dataSet = data;
         dataloaded();
-    });
-
-	d3.csv("../agg_crimes.csv", function(data) {
-		var result = Object.keys(data)
-							.map(function(key) {
-									return [Number(key), data[key]];
-							});
-		var test = d3.stack()(headers.map(function(temp){
-				return result.map(function(d){
-					return {x: d.Offense_Code_Group, y: +d[temp]};
-				});
-		}));
-	console.log(test);
-	});
-	
+    });	
 }

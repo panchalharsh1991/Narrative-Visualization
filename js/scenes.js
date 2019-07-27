@@ -24,7 +24,6 @@ const offenseGroups = {};
 const offensesByDay = {};
 const offensesByHour = {};
 const offensesByMonth = {};
-var offensesByHourwithType = {};
 
 const x_offenses = d3.scaleBand();
 const y_offenseCount = d3.scaleLinear();
@@ -45,33 +44,6 @@ const x_months = d3.scaleBand();
 const y_offensesByMonthCount = d3.scaleLinear();
 const y_offensesByMonthCount_axis = d3.scaleLinear();
 const yAxis4 = d3.axisLeft();
-
-const headers = [
-    "Homicide",
-	"Other Burglary",
-	"Commercial Burglary",
-	"Robbery",
-	"Auto Theft",
-	"Residential Burglary",
-	"Aggravated Assault",
-	"Larceny From Motor Vehicle",
-	"Larceny"];
-
-const legendColorMap = {
-        "Homicide": "#1f77b4",
-        "Other Burglary": "#d62728",
-        "Commercial Burglary": "#e377c2",
-        "Robbery": "#9467bd",
-        "Auto Theft": "#ff7f0e",
-        "Residential Burglary":"#2ca02c",
-        "Aggravated Assault":"#8c564b",
-        "Larceny From Motor Vehicle": "#17becf",
-        "Larceny": "#7f7f7f"
-};
-
-const categoryDiscreteColorScale = d3.scaleOrdinal()
-    .domain(d3.keys(legendColorMap))
-    .range(d3.values(legendColorMap));
 
 function calculateScales0(){
 	const referenceData = d3.values(offenseGroups);
@@ -614,38 +586,47 @@ function showMonthsAxis() {
         .text("Months");
 }
 
-function createOffensesByHourCircles() {
-    d3.select(".chart")
-        .selectAll("circle").data(d3.values(offensesByHourwithType))
-        .enter()
-        .append("circle")
-        .attr("class", "circle-citations")
-        .attr("cx", function(d) { return margin.left + x_hours(d.hour) + x_hours.bandwidth()/2} )
-        .attr("cy", chart_dimensions.height)
-        .attr("r", 0)
-        .attr("stroke", function (d) {
-            return categoryDiscreteColorScale(d.type);
-        })
-        .attr("fill", "black")
-        .attr("fill-opacity", "1")
-        .attr("stroke-width", 0);
+function prepareAggData(){
+
+d3.csv("../agg_crime.csv").then(d => chart(d))
+
+function chart(csv) {
+	var keys = csv.columns.slice(1);
+
+	var offenses = [...new Set(csv.map(d => d.Offense_Code_Group))];
+	
+	d3.select(".chart")
+		.append("g")
+		.append("select")
+		.attr("id","offense")
+		.selectAll("option")
+		.data(offenses)
+		.enter().append("option")
+		.text(d => d);
+
+	/*var options = d3.select("#offense").selectAll("option")
+		.data(offenses)
+	.enter().append("option")
+		.text(d => d);*/
+		
+	update(d3.select("#offense").property("value"), 0)
+
+	function update(input, speed) {
+
+		var data = csv.filter(f => f.Offense_Code_Group == input)
+
+		data.forEach(function(d) {
+			d.total = d3.sum(keys, k => +d[k])
+			return d;
+		});
+	}	
+	var select = d3.select("#offense")
+	.on("change", function() {
+		update(this.value, 1000)
+	});
+}
 }
 
-function showOffensesByHourCircles() {
-    d3.selectAll(".circle-citations")
-        .transition()
-        .delay(1000)
-        .duration(1000)
-        .attr("cy",function(d) {
-            if (d.offenseCount === 0)
-                return (margin.top+chart_dimensions.height);
-            else
-                return (margin.top + chart_dimensions.height-y_offensesByHourCount(d.offenseCount)); })
-        .attr("r",5)
-        .attr("fill","black")
-        .attr("fill-opacity","0")
-        .attr("stroke-width", 3);
-}
 
 function animateScene( forward ) {
     if (frame > (animateFunctions.length-1)) return;
@@ -701,13 +682,8 @@ function animateScene3() {
 
 function animateScene4() {
 	initializeChartArea();
-    calculateScales3();
-	
-	createOffensesByHourCircles();
-	showOffensesByHourCircles();
-	createOffensesByHourCountAxis();
-	showOffensesByHourCountAxis();
-	showHoursAxis();
+	loadAggData();
+    
 }
 
 function deanimateScene1() {
