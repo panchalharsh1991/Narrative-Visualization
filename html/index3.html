@@ -86,8 +86,7 @@ function chart(csv) {
 		svg.selectAll(".x-axis").transition().duration(speed)
 			.call(d3.axisBottom(x).tickSizeOuter(0))
 
-		svg.select("#chart")
-			.append("g")
+		svg.append("g")
 			.data(data)
 			.enter()
 			.append("rect")
