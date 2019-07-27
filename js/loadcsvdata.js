@@ -48,10 +48,10 @@ function loadcsvdata( dataloaded ) {
         dataloaded();
     });
 
-	d3.dsv(",", "../agg_crimes.csv", function(data1) {
+	d3.csv("../agg_crimes.csv", function(data) {
 		var test = 
 			d3.stack()(headers.map(function(temp){
-				return data1.map(function(d){
+				return data.map(function(d){
 					return {x: d.Offense_Code_Group, y: +d[temp]};
 				});
 		}));
