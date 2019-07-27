@@ -31,12 +31,7 @@ function loadcsvdata( dataloaded ) {
 				offensesByHour[dataobj.hour] = { hour: dataobj.hour, offenseCount: 0};
 
 		offensesByHour[dataobj.hour].offenseCount++;
-		
-		/*if (!offensesByHourwithType[dataobj.hour[dataobj.offense]])
-				offensesByHourwithType[dataobj.hour[dataobj.offense]] = { hour : dataobj.hour : {offense: dataobj.offense, offenseCount: 0}};
 
-		offensesByHourwithType[dataobj.hour[dataobj.offense]].offenseCount++;*/
-		
 		if (!offensesByMonth[dataobj.month])
 				offensesByMonth[dataobj.month] = { month: dataobj.month, index: dataobj.month_index, offenseCount: 0};
 
@@ -52,4 +47,13 @@ function loadcsvdata( dataloaded ) {
         dataSet = data;
         dataloaded();
     });
+
+	d3.dsv(",", "../agg_crime.csv", function(data) {
+		var offensesByHourwithType = 
+			d3.layout.stack()(headers.map(function(temp){
+				return data.map(function(d)){
+					return {x: d.Offense_Code_Group, y: +d[temp]};
+				});
+		}));
+	console.log(offensesByHourwithType);
 }

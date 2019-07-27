@@ -24,7 +24,7 @@ const offenseGroups = {};
 const offensesByDay = {};
 const offensesByHour = {};
 const offensesByMonth = {};
-const offensesByHourwithType = {};
+var offensesByHourwithType = {};
 
 const x_offenses = d3.scaleBand();
 const y_offenseCount = d3.scaleLinear();
@@ -46,17 +46,16 @@ const y_offensesByMonthCount = d3.scaleLinear();
 const y_offensesByMonthCount_axis = d3.scaleLinear();
 const yAxis4 = d3.axisLeft();
 
-const categoryMap = {
-    "Homicide" : "Homicide",
-	"Other Burglary" : "Other Burglary",
-	"Commercial Burglary" : "Commercial Burglary",
-	"Robbery" : "Robbery",
-	"Auto Theft" : "Auto Theft",
-	"Residential Burglary" : "Residential Burglary",
-	"Aggravated Assault" : "Aggravated Assault",
-	"Larceny From Motor Vehicle" : "Larceny From Motor Vehicle",
-	"Larceny" : "Larceny"
-};
+const headers = [
+    "Homicide",
+	"Other Burglary",
+	"Commercial Burglary",
+	"Robbery",
+	"Auto Theft",
+	"Residential Burglary",
+	"Aggravated Assault",
+	"Larceny From Motor Vehicle",
+	"Larceny"];
 
 const legendColorMap = {
         "Homicide": "#1f77b4",
