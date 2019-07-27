@@ -20,9 +20,6 @@ body {
 Select Offense: 
 <select id="offense"></select>
 
-<input type="checkbox" id="sort">	
-Toggle sort 
-
 <script>
 
 d3.csv("../agg_crime.csv").then(d => chart(d))
@@ -79,9 +76,9 @@ function chart(csv) {
 		svg.selectAll(".y-axis").transition().duration(speed)
 			.call(d3.axisLeft(y).ticks(null, "s"))
 
-		data.sort(d3.select("#sort").property("checked")
+		/*data.sort(d3.select("#sort").property("checked")
 			? (a, b) => b.total - a.total
-			: (a, b) => offenses.indexOf(a.Offense_Code_Group) - offenses.indexOf(b.Offense_Code_Group))
+			: (a, b) => offenses.indexOf(a.Offense_Code_Group) - offenses.indexOf(b.Offense_Code_Group))*/
 
 		x.domain(data.map(d => d.Hour));
 
@@ -130,10 +127,10 @@ function chart(csv) {
 			update(this.value, 750)
 		})
 
-	var checkbox = d3.select("#sort")
+	/*var checkbox = d3.select("#sort")
 		.on("click", function() {
 			update(select.property("value"), 750)
-		})
+		})*/
 }
 
 </script>
