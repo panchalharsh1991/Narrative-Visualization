@@ -81,7 +81,7 @@ function chart(csv) {
 
 		data.sort(d3.select("#sort").property("checked")
 			? (a, b) => b.total - a.total
-			: (a, b) => offenses.indexOf(a.Offense_Code_Group) - states.indexOf(b.Offense_Code_Group))
+			: (a, b) => offenses.indexOf(a.Offense_Code_Group) - offenses.indexOf(b.Offense_Code_Group))
 
 		x.domain(data.map(d => d.Offense_Code_Group));
 
