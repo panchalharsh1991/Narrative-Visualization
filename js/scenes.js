@@ -595,7 +595,6 @@ function chart(csv) {
 	console.log(offenses);
 	
 	d3.select(".chart")
-		.append("g")
 		.append("select")
 		.attr("id","offense")
 		.attr("transform", "translate(" + (margin.left) + "," + (margin.top + chart_dimensions.height) + ")")
