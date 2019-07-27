@@ -95,7 +95,7 @@ function chart(csv) {
 		group.exit().remove()
 
 		group.enter().append("g")
-			.classed("layer", false)
+			.classed("layer", true)
 			.attr("fill", d => z(d.key));
 
 		var bars = svg.selectAll("g.layer").selectAll("rect")
