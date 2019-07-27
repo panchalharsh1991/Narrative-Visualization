@@ -99,7 +99,7 @@ function chart(csv) {
 			.attr("fill", d => z(d.key));
 
 		var bars = svg.selectAll("g.layer").selectAll("rect")
-			.data(d => d, e => e.data.Offense_Code_Group);
+			.data(d => d, e => e.data.Hour);
 
 		bars.exit().remove()
 
@@ -107,7 +107,7 @@ function chart(csv) {
 			.attr("width", x.bandwidth())
 			.merge(bars)
 		.transition().duration(speed)
-			.attr("x", d => x(d.data.Offense_Code_Group))
+			.attr("x", d => x(d.data.Hour))
 			.attr("y", d => y(d[1]))
 			.attr("height", d => y(d[0]) - y(d[1]))
 
