@@ -67,7 +67,7 @@ function chart(csv) {
 		var data = csv.filter(f => f.Offense_Code_Group == input)
 
 		data.forEach(function(d) {
-			d.total = d3.sum(keys, k => +d[k])
+			d.total = Number(d.Number_of_Records)
 			return d
 		})
 		console.log(data);
