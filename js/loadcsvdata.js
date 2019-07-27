@@ -48,7 +48,7 @@ function loadcsvdata( dataloaded ) {
         dataloaded();
     });
 
-	d3.dsv(",", "../agg_crime.csv", function(data) {
+	d3.dsv(",", "../agg_crimes.csv", function(data) {
 		var offensesByHourwithType = 
 			d3.layout.stack()(headers.map(function(temp){
 				return data.map(function(d){
