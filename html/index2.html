@@ -32,7 +32,6 @@ function chart(csv) {
 	var keys = csv.columns.slice(1);
 	console.log(keys);
 
-	//var year   = [...new Set(csv.map(d => d.Year))]
 	var offenses = [...new Set(csv.map(d => d.Offense_Code_Group))]
 
 	var options = d3.select("#offense").selectAll("option")
@@ -105,7 +104,7 @@ function chart(csv) {
 
 		bars.enter().append("rect")
 			.attr("width", x.bandwidth())
-			//.merge(bars)
+			.merge(bars)
 		.transition().duration(speed)
 			.attr("x", d => x(d.data.Hour))
 			.attr("y", d => y(d[1]))
