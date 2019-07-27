@@ -105,7 +105,7 @@ function chart(csv) {
 
 		bars.enter().append("rect")
 			.attr("width", x.bandwidth())
-			.merge(bars)
+			//.merge(bars)
 		.transition().duration(speed)
 			.attr("x", d => x(d.data.Hour))
 			.attr("y", d => y(d[1]))
@@ -128,7 +128,7 @@ function chart(csv) {
 
 	var select = d3.select("#offense")
 		.on("change", function() {
-			update(this.value, 500)
+			update(this.value, 750)
 		})
 
 	var checkbox = d3.select("#sort")
