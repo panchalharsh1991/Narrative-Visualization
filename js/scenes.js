@@ -591,25 +591,37 @@ d3.csv("../agg_crime.csv").then(d => chart(d))
 function chart(csv) {
 	var keys = csv.columns.slice(1);
 
-	var offenses = [...new Set(csv.map(d => d.Offense_Code_Group))];
-	console.log(offenses);
-	
-	d3.select(".chart")
-		.append("select")
-		.attr("id","offense")
-		.classed("selection",true)
-		.attr("transform", "translate(" + (margin.left) + "," + (margin.top + chart_dimensions.height) + ")")
-		.selectAll("option")
-		.data(offenses)
-		.enter()
-		.append("option")
-		.text(d => d);
+	var offenses = [...new Set(csv.map(d => d.Offense_Code_Group))]
 
-	/*var options = d3.select("#offense").selectAll("option")
+	var options = d3.select("#offense").selectAll("option")
 		.data(offenses)
 	.enter().append("option")
-		.text(d => d);*/
-		
+		.text(d => d)
+
+	var svg = d3.select(".chart"),
+		margin = {top: 35, left: 35, bottom: 0, right: 0},
+		width = +svg.attr("width") - margin.left - margin.right,
+		height = +svg.attr("height") - margin.top - margin.bottom;
+
+	var x = d3.scaleBand()
+		.range([margin.left, width - margin.right])
+		.padding(0.1)
+
+	var y = d3.scaleLinear()
+		.rangeRound([height - margin.bottom, margin.top])
+
+	var xAxis = svg.append("g")
+		.attr("transform", `translate(0,${height - margin.bottom})`)
+		.attr("class", "x-axis")
+
+	var yAxis = svg.append("g")
+		.attr("transform", `translate(${margin.left},0)`)
+		.attr("class", "y-axis")
+
+	var z = d3.scaleOrdinal()
+		.range(["steelblue"])
+		.domain(keys);
+
 	update(d3.select("#offense").property("value"), 0)
 
 	function update(input, speed) {
@@ -618,15 +630,48 @@ function chart(csv) {
 
 		data.forEach(function(d) {
 			d.total = d3.sum(keys, k => +d[k])
-			return d;
-		});
+			return d
+		})
 		console.log(data);
-	}	
+		y.domain([0, d3.max(data, d => d3.sum(keys, k => +d[k]))]).nice();
+
+		svg.selectAll(".y-axis").transition().duration(speed)
+			.call(d3.axisLeft(y).ticks(null, "s"))
+			
+		x.domain(data.map(d => d.Hour));
+
+		svg.selectAll(".x-axis").transition().duration(speed)
+			.call(d3.axisBottom(x).tickSizeOuter(0))
+
+		var group = svg.selectAll("g.layer")
+			.data(d3.stack().keys(keys)(data), d => d.key)
+			
+		console.log(group);
+
+		group.exit().remove()
+
+		group.enter().append("g")
+			.classed("layer", true)
+			.attr("fill", d => z(d.key));
+
+		var bars = svg.selectAll("g.layer").selectAll("rect")
+			.data(d => d, e => e.data.Hour);
+
+		bars.exit().remove()
+
+		bars.enter().append("rect")
+			.attr("width", x.bandwidth())
+			.merge(bars)
+		.transition().duration(speed)
+			.attr("x", d => x(d.data.Hour))
+			.attr("y", d => y(d[1]))
+			.attr("height", d => y(d[0]) - y(d[1]))
+	}
+
 	var select = d3.select("#offense")
-	.on("change", function() {
-		update(this.value, 1000)
-	});
-}
+		.on("change", function() {
+			update(this.value, 1000)
+		})
 }
 
 
