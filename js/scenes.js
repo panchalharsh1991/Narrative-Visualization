@@ -592,14 +592,17 @@ function chart(csv) {
 	var keys = csv.columns.slice(1);
 
 	var offenses = [...new Set(csv.map(d => d.Offense_Code_Group))];
+	console.log(offenses);
 	
 	d3.select(".chart")
 		.append("g")
 		.append("select")
 		.attr("id","offense")
+		.attr("transform", "translate(" + (margin.left) + "," + (margin.top + chart_dimensions.height) + ")")
 		.selectAll("option")
 		.data(offenses)
-		.enter().append("option")
+		.enter()
+		.append("option")
 		.text(d => d);
 
 	/*var options = d3.select("#offense").selectAll("option")
