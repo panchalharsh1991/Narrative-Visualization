@@ -55,9 +55,6 @@ function loadcsvdata( dataloaded ) {
 				});
 		}));
 	console.log(test);
-	}).then(function(data) {
-        dataSet = data;
-        dataloaded();
-    });
+	});
 	
 }
