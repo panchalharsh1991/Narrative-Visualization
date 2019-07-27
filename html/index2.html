@@ -70,7 +70,7 @@ function chart(csv) {
 			d.total = d3.sum(keys, k => +d[k])
 			return d
 		})
-
+		console.log(data);
 		y.domain([0, d3.max(data, d => d3.sum(keys, k => +d[k]))]).nice();
 
 		svg.selectAll(".y-axis").transition().duration(speed)
