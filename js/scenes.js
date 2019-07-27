@@ -682,7 +682,7 @@ function animateScene3() {
 
 function animateScene4() {
 	initializeChartArea();
-	loadAggData();
+	prepareAggData();
     
 }
 
