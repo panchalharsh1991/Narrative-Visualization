@@ -51,7 +51,7 @@ function loadcsvdata( dataloaded ) {
 	d3.dsv(",", "../agg_crime.csv", function(data) {
 		var offensesByHourwithType = 
 			d3.layout.stack()(headers.map(function(temp){
-				return data.map(function(d)){
+				return data.map(function(d){
 					return {x: d.Offense_Code_Group, y: +d[temp]};
 				});
 		}));
