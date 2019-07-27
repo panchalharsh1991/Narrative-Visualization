@@ -623,7 +623,7 @@ function chart(csv) {
 		.range(["steelblue"])
 		.domain(keys);
 
-	update(d3.select("#offense").property("value"), 1000)
+	update(d3.select("#offense").property("value"), 0)
 
 	function update(input, speed) {
 
