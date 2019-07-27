@@ -73,7 +73,7 @@ function chart(csv) {
 		console.log(data);
 		
 		y.domain([0, d3.max(data, function (d) {
-				return Number(d.Number of Records);
+				return Number(d.Number_of_Records);
 			})]);
 
 		svg.selectAll(".y-axis").transition().duration(speed)
@@ -96,11 +96,11 @@ function chart(csv) {
 					return x(d.Hour);
 			})
 			.attr("y", function (d) {
-					return y(Number(d.Number of Records));
+					return y(Number(d.Number_of_Records));
 			})
 			.attr("width", x.bandwidth())
 			.attr("height", function (d) {
-					return height - y(Number(d.Number of Records));
+					return height - y(Number(d.Number_of_Records));
 			});
 	}
 
