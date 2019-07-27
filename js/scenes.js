@@ -593,8 +593,7 @@ function chart(csv) {
 
 	var offenses = [...new Set(csv.map(d => d.Offense_Code_Group))]
 
-	var options = d3.select(".selection").attr("visibility","visible")
-		.select("#offense").selectAll("option")
+	var options = d3.select("#offense").selectAll("option")
 		.data(offenses)
 		.enter().append("option")
 		.text(d => d)
@@ -642,7 +641,9 @@ function chart(csv) {
 		x.domain(data.map(d => d.Hour));
 
 		svg.selectAll(".x-axis").transition().duration(speed)
-			.call(d3.axisBottom(x).tickSizeOuter(0))
+			.call(d3.axisBottom(x).tickSizeOuter(0));
+			
+		svg.selectAll(".selection").attr("visibility","visible");
 
 		var group = svg.selectAll("g.layer")
 			.data(d3.stack().keys(keys)(data), d => d.key)
