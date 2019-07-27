@@ -643,7 +643,7 @@ function chart(csv) {
 		svg.selectAll(".x-axis").transition().duration(speed)
 			.call(d3.axisBottom(x).tickSizeOuter(0));
 			
-		svg.selectAll(".selection").attr("visibility","visible");
+		svg.selectAll(".selection").style("visibility","visible");
 
 		var group = svg.selectAll("g.layer")
 			.data(d3.stack().keys(keys)(data), d => d.key)
