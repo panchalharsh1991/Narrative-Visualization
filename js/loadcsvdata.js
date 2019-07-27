@@ -55,6 +55,6 @@ function loadcsvdata( dataloaded ) {
 					return {x: d.Offense_Code_Group, y: +d[temp]};
 				});
 		}));
-	}
+	});
 	console.log(offensesByHourwithType);
 }
