@@ -56,4 +56,5 @@ function loadcsvdata( dataloaded ) {
 				});
 		}));
 	console.log(offensesByHourwithType);
+	}
 }
