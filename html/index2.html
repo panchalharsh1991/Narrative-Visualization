@@ -30,6 +30,7 @@ d3.csv("../agg_crime.csv").then(d => chart(d))
 function chart(csv) {
 
 	var keys = csv.columns.slice(1);
+	console.log(keys);
 
 	//var year   = [...new Set(csv.map(d => d.Year))]
 	var offenses = [...new Set(csv.map(d => d.Offense_Code_Group))]
