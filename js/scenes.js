@@ -673,6 +673,7 @@ function chart(csv) {
 			update(this.value, 1000)
 		})
 }
+}
 
 
 function animateScene( forward ) {
