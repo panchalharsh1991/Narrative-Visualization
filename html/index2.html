@@ -25,7 +25,7 @@ Toggle sort
 
 <script>
 
-d3.csv("../agg_crime.csv").then(d => chart(d))
+d3.csv("../agg_crime_2.csv").then(d => chart(d))
 
 function chart(csv) {
 
@@ -84,7 +84,7 @@ function chart(csv) {
 			? (a, b) => b.total - a.total
 			: (a, b) => offenses.indexOf(a.Offense_Code_Group) - offenses.indexOf(b.Offense_Code_Group))
 
-		x.domain(data.map(d => d.Offense_Code_Group));
+		x.domain(data.map(d => d.Hour));
 
 		svg.selectAll(".x-axis").transition().duration(speed)
 			.call(d3.axisBottom(x).tickSizeOuter(0))
