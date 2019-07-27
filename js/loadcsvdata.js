@@ -49,9 +49,12 @@ function loadcsvdata( dataloaded ) {
     });
 
 	d3.csv("../agg_crimes.csv", function(data) {
-		console.log(data);
+		var result = Object.keys(data)
+							.map(function(key) {
+									return [Number(key), data[key]];
+							});
 		var test = d3.stack()(headers.map(function(temp){
-				return data.map(function(d){
+				return result.map(function(d){
 					return {x: d.Offense_Code_Group, y: +d[temp]};
 				});
 		}));
