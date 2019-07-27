@@ -87,6 +87,8 @@ function chart(csv) {
 
 		var group = svg.selectAll("g.layer")
 			.data(d3.stack().keys(keys)(data), d => d.key)
+			
+		console.log(group);
 
 		group.exit().remove()
 
