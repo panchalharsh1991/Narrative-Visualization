@@ -61,7 +61,7 @@ function chart(csv) {
 		.attr("class", "y-axis")
 
 	var z = d3.scaleOrdinal()
-		.range(["steelblue", "darkorange", "lightblue"])
+		.range(["steelblue"])
 		.domain(keys);
 
 	update(d3.select("#offense").property("value"), 0)
@@ -112,7 +112,7 @@ function chart(csv) {
 			.attr("height", d => y(d[0]) - y(d[1]))
 
 		var text = svg.selectAll(".text")
-			.data(data, d => d.Offense_Code_Group);
+			.data(data, d => d.Hour);
 
 		text.exit().remove()
 
@@ -121,7 +121,7 @@ function chart(csv) {
 			.attr("text-anchor", "middle")
 			.merge(text)
 		.transition().duration(speed)
-			.attr("x", d => x(d.Offense_Code_Group) + x.bandwidth() / 2)
+			.attr("x", d => x(d.Hour) + x.bandwidth() / 2)
 			.attr("y", d => y(d.total) - 5)
 			.text(d => d.total)
 	}
