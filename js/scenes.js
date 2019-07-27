@@ -593,7 +593,8 @@ function chart(csv) {
 
 	var offenses = [...new Set(csv.map(d => d.Offense_Code_Group))]
 
-	var options = d3.select("#offense").selectAll("option")
+	var options = d3.select(".selection").style("visibility","visible")
+		.select("#offense").selectAll("option")
 		.data(offenses)
 	.enter().append("option")
 		.text(d => d)
