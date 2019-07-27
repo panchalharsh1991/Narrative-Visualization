@@ -107,7 +107,7 @@ function chart(csv) {
 			.attr("y", d => y(d[1]))
 			.attr("height", d => y(d[0]) - y(d[1]))
 
-		var text = svg.selectAll(".text")
+		/*var text = svg.selectAll(".text")
 			.data(data, d => d.Hour);
 
 		text.exit().remove()
@@ -119,12 +119,12 @@ function chart(csv) {
 		.transition().duration(speed)
 			.attr("x", d => x(d.Hour) + x.bandwidth() / 2)
 			.attr("y", d => y(d.total) - 5)
-			.text(d => d.total)
+			.text(d => d.total)*/
 	}
 
 	var select = d3.select("#offense")
 		.on("change", function() {
-			update(this.value, 750)
+			update(this.value, 1000)
 		})
 
 	/*var checkbox = d3.select("#sort")
