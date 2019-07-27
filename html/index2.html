@@ -107,7 +107,7 @@ function chart(csv) {
 			.merge(bars)
 		.transition().duration(speed)
 			.attr("x", d => x(d.data.Hour))
-			.attr("y", d => y(d[1]))
+			.attr("y", d => y(d[0]))
 			.attr("height", d => y(d[0]) - y(d[1]))
 
 		var text = svg.selectAll(".text")
