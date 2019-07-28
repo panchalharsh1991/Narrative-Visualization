@@ -676,7 +676,7 @@ function chart(csv) {
 	
 	d3.select(".parascenes").insert("div").classed("selection",true);
 	d3.select(".selection").insert("br");
-	d3.select(".selection").insert("h2").text("Select Offense:");
+	d3.select(".selection").insert("h6").text("Select Offense:");
 	d3.select(".selection").insert("select").classed("offense",true);
 	d3.select(".selection").insert("br");
 	d3.select(".selection").insert("br");
