@@ -130,7 +130,7 @@ var div = d3.select("body").append("div");
 	d3.select(".heading").insert("br");
 	d3.select(".heading").insert("br");
 	d3.select(".heading").insert("h4").text("Types of Serious Crimes").style("text-anchor", "start");
-	d3.select("#chart-div").insert("div").classed("para",true);
+	d3.select(".col-xs-3").insert("div").classed("para",true);
 	d3.select(".para").insert("p").text("The graph shows crimes reported over 3 years and their frequency by type of a crime.");
 	d3.select(".para").insert("br");
 	d3.select(".para").insert("p").text("Larceny is by far the most common serious crime, and homicides are pretty rare.");
