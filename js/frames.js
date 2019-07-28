@@ -1,7 +1,7 @@
 function initializeVisualization() {
+	animateScene0();
 	d3.selectAll("#selection").style("visibility","hidden");
     loadcsvdata( dataloaded );
-	d3.selectAll(".btn btn-outline-0").style("aria-pressed","true");
 }
 
 function dataloaded() {
