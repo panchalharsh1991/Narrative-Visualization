@@ -126,7 +126,7 @@ function createOffenseCountBars() {
 var div = d3.select("body").append("div");
 
 	d3.select("#chart-div").insert("div").classed("col-xs-3",true);
-	d3.select("#chart-div").insert("div").classed("heading",true);
+	d3.select(".col-xs-3").insert("div").classed("heading",true);
 	d3.select(".heading").insert("br");
 	d3.select(".heading").insert("br");
 	d3.select(".heading").insert("h4").text("Types of Serious Crimes").style("text-anchor", "start");
