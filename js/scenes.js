@@ -166,6 +166,15 @@ function showOffenseCountBars() {
         .attr("y", function (d) {
             return (chart_dimensions.height - y_offenseCount(d.offenseCount));
         });
+		
+	d3.select(".chart")
+		.append("line")
+		.attr("x1",37)
+		.attr("y1",675)
+		.attr("x2",37)
+		.attr("y2",690)
+		.attr("stroke-width",1)
+		.attr("stroke","gray");
 }
 
 function createOffenseCountAxis() {
