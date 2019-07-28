@@ -731,6 +731,12 @@ function chart(csv) {
 
 function animateScene0() {
 	initializeChartArea();
+	d3.select("#b0").classed("active",true);
+	d3.select("#b1").classed("active",false);
+	d3.select("#b2").classed("active",false);
+	d3.select("#b3").classed("active",false);
+	d3.select("#b4").classed("active",false);
+	d3.select("#b5").classed("active",false);
 	d3.selectAll("#selection").style("visibility","hidden");
 	d3.select("#chart-div").insert("div").classed("heading",true);
 	d3.select(".heading").insert("h2").text("Introduction").style("text-anchor", "start");
