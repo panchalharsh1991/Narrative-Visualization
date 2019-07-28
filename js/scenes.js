@@ -116,6 +116,10 @@ function initializeChartArea() {
 	d3.select(".heading").selectAll("*").remove();	
 	d3.select(".para").selectAll("*").remove();
 	d3.select(".para1").selectAll("*").remove();
+	d3.select(".para2").selectAll("*").remove();
+	d3.select(".para3").selectAll("*").remove();
+	d3.select(".para4").selectAll("*").remove();
+	d3.select(".para5").selectAll("*").remove();
 	d3.select(".chart").selectAll("*").remove();
 	d3.select(".selection").selectAll("*").remove();
     var chart = d3.select(".chart")
@@ -277,6 +281,17 @@ function wrap(text, width) {
 function createOffensesByDayCountBars() {
 var div = d3.select("body").append("div");
 	
+	d3.select("#chart-div").insert("div").classed("heading",true);
+	d3.select(".heading").insert("br");
+	d3.select(".heading").insert("br");
+	d3.select(".heading").insert("h4").text("Crimes over Days").style("text-anchor", "start");
+	d3.select("#chart-div").insert("div").classed("para3",true).style('width','300px').style('height','180px');
+	d3.select(".para3").insert("p").text("The graph shows crimes reported over 3 years and their frequency over days of the week.");
+	d3.select(".para3").insert("br");
+	d3.select(".para3").insert("p").text("There is some variation across days of the week, with Friday having the highest crime rate and Sunday having the lowest.");
+	d3.select(".para3").insert("br");
+	d3.select(".para3").insert("p").text("Click on next slide for frequency of crimes happening over hours of a day.");
+	
     d3.select(".chart")
 		.selectAll(".bar-offenseCount")
         .data(d3.values(offensesByDay))
@@ -390,6 +405,17 @@ function showDaysAxis() {
 
 function createOffensesByHourCountBars() {
 var div = d3.select("body").append("div");
+
+	d3.select("#chart-div").insert("div").classed("heading",true);
+	d3.select(".heading").insert("br");
+	d3.select(".heading").insert("br");
+	d3.select(".heading").insert("h4").text("Crimes over Days").style("text-anchor", "start");
+	d3.select("#chart-div").insert("div").classed("para4",true).style('width','300px').style('height','180px');
+	d3.select(".para4").insert("p").text("The graph shows crimes reported over 3 years and their frequency over hours of a day.");
+	d3.select(".para4").insert("br");
+	d3.select(".para4").insert("p").text("Crimes rates are low between 1-8 in the morning, and gradually rise throughout the day, peaking around 6 pm. There is some variation across days of the week, with Friday having the highest crime rate and Sunday having the lowest.");
+	d3.select(".para4").insert("br");
+	d3.select(".para4").insert("p").text("Click on next slide for exploring data by your self.");
 	
     d3.select(".chart")
 		.selectAll(".bar-offenseCount")
@@ -504,6 +530,17 @@ function showHoursAxis() {
 
 function createOffensesByMonthCountBars() {
 var div = d3.select("body").append("div");
+
+	d3.select("#chart-div").insert("div").classed("heading",true);
+	d3.select(".heading").insert("br");
+	d3.select(".heading").insert("br");
+	d3.select(".heading").insert("h4").text("Crimes over months").style("text-anchor", "start");
+	d3.select("#chart-div").insert("div").classed("para2",true).style('width','300px').style('height','180px');
+	d3.select(".para2").insert("p").text("The graph shows crimes reported over 3 years and their frequency over the months.");
+	d3.select(".para2").insert("br");
+	d3.select(".para2").insert("p").text("The winter months of February-April having the lowest crime rates, and the summer/early fall months of June-October having the highest crime rates. There is also a spike in crime rates in the month of January.");
+	d3.select(".para2").insert("br");
+	d3.select(".para2").insert("p").text("Click on next slide for frequency of crimes happening over days of a week.");
 	
     d3.select(".chart")
 		.selectAll(".bar-offenseCount")
