@@ -1,5 +1,5 @@
 function loadcsvdata( dataloaded ) {
-    d3.dsv(",", "../crime.csv", function(d) {
+    d3.dsv(",", "../dataset/crime.csv", function(d) {
 
         const dataobj = {
 			year: +d.YEAR,

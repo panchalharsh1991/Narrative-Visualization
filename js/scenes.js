@@ -837,7 +837,7 @@ function prepareAggData(){
 	d3.select("#b5").classed("active",true);
 	initializeChartArea();
 
-d3.csv("../agg_crime.csv").then(d => chart(d))
+d3.csv("../dataset/agg_crime.csv").then(d => chart(d))
 
 function chart(csv) {
 	var keys = csv.columns.slice(1);
