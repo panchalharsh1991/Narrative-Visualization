@@ -659,13 +659,7 @@ function chart(csv) {
 		x.domain(data.map(d => d.Hour));
 
 		svg.selectAll(".x-axis").transition().duration(speed)
-			.call(d3.axisBottom(x).tickSizeOuter(0))
-			.attr("x", -3)
-			.attr("y", 13)
-			.attr("dx", 0)
-			.attr("dy", "0.35em")
-			.attr("transform", "rotate(0)")
-			.style("text-anchor", "start");
+			.call(d3.axisBottom(x).tickSizeOuter(0));
 
 		var group = svg.selectAll("g.layer")
 			.data(d3.stack().keys(keys)(data), d => d.key)
