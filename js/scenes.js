@@ -169,12 +169,20 @@ function showOffenseCountBars() {
 		
 	d3.select(".chart")
 		.append("line")
-		.attr("x1",37)
-		.attr("y1",675)
-		.attr("x2",37)
-		.attr("y2",690)
+		.attr("x1",107)
+		.attr("y1",750)
+		.attr("x2",107)
+		.attr("y2",830)
 		.attr("stroke-width",1)
 		.attr("stroke","gray");
+		
+	d3.select(".chart")
+		.append("rect")
+		.attr("x",95)
+		.attr("y",830)
+		.attr("width",50)
+		.attr("height",30)
+		.attr("fill","gray");
 }
 
 function createOffenseCountAxis() {
