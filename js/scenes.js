@@ -152,23 +152,7 @@ var div = d3.select("body").append("div");
         .attr("x", x_offenses.bandwidth()/2)
         .attr("y", chart_dimensions.height)
 		.attr("width", x_offenses.bandwidth()/2 - 1)
-        .attr("height",0)
-		.on("mouseover", function (d) {
-			//console.log(d3.event.pageX + ":" + d3.event.pageY);
-			div.transition()
-            .duration(200)
-			.style("opacity", 0.5);
-			div.html(d.offenseCount)
-			.attr("fill", "white")
-			.style("position","absolute")
-            .style("left", (d3.event.pageX) + "px")
-            .style("top", (d3.event.pageY - 28) + "px");
-     })
-		.on("mouseout", function (d) {
-			div.transition()
-            .duration(1000)
-            .style("opacity", 0);
-     });
+        .attr("height",0);
 }
 
 function showOffenseCountBars() {
@@ -303,22 +287,7 @@ var div = d3.select("body").append("div");
         .attr("x", x_days.bandwidth()/2)
         .attr("y", chart_dimensions.height)
 		.attr("width", x_days.bandwidth()/2 - 1)
-        .attr("height",0)
-		.on("mouseover", function (d) {
-			//console.log(d3.event.pageX + ":" + d3.event.pageY);
-			div.transition()
-            .duration(200)
-            .style("opacity", .9);
-			div.html(d.offenseCount)
-			.style("position","absolute")
-            .style("left", (d3.event.pageX) + "px")
-            .style("top", (d3.event.pageY - 28) + "px");
-     })
-		.on("mouseout", function (d) {
-			div.transition()
-            .duration(1000)
-            .style("opacity", 0);
-     });
+        .attr("height",0);
 }
 
 function showOffensesByDayCountBars() {
@@ -428,22 +397,7 @@ var div = d3.select("body").append("div");
         .attr("x", x_hours.bandwidth()/2)
         .attr("y", chart_dimensions.height)
 		.attr("width", x_hours.bandwidth()/2 - 1)
-        .attr("height",0)
-		.on("mouseover", function (d) {
-			//console.log(d3.event.pageX + ":" + d3.event.pageY);
-			div.transition()
-            .duration(200)
-            .style("opacity", .9);
-			div.html(d.offenseCount)
-			.style("position","absolute")
-            .style("left", (d3.event.pageX) + "px")
-            .style("top", (d3.event.pageY - 28) + "px");
-     })
-		.on("mouseout", function (d) {
-			div.transition()
-            .duration(1000)
-            .style("opacity", 0);
-     });
+        .attr("height",0);
 }
 
 function showOffensesByHourCountBars() {
@@ -553,22 +507,7 @@ var div = d3.select("body").append("div");
         .attr("x", x_months.bandwidth()/2)
         .attr("y", chart_dimensions.height)
 		.attr("width", x_months.bandwidth()/2 - 1)
-        .attr("height",0)
-		.on("mouseover", function (d) {
-			//console.log(d3.event.pageX + ":" + d3.event.pageY);
-			div.transition()
-            .duration(200)
-            .style("opacity", .9);
-			div.html(d.offenseCount)
-			.style("position","absolute")
-            .style("left", (d3.event.pageX) + "px")
-            .style("top", (d3.event.pageY - 28) + "px");
-     })
-		.on("mouseout", function (d) {
-			div.transition()
-            .duration(1000)
-            .style("opacity", 0);
-     });
+        .attr("height",0);
 }
 
 function showOffensesByMonthCountBars() {
@@ -783,29 +722,6 @@ function chart(csv) {
 			.attr("x", d => x(d.data.Hour))
 			.attr("y", d => y(d[1]))
 			.attr("height", d => y(d[0]) - y(d[1]));
-		
-			//.transition().duration(speed)
-			//.attr("transform", "translate(" + (6+margin.left) + "," + margin.top + ")")
-			//.attr("width", x.bandwidth()/2 - 1)
-			//.merge(bars)
-			//.transition().duration(1000)		
-			//.attr("x", d => x(d.data.Hour))
-			//.attr("y", d => y(d[1]))
-			//.attr("height", d => y(d[0]) - y(d[1]))
-			
-		var text = svg.selectAll(".text")
-			.data(data, d => d.Hour);
-
-		text.exit().remove();
-
-		text.enter().append("text")
-			.attr("class", "text")
-			.attr("text-anchor", "middle")
-			.merge(text)
-			.transition().duration(speed)
-			.attr("x", d => x(d.Hour) + x.bandwidth() / 2)
-			.attr("y", d => y(d.total) - 5)
-			.text(d => d.total);
 	}
 
 	var select = d3.select(".offense")
