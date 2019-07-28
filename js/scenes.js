@@ -623,7 +623,9 @@ function chart(csv) {
 	d3.select(".selection").insert("br");
 	d3.select(".selection").insert("h4").text("Select Offense:");
 	d3.select(".selection").insert("select").classed("offense",true);
-	d3.select(".selection").insert("input").attr("checked",false).attr("type","checkbox").classed("sort",true).text("Sort data");
+	d3.select(".selection").insert("br");
+	d3.select(".selection").insert("input").attr("checked",false).attr("type","checkbox").classed("sort",true);
+	d3.select(".selection").insert("label").text("Sort data");
 
 	var options = d3.select(".offense").selectAll("option")
 		.data(offenses)
