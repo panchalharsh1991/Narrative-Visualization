@@ -673,10 +673,10 @@ function chart(csv) {
 		bars.exit().remove();
 
 		bars.enter().append("rect")
-			.transition().duration(speed)
+			//.transition().duration(speed)
 			.attr("width", x.bandwidth())
 			.merge(bars)
-			//.transition().duration(speed)
+			.transition().duration(speed)
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 			.attr("x", d => x(d.data.Hour))
 			.attr("y", d => y(d[1]))
