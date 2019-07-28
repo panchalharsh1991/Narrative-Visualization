@@ -54,7 +54,7 @@ function calculateScales1(){
 	d3.select(".selection").selectAll("*").remove();
 	//d3.selectAll("#selection").style("visibility","hidden");
 	const referenceData = d3.values(offenseGroups);
-	console.log(referenceData);
+	//console.log(referenceData);
 	x_offenses.range([0, chart_dimensions.width])
         .domain(d3.keys(offenseGroups));
     y_offenseCount.domain([0, d3.max(referenceData, function(d) { return d.offenseCount; })])
@@ -73,7 +73,7 @@ function calculateScales2(){
 	d3.select(".selection").selectAll("*").remove();
 	//d3.selectAll("#selection").style("visibility","hidden");
 	const referenceData4 = d3.values(offensesByMonth);
-	console.log(referenceData4);
+	//console.log(referenceData4);
 	x_months.range([0, chart_dimensions.width])
         .domain(d3.keys(offensesByMonth));
     y_offensesByMonthCount.domain([0, d3.max(referenceData4, function(d) { return d.offenseCount; })])
@@ -92,7 +92,7 @@ function calculateScales3(){
 	d3.select(".selection").selectAll("*").remove();
 	//d3.selectAll("#selection").style("visibility","hidden");
 	const referenceData2 = d3.values(offensesByDay);
-	console.log(referenceData2);
+	//console.log(referenceData2);
 	x_days.range([0, chart_dimensions.width])
         .domain(d3.keys(offensesByDay));
     y_offensesByDayCount.domain([0, d3.max(referenceData2, function(d) { return d.offenseCount; })])
@@ -111,7 +111,7 @@ function calculateScales4(){
 	d3.select(".selection").selectAll("*").remove();
 	//d3.selectAll("#selection").style("visibility","hidden");
 	const referenceData3 = d3.values(offensesByHour);
-	console.log(referenceData3);
+	//console.log(referenceData3);
 	
 	x_hours.range([0, chart_dimensions.width])
         .domain(d3.keys(offensesByHour));
@@ -952,7 +952,7 @@ function chart(csv) {
 		var group = svg.selectAll("g.layer")
 			.data(d3.stack().keys(keys)(data), d => d.key)
 			
-		console.log(group);
+		//console.log(group);
 
 		group.exit().remove()
 
