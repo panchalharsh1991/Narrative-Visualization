@@ -647,11 +647,11 @@ function chart(csv) {
 		
 		y.domain([0, d3.max(data, d => d3.sum(keys, k => +d[k]))]);
 
-		svg.selectAll(".y-axis").transition().duration(speed)
+		svg.selectAll(".y-axis").transition().duration(1000)
 			//.call(d3.axisLeft(y).ticks(null, "s"))
 			.call(d3.axisLeft(y).tickSize(10).ticks(20))
 			.selectAll("text")
-			.attr("x", -50)
+			.attr("x", -25)
 			.attr("y", 0)
 			.attr("dx", 0)
 			.attr("dy", "0.35em")
