@@ -19,13 +19,3 @@ div {
     font: 11px sans-serif;
     text-anchor: end;
 }
-
-.col-xs-3{
-	position:relative;
-    width:500px;
-    height:100px;
-    bottom:0px;
-    right:25%;
-    left:50%;
-    margin-left:-150px;
-}
