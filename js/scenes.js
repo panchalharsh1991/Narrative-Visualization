@@ -1,8 +1,6 @@
 var dataSet;
 var svg;
 
-var frame = -1;
-
 const canvas = {width: 900, height: 900};
 const margin = {top: 150, bottom: 70, right: 150, left: 70};
 const chart_dimensions = {
@@ -34,6 +32,17 @@ const x_months = d3.scaleBand();
 const y_offensesByMonthCount = d3.scaleLinear();
 const y_offensesByMonthCount_axis = d3.scaleLinear();
 const yAxis4 = d3.axisLeft();
+
+function initializeVisualization() {
+	animateScene0();
+	d3.select("#b0").classed("active",true);
+    loadcsvdata( dataloaded );
+}
+
+function dataloaded() {
+    d3.select("#chart-id")
+        .classed("invisible",false);
+}
 
 function calculateScales1(){
 	d3.select("#b0").classed("active",false);
@@ -891,8 +900,7 @@ function chart(csv) {
 		//.attr("transform", `translate(${margin.left},0)`)
 		.attr("class", "y-axis");
 		
-	d3.select("svg").append("text")
-        .attr("id", "y-axis")
+	d3.select(".chart").append("text")
         .attr("transform",
             "translate(8," + (margin.top + chart_dimensions.height + margin.bottom + chart_dimensions.height / 2) + ")" +
             ", rotate(-90)")
@@ -1001,7 +1009,7 @@ function animateScene0() {
 	d3.select(".para").insert("p").text("Use page numbers shown in the top left to navigate to different scenes in this narrative visualization.");
 }
 
-function animateScene1() {
+function loadScene1() {
 	initializeChartArea();
     calculateScales1();
 
@@ -1012,7 +1020,7 @@ function animateScene1() {
 	showOffenseAxis();
 }
 
-function animateScene2() {
+function loadScene2() {
 	initializeChartArea();
     calculateScales2();
 
@@ -1023,7 +1031,7 @@ function animateScene2() {
 	showMonthsAxis();
 }
 
-function animateScene3() {
+function loadScene3() {
 	initializeChartArea();
     calculateScales3();
 
@@ -1034,7 +1042,7 @@ function animateScene3() {
 	showDaysAxis();
 }
 
-function animateScene4() {
+function loadScene4() {
 	initializeChartArea();
     calculateScales4();
 
@@ -1045,19 +1053,7 @@ function animateScene4() {
 	showHoursAxis();
 }
 
-function animateScene5() {
+function loadScene5() {
 	initializeChartArea();
 	prepareAggData();
-}
-
-function deanimateScene1() {
-}
-
-function deanimateScene2() {
-}
-
-function deanimateScene3() {
-}
-
-function deanimateScene4() {
 }	
