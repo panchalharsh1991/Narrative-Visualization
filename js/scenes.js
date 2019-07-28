@@ -180,7 +180,7 @@ function showOffenseCountBars() {
 	d3.select(".chart")
 		.append("rect")
 		.classed("scene-1-rect",true)
-		.attr("x",120)
+		.attr("x",110)
 		.attr("y",660)
 		.attr("width",158)
 		.attr("height",60)
@@ -215,6 +215,45 @@ function showOffenseCountBars() {
 		.attr("dy",".35em")
 		.text("other and commercial burglaries")
 		.attr("fill","black");	
+		
+	d3.select(".chart")
+		.append("line")
+		.classed("scene-1-line-2",true)
+		.attr("x1",590)
+		.attr("y1",420)
+		.attr("x2",590)
+		.attr("y2",500)
+		.attr("stroke-width",1)
+		.attr("stroke","gray");
+		
+	d3.select(".chart")
+		.append("rect")
+		.classed("scene-1-rect-2",true)
+		.attr("x",490)
+		.attr("y",360)
+		.attr("width",158)
+		.attr("height",40)
+		.attr("fill","lightgray");
+	
+	d3.select(".chart")
+		.append("text")
+		.classed("scene-1-text-3",true)
+		.attr("x",540)
+		.attr("y",375)
+		.style("font-size","11px")
+		.attr("dy",".35em")
+		.text("Type of crimes with")
+		.attr("fill","black");
+		
+	d3.select(".chart")
+		.append("text")
+		.classed("scene-1-text-4",true)
+		.attr("x",567)
+		.attr("y",390)
+		.attr("dy",".35em")
+		.style("font-size","11px")
+		.text("high frequency - Larceny")
+		.attr("fill","black");
 }
 
 function createOffenseCountAxis() {
