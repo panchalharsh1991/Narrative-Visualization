@@ -45,7 +45,7 @@ const y_offensesByMonthCount = d3.scaleLinear();
 const y_offensesByMonthCount_axis = d3.scaleLinear();
 const yAxis4 = d3.axisLeft();
 
-function calculateScales0(){
+function calculateScales1(){
 	d3.selectAll("#selection").style("visibility","hidden");
 	const referenceData = d3.values(offenseGroups);
 	console.log(referenceData);
@@ -57,7 +57,7 @@ function calculateScales0(){
         .range([chart_dimensions.height, 0]);
 }
 
-function calculateScales1(){
+function calculateScale2(){
 	d3.selectAll("#selection").style("visibility","hidden");
 	const referenceData4 = d3.values(offensesByMonth);
 	console.log(referenceData4);
@@ -69,7 +69,7 @@ function calculateScales1(){
         .range([chart_dimensions.height, 0]);
 }
 
-function calculateScales2(){
+function calculateScales3(){
 	d3.selectAll("#selection").style("visibility","hidden");
 	const referenceData2 = d3.values(offensesByDay);
 	console.log(referenceData2);
@@ -81,7 +81,7 @@ function calculateScales2(){
         .range([chart_dimensions.height, 0]);
 }
 
-function calculateScales3(){
+function calculateScales4(){
 	d3.selectAll("#selection").style("visibility","hidden");
 	const referenceData3 = d3.values(offensesByHour);
 	console.log(referenceData3);
@@ -93,11 +93,6 @@ function calculateScales3(){
 	y_offensesByHourCount_axis.domain([0, d3.max(referenceData3, function(d) { return d.offenseCount; })])
         .range([chart_dimensions.height, 0]);
 }
-
-function calculateScales4(){}
-
-
-function calculateScales() {}
 
 function initializeChartArea() {
 	d3.select(".chart").selectAll("*").remove();
@@ -722,8 +717,12 @@ function animateScene( forward ) {
 }
 
 function animateScene0() {
+	
+}
+
+function animateScene1() {
 	initializeChartArea();
-    calculateScales0();
+    calculateScales1();
 
     createOffenseCountBars();
 	showOffenseCountBars();
@@ -732,9 +731,9 @@ function animateScene0() {
 	showOffenseAxis();
 }
 
-function animateScene1() {
+function animateScene2() {
 	initializeChartArea();
-    calculateScales1();
+    calculateScales2();
 
     createOffensesByMonthCountBars();
 	showOffensesByMonthCountBars();
@@ -743,9 +742,9 @@ function animateScene1() {
 	showMonthsAxis();
 }
 
-function animateScene2() {
+function animateScene3() {
 	initializeChartArea();
-    calculateScales2();
+    calculateScales3();
 
     createOffensesByDayCountBars();
 	showOffensesByDayCountBars();
@@ -754,9 +753,9 @@ function animateScene2() {
 	showDaysAxis();
 }
 
-function animateScene3() {
+function animateScene4() {
 	initializeChartArea();
-    calculateScales3();
+    calculateScales4();
 
     createOffensesByHourCountBars();
 	showOffensesByHourCountBars();
@@ -765,10 +764,9 @@ function animateScene3() {
 	showHoursAxis();
 }
 
-function animateScene4() {
+function animateScene5() {
 	initializeChartArea();
 	prepareAggData();
-    
 }
 
 function deanimateScene1() {
