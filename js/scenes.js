@@ -130,6 +130,11 @@ function initializeChartArea() {
 function createOffenseCountBars() {
 var div = d3.select("body").append("div");
 
+	d3.select(".para2").style('width','0px').style('height','0px');
+	d3.select(".para3").style('width','0px').style('height','0px');
+	d3.select(".para4").style('width','0px').style('height','0px');
+	d3.select(".para5").style('width','0px').style('height','0px');
+
 	d3.select("#chart-div").insert("div").classed("heading",true);
 	d3.select(".heading").insert("br");
 	d3.select(".heading").insert("br");
@@ -281,6 +286,11 @@ function wrap(text, width) {
 function createOffensesByDayCountBars() {
 var div = d3.select("body").append("div");
 	
+	d3.select(".para1").style('width','0px').style('height','0px');
+	d3.select(".para2").style('width','0px').style('height','0px');
+	d3.select(".para4").style('width','0px').style('height','0px');
+	d3.select(".para5").style('width','0px').style('height','0px');
+	
 	d3.select("#chart-div").insert("div").classed("heading",true);
 	d3.select(".heading").insert("br");
 	d3.select(".heading").insert("br");
@@ -406,6 +416,11 @@ function showDaysAxis() {
 function createOffensesByHourCountBars() {
 var div = d3.select("body").append("div");
 
+	d3.select(".para1").style('width','0px').style('height','0px');
+	d3.select(".para2").style('width','0px').style('height','0px');
+	d3.select(".para3").style('width','0px').style('height','0px');
+	d3.select(".para5").style('width','0px').style('height','0px');
+
 	d3.select("#chart-div").insert("div").classed("heading",true);
 	d3.select(".heading").insert("br");
 	d3.select(".heading").insert("br");
@@ -530,6 +545,11 @@ function showHoursAxis() {
 
 function createOffensesByMonthCountBars() {
 var div = d3.select("body").append("div");
+
+	d3.select(".para1").style('width','0px').style('height','0px');
+	d3.select(".para3").style('width','0px').style('height','0px');
+	d3.select(".para4").style('width','0px').style('height','0px');
+	d3.select(".para5").style('width','0px').style('height','0px');
 
 	d3.select("#chart-div").insert("div").classed("heading",true);
 	d3.select(".heading").insert("br");
