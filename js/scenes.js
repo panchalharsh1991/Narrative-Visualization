@@ -990,7 +990,7 @@ function chart(csv) {
 }
 }
 
-function animateScene0() {
+function loadScene0() {
 	initializeChartArea();
 	d3.select("#b0").classed("active",true);
 	d3.select("#b1").classed("active",false);
