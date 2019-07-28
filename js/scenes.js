@@ -101,7 +101,6 @@ function calculateScales() {}
 
 function initializeChartArea() {
 	d3.select(".chart").selectAll("*").remove();
-	d3.selectAll("#selection").style("visibility","hidden");
     var chart = d3.select(".chart")
         .attr("width", canvas.width)
         .attr("height", canvas.height);
