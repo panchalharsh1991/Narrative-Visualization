@@ -12,3 +12,12 @@ function dataloaded() {
         .classed("invisible",false);
 }
 
+function toggleActive() {
+    let className = "toggle-active-" + frame;
+
+    var elements = document.getElementsByClassName(className);
+
+    for (i=0; i < elements.length; i++) {
+        elements[i].classList.toggle("active")
+    }
+}
