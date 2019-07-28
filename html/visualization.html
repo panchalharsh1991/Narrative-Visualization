@@ -8,29 +8,20 @@
   <h1 align="left">Structure of Visualization</h1>
   
   <p>This narrative visualization uses a hybrid structure and consists of scenes,
-    annotations, parameters, and triggers, as described below</p>
+    annotations, parameters, and triggers</p>
 
   <h2>Hybrid Structure</h2>
   This narrative visualization follows a "martini glass" structure consisting of four author-driven
-  scenes followed by a final scene in which the readed is allowed to explore the dataset.
+  scenes followed by a final scene in which the reader is allowed to explore the dataset.
 
   <h2>Scenes</h2>
-  The four author-driven scenes follow an identical layout. The chart is
-  centered and framed by a large explanatory title and sidebar. The intent is to draw reader attention to the
+  The four author-driven scenes follow an identical layout. The intent is to draw reader attention to the
   chart and keep it there through transition from scene to scene. The position of elements is maintained across all scenes
-  to keep the reader oriented on the chart. Transitions are used between scenes to make the connection between
-  scenes more obvious.
+  consistent to keep the reader oriented on the chart. Transitions are used between scenes to make the connection between
+  scenes.
 
   <p>Scenes are navigated with page buttons at the top of the display which show the current scene
     and allows a readed to jump to different scenes in the story.</p>
-
-  <h2>Annotations</h2>
-  <p>Annotations are synchronized with the story points in the narrative 
-	to explain the significance of the data.
-    They take the place of the author standing at the side of the reader and explaining the key points from the chart.</p>
-
-  <p>Annotations for each scene are added at the start of the scene, and removed during transitions so that the reader is
-    drawn to the new annotation and point in the story.</p>
 
   <h2>Parameters</h2>
   The common parameters for all scenes are as follows:
@@ -52,16 +43,6 @@
     <li><b>Sorted Data Checkbox</b> - The reader can use this checkbox to sort the data in descending order of frequency of the crime</li>
   </ul>
 
-  <h4>Narrative visualization states</h4>
-
-  <p>The visualization is basically a state machine. The scene number drives many of the other parameters, such as title, annotations,
-    graph types and date ranges.</p>
-  <p>The user can move back and forth through the state machine, and transitions are implied in both forward and reverse for these
-  transitions.</p>
-  <p>For the exploratory/reader-driven portion there is a state machine within a state machine, as the visualization
-    must track whether the selection brush is active, which types have been filtered out, and whether or not the user
-    is dragging the selection brush.</p>
-
   <h2>Triggers</h2>
   <p>The first trigger is the <b>completion of the HTML page load</b>, which invokes the routines to initialize the visualization and introduction scene.</p>
   <p>This is followed by the preparing data for different charts from CSV file</p>
@@ -69,6 +50,14 @@
   <p>The user advances through the presentation by clicking scene numbers shown in the top left corner.</p>
   <p>On the reader-driven scene, selecting an offense type triggers chart to be updated with relevant data</p>
   <p>Selection of sorted data checkbox, sorts the data in descending order.</p>
+  
+  <h2>Annotations</h2>
+  <p>Annotations are synchronized with the story points in the narrative 
+	to explain the significance of the data.
+    They take the place of the author standing at the side of the reader and explaining the key points from the chart.</p>
+
+  <p>Annotations for each scene are added at the start of the scene, and removed during transitions so that the reader is
+    drawn to the new annotation and point in the story.</p>
   
   <h2>Acknowledgements</h2>
   <ul>
