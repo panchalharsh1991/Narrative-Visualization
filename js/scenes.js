@@ -619,7 +619,7 @@ function chart(csv) {
 
 	var y = d3.scaleLinear()
 		.rangeRound([chart_dimensions.height, 0]);
-		.rangeRound([height - margin.bottom, margin.top]);
+		//.rangeRound([height - margin.bottom, margin.top]);
 
 	var xAxis = svg.append("g")
 		.attr("transform", "translate(" + (margin.left) + "," + (margin.top + chart_dimensions.height) + ")")
