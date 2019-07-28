@@ -182,16 +182,16 @@ function showOffenseCountBars() {
 		.classed("scene-1-rect",true)
 		.attr("x",120)
 		.attr("y",660)
-		.attr("width",140)
+		.attr("width",158)
 		.attr("height",60)
 		.attr("fill","lightgray");
 	
 	d3.select(".chart")
 		.append("text")
 		.classed("scene-1-text",true)
-		.attr("x",260)
+		.attr("x",240)
 		.attr("y",675)
-		.style("font-size","10px")
+		.style("font-size","11px")
 		.attr("dy",".35em")
 		.text("Type of crimes with")
 		.attr("fill","black");
@@ -199,21 +199,21 @@ function showOffenseCountBars() {
 	d3.select(".chart")
 		.append("text")
 		.classed("scene-1-text-1",true)
-		.attr("x",255)
+		.attr("x",267)
 		.attr("y",690)
 		.attr("dy",".35em")
-		.style("font-size","10px")
-		.text("low frequency - Homicide and")
+		.style("font-size","11px")
+		.text("low frequency - Homicide, ")
 		.attr("fill","black");
 	
 	d3.select(".chart")
 		.append("text")
 		.classed("scene-1-text-2",true)
-		.attr("x",240)
-		.attr("y",690)
-		.style("font-size","10px")
+		.attr("x",277)
+		.attr("y",705)
+		.style("font-size","11px")
 		.attr("dy",".35em")
-		.text("burglaries except residential")
+		.text("other and commercial burglaries")
 		.attr("fill","black");	
 }
 
