@@ -46,7 +46,7 @@ const y_offensesByMonthCount_axis = d3.scaleLinear();
 const yAxis4 = d3.axisLeft();
 
 function calculateScales0(){
-	d3.selectAll("#selection").attr("visibility","hidden");
+	d3.selectAll("#selection").style("visibility","hidden");
 	const referenceData = d3.values(offenseGroups);
 	console.log(referenceData);
 	x_offenses.range([0, chart_dimensions.width])
@@ -58,7 +58,7 @@ function calculateScales0(){
 }
 
 function calculateScales1(){
-	d3.selectAll("#selection").attr("visibility","hidden");
+	d3.selectAll("#selection").style("visibility","hidden");
 	const referenceData4 = d3.values(offensesByMonth);
 	console.log(referenceData4);
 	x_months.range([0, chart_dimensions.width])
@@ -70,7 +70,7 @@ function calculateScales1(){
 }
 
 function calculateScales2(){
-	d3.selectAll("#selection").attr("visibility","hidden");
+	d3.selectAll("#selection").style("visibility","hidden");
 	const referenceData2 = d3.values(offensesByDay);
 	console.log(referenceData2);
 	x_days.range([0, chart_dimensions.width])
@@ -82,7 +82,7 @@ function calculateScales2(){
 }
 
 function calculateScales3(){
-	d3.selectAll("#selection").attr("visibility","hidden");
+	d3.selectAll("#selection").style("visibility","hidden");
 	const referenceData3 = d3.values(offensesByHour);
 	console.log(referenceData3);
 	
@@ -607,7 +607,7 @@ function chart(csv) {
 		width = +svg.attr("width") - margin.left - margin.right,
 		height = +svg.attr("height") - margin.top - margin.bottom;
 	
-	d3.selectAll("#selection").attr("visibility","visible");
+	d3.selectAll("#selection").style("visibility","visible");
 
 	var x = d3.scaleBand()
 		.range([margin.left, width - margin.right])
