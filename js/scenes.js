@@ -668,7 +668,7 @@ function chart(csv) {
 			.attr("fill", d => z(d.key));
 
 		var bars = svg.selectAll("g.layer").selectAll("rect")
-			.data(d => d, e => e.data.Hour).transition().duration(speed);
+			.data(d => d, e => e.data.Hour);
 
 		bars.exit().remove();
 
