@@ -57,7 +57,7 @@ function calculateScales1(){
         .range([chart_dimensions.height, 0]);
 }
 
-function calculateScale2(){
+function calculateScales2(){
 	d3.selectAll("#selection").style("visibility","hidden");
 	const referenceData4 = d3.values(offensesByMonth);
 	console.log(referenceData4);
