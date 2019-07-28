@@ -11,10 +11,6 @@ div {
     fill: steelblue;
 }
 
-.rect-offenseCount:hover {
-    fill: lightsteelblue;
-}
-
 .chart text {
     font: 11px sans-serif;
     text-anchor: end;
