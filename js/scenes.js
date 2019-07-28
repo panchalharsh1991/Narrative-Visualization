@@ -611,6 +611,46 @@ function showOffensesByMonthCountBars() {
         .attr("y", function (d) {
             return (chart_dimensions.height - y_offensesByMonthCount(d.offenseCount));
         });
+		
+	d3.select(".chart")
+		.append("line")
+		.classed("scene-2-line",true)
+		.attr("x1",670)
+		.attr("y1",420)
+		.attr("x2",670)
+		.attr("y2",500)
+		.attr("stroke-width",0.75)
+		.attr("stroke","gray");
+		
+	d3.select(".chart")
+		.append("rect")
+		.classed("scene-2-rect",true)
+		.attr("x",540)
+		.attr("y",380)
+		.attr("width",140)
+		.attr("height",40)
+		.attr("fill","lightgray")
+		.transition().duration(1000);
+	
+	d3.select(".chart")
+		.append("text")
+		.classed("scene-2-text",true)
+		.attr("x",660)
+		.attr("y",392)
+		.style("font-size","11px")
+		.attr("dy",".35em")
+		.text("The frequency of crimes")
+		.attr("fill","black");
+		
+	d3.select(".chart")
+		.append("text")
+		.classed("scene-2-text-2",true)
+		.attr("x",670)
+		.attr("y",407)
+		.attr("dy",".35em")
+		.style("font-size","11px")
+		.text("are higher in summer/early fall")
+		.attr("fill","black");
 }
 
 function createOffensesByMonthCountAxis() {
