@@ -668,9 +668,9 @@ function chart(csv) {
 			.attr("fill", d => z(d.key));
 
 		var bars = svg.selectAll("g.layer").selectAll("rect")
-			.data(d => d, e => e.data.Hour).transition();
+			.data(d => d, e => e.data.Hour).transition().duration(speed);
 
-		bars.exit().remove()
+		bars.exit().remove();
 
 		bars.enter().append("rect")
 			.attr("width", x.bandwidth())
