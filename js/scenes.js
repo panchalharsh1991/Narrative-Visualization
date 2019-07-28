@@ -232,7 +232,7 @@ function showOffenseCountBars() {
 		.attr("x1",670)
 		.attr("y1",420)
 		.attr("x2",670)
-		.attr("y2",500)
+		.attr("y2",560)
 		.attr("stroke-width",0.75)
 		.attr("stroke","gray");
 		
