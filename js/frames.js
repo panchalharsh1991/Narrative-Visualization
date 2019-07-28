@@ -1,4 +1,5 @@
 function initializeVisualization() {
+	d3.selectAll("#selection").style("visibility","hidden");
     loadcsvdata( dataloaded );
 }
 
