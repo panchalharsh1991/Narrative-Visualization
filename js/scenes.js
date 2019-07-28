@@ -115,6 +115,7 @@ function calculateScales4(){
 function initializeChartArea() {
 	d3.select(".heading").selectAll("*").remove();	
 	d3.select(".para").selectAll("*").remove();
+	d3.select(".para1").selectAll("*").remove();
 	d3.select(".chart").selectAll("*").remove();
 	d3.select(".selection").selectAll("*").remove();
     var chart = d3.select(".chart")
