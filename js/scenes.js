@@ -695,8 +695,12 @@ function chart(csv) {
 }
 }
 
+function showIntroduction(){
+	d3.select("#chart-id").append("p").text("Introduction");
+}
 
 function animateScene0() {
+	d3.selectAll("#selection").style("visibility","hidden");
 	initializeChartArea();
 	showIntroduction();
 }
