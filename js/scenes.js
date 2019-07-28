@@ -42,7 +42,8 @@ function calculateScales1(){
 	d3.select("#b3").classed("active",false);
 	d3.select("#b4").classed("active",false);
 	d3.select("#b5").classed("active",false);
-	d3.selectAll("#selection").style("visibility","hidden");
+	d3.select(".selection").selectAll("*").remove();
+	//d3.selectAll("#selection").style("visibility","hidden");
 	const referenceData = d3.values(offenseGroups);
 	console.log(referenceData);
 	x_offenses.range([0, chart_dimensions.width])
@@ -60,7 +61,8 @@ function calculateScales2(){
 	d3.select("#b3").classed("active",false);
 	d3.select("#b4").classed("active",false);
 	d3.select("#b5").classed("active",false);
-	d3.selectAll("#selection").style("visibility","hidden");
+	d3.select(".selection").selectAll("*").remove();
+	//d3.selectAll("#selection").style("visibility","hidden");
 	const referenceData4 = d3.values(offensesByMonth);
 	console.log(referenceData4);
 	x_months.range([0, chart_dimensions.width])
@@ -78,7 +80,8 @@ function calculateScales3(){
 	d3.select("#b3").classed("active",true);
 	d3.select("#b4").classed("active",false);
 	d3.select("#b5").classed("active",false);
-	d3.selectAll("#selection").style("visibility","hidden");
+	d3.select(".selection").selectAll("*").remove();
+	//d3.selectAll("#selection").style("visibility","hidden");
 	const referenceData2 = d3.values(offensesByDay);
 	console.log(referenceData2);
 	x_days.range([0, chart_dimensions.width])
@@ -96,7 +99,8 @@ function calculateScales4(){
 	d3.select("#b3").classed("active",false);
 	d3.select("#b4").classed("active",true);
 	d3.select("#b5").classed("active",false);
-	d3.selectAll("#selection").style("visibility","hidden");
+	d3.select(".selection").selectAll("*").remove();
+	//d3.selectAll("#selection").style("visibility","hidden");
 	const referenceData3 = d3.values(offensesByHour);
 	console.log(referenceData3);
 	
@@ -112,6 +116,7 @@ function initializeChartArea() {
 	d3.select(".heading").selectAll("*").remove();	
 	d3.select(".para").selectAll("*").remove();
 	d3.select(".chart").selectAll("*").remove();
+	d3.select(".selection").selectAll("*").remove();
     var chart = d3.select(".chart")
         .attr("width", canvas.width)
         .attr("height", canvas.height);
@@ -613,8 +618,12 @@ function chart(csv) {
 	var keys = csv.columns.slice(1);
 
 	var offenses = [...new Set(csv.map(d => d.Offense_Code_Group))];
+	
+	d3.select("#chart-div").insert("div").classed("selection",true);
+	d3.select(".selection").insert("p").text("Select Offense:");
+	d3.select(".selection").insert("select").classed("offense",true);
 
-	var options = d3.select("#offense").selectAll("option")
+	var options = d3.select(".offense").selectAll("option")
 		.data(offenses)
 		.enter().append("option")
 		.text(d => d);
@@ -651,7 +660,7 @@ function chart(csv) {
 		.range(["steelblue"])
 		.domain(keys);
 
-	update(d3.select("#offense").property("value"), 0)
+	update(d3.select(".offense").property("value"), 0)
 
 	function update(input, speed) {
 
@@ -722,7 +731,7 @@ function chart(csv) {
 			//.attr("height", d => y(d[0]) - y(d[1]))
 	}
 
-	var select = d3.select("#offense")
+	var select = d3.select(".offense")
 		.on("change", function() {
 			update(this.value, 1000)
 		})
