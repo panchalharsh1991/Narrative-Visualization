@@ -651,7 +651,7 @@ function chart(csv) {
 			//.call(d3.axisLeft(y).ticks(null, "s"))
 			.call(d3.axisLeft(y).tickSize(10).ticks(20))
 			.selectAll("text")
-			.attr("x", -25)
+			.attr("x", -35)
 			.attr("y", 0)
 			.attr("dx", 0)
 			.attr("dy", "0.35em")
