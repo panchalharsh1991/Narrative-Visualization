@@ -19,8 +19,3 @@ div {
     font: 11px sans-serif;
     text-anchor: end;
 }
-
-.col-xs-3{
-  justify-content: flex-end;
-  display: flex;
-}
