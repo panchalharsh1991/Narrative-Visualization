@@ -603,7 +603,7 @@ function chart(csv) {
 		.text(d => d)
 
 	var svg = d3.select(".chart"),
-		margin = {top: 35, left: 35, bottom: 0, right: 0},
+		margin = {top: 150, bottom: 70, right: 150, left: 70},
 		width = +svg.attr("width") - margin.left - margin.right,
 		height = +svg.attr("height") - margin.top - margin.bottom;
 	
