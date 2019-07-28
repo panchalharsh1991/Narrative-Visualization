@@ -768,20 +768,7 @@ function chart(csv) {
 			.attr("fill", d => z(d.key));
 
 		var bars = svg.selectAll("g.layer").selectAll("rect")
-			.data(d => d, e => e.data.Hour);
-
-		bars.exit().remove();
-		
-		bars.enter().append("rect")
-			.classed("bar-offenses",true)
-			//.transition().duration(speed)
-			.attr("transform", "translate(" + (6+margin.left) + "," + (margin.top) + ")")
-			.attr("width", x.bandwidth()/2 - 1)
-			.merge(bars)
-			.transition().duration(speed)		
-			.attr("x", d => x(d.data.Hour))
-			.attr("y", d => y(d[1]))
-			.attr("height", d => y(d[0]) - y(d[1]))
+			.data(d => d, e => e.data.Hour)
 			.on("mouseover", function (d) {
 			//console.log(d3.event.pageX + ":" + d3.event.pageY);
 			div.transition()
@@ -797,6 +784,20 @@ function chart(csv) {
             .duration(1000)
             .style("opacity", 0);
 			});
+
+		bars.exit().remove();
+		
+		bars.enter()
+			.append("rect")
+			.classed("rect-offenseCount",true)
+			//.transition().duration(speed)
+			.attr("transform", "translate(" + (6+margin.left) + "," + (margin.top) + ")")
+			.attr("width", x.bandwidth()/2 - 1)
+			.merge(bars)
+			.transition().duration(speed)		
+			.attr("x", d => x(d.data.Hour))
+			.attr("y", d => y(d[1]))
+			.attr("height", d => y(d[0]) - y(d[1]));
 		
 			//.transition().duration(speed)
 			//.attr("transform", "translate(" + (6+margin.left) + "," + margin.top + ")")
