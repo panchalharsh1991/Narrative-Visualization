@@ -781,7 +781,22 @@ function chart(csv) {
 			.transition().duration(speed)		
 			.attr("x", d => x(d.data.Hour))
 			.attr("y", d => y(d[1]))
-			.attr("height", d => y(d[0]) - y(d[1]));
+			.attr("height", d => y(d[0]) - y(d[1]))
+			.on("mouseover", function (d) {
+			//console.log(d3.event.pageX + ":" + d3.event.pageY);
+			div.transition()
+            .duration(200)
+            .style("opacity", .9);
+			div.html(d.total)
+			.style("position","absolute")
+            .style("left", (d3.event.pageX) + "px")
+            .style("top", (d3.event.pageY - 28) + "px");
+			})
+			.on("mouseout", function (d) {
+			div.transition()
+            .duration(1000)
+            .style("opacity", 0);
+			});
 		
 			//.transition().duration(speed)
 			//.attr("transform", "translate(" + (6+margin.left) + "," + margin.top + ")")
@@ -817,7 +832,7 @@ function animateScene0() {
 	d3.select("#chart-div").insert("div").classed("heading",true);
 	d3.select(".heading").insert("h2").text("Introduction").style("text-anchor", "start");
 	d3.select("#chart-div").insert("div").classed("para",true);
-	d3.select(".para").insert("p").text("This website contains narrative visualization presenting data related to crimes happned in Boston.Crime incident reports are provided by Boston Police Department (BPD) to document the initial details surrounding an incident to which BPD officers respond.");
+	d3.select(".para").insert("p").text("This website contains narrative visualization presenting data related to crimes happened in Boston. Crime incident reports are provided by Boston Police Department (BPD) to document the initial details surrounding an incident to which BPD officers respond.");
 	d3.select(".para").insert("p").text("This data presented in this website is from June 14, 2015 and continue to September 3, 2018.");
 	d3.select(".para").insert("p").text("The narrative visualization is divided into two parts. The first part presents different bar charts showing number of crimes based on types, crimes over the month, day and hour to understand whether the frequency of crimes change over the month, day or hour?");
 	d3.select(".para").insert("p").text("The second part allows a user to explore the data by type of the crime over hours of a day.");
