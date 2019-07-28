@@ -686,7 +686,11 @@ function chart(csv) {
 
 		bars.enter().append("rect")
 			//.transition().duration(speed)
-			.attr("transform", "translate(" + (6+margin.left) + "," + margin.top + ")")
+			.attr("transform",
+            function (d) {
+                return "translate(" + (margin.left + (x(d.data.Hour))) + ", " + margin.top + ")";
+            })
+			//.attr("transform", "translate(" + (6+margin.left) + "," + margin.top + ")")
 			.attr("width", x.bandwidth()/2 - 1)
 			.merge(bars)
 			.transition().duration(1000)		
