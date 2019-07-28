@@ -22,11 +22,10 @@ div {
 
 .col-xs-3{
 	position:absolute;
-    width:500px;
-    height:100px;
-    background:#063;
+    width:350px;
+    height:500px;
     bottom:0px;
-    right:25%;
+    right:40%;
     left:50%;
     margin-left:-150px;
 }
