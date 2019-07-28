@@ -128,7 +128,7 @@ var div = d3.select("body").append("div");
 
 function showOffenseCountBars() {
 
-    d3.selectAll(".bar-offenseCount")
+    d3.selectAll(".rect-offenseCount")
         .transition()
         .duration(1000)
         .attr("height", function (d) {
