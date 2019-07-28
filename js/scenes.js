@@ -596,12 +596,12 @@ d3.csv("../agg_crime.csv").then(d => chart(d))
 function chart(csv) {
 	var keys = csv.columns.slice(1);
 
-	var offenses = [...new Set(csv.map(d => d.Offense_Code_Group))]
+	var offenses = [...new Set(csv.map(d => d.Offense_Code_Group))];
 
 	var options = d3.select("#offense").selectAll("option")
 		.data(offenses)
 		.enter().append("option")
-		.text(d => d)
+		.text(d => d);
 
 	var svg = d3.select(".chart"),
 		margin = {top: 150, bottom: 70, right: 150, left: 70},
@@ -668,7 +668,7 @@ function chart(csv) {
 			.attr("fill", d => z(d.key));
 
 		var bars = svg.selectAll("g.layer").selectAll("rect")
-			.data(d => d, e => e.data.Hour);
+			.data(d => d, e => e.data.Hour).transition();
 
 		bars.exit().remove()
 
