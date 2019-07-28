@@ -877,12 +877,27 @@ function chart(csv) {
 	var xAxis = svg.append("g")
 		.attr("transform", "translate(" + (margin.left) + "," + (margin.top + chart_dimensions.height) + ")")
 		//.attr("transform", `translate(0,${height - margin.bottom})`)
-		.attr("class", "x-axis")
+		.attr("class", "x-axis");
+		
+	d3.select(".chart").append("text")
+        .attr("transform",
+            "translate(" + (margin.left + chart_dimensions.width / 2) + " ," +
+            (margin.top + chart_dimensions.height + 50) + ")")
+        .style("text-anchor", "middle")
+        .text("Hours");
 
 	var yAxis = svg.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 		//.attr("transform", `translate(${margin.left},0)`)
-		.attr("class", "y-axis")
+		.attr("class", "y-axis");
+		
+	d3.select("svg").append("text")
+        .attr("id", "y-axis")
+        .attr("transform",
+            "translate(8," + (margin.top + chart_dimensions.height + margin.bottom + chart_dimensions.height / 2) + ")" +
+            ", rotate(-90)")
+        .style("text-anchor", "middle")
+        .text("Number of Records");
 
 	var z = d3.scaleOrdinal()
 		.range(["steelblue"])
