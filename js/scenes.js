@@ -126,13 +126,16 @@ function createOffenseCountBars() {
 var div = d3.select("body").append("div");
 
 	d3.select("#chart-div").insert("div").classed("heading",true);
-	d3.select(".heading").insert("h2").text("Types of Serious Crimes").style("text-anchor", "start");
+	d3.select(".heading").insert("h4").text("Types of Serious Crimes").style("text-anchor", "start");
 	d3.select("#chart-div").insert("div").classed("para",true);
-	d3.select(".para").insert("p").text("The graph shows crimes reported over 3 years and their frequency by type of a crime.");
+	d3.select(".para").insert("p").text("The graph shows crimes reported over 3 years");
+	d3.select(".para").insert("p").text("and their frequency by type of a crime.");
 	d3.select(".para").insert("br");
-	d3.select(".para").insert("p").text("Larceny is by far the most common serious crime, and homicides are pretty rare.");
+	d3.select(".para").insert("p").text("Larceny is by far the most common serious crime,");
+	d3.select(".para").insert("p").text("and homicides are pretty rare.");
 	d3.select(".para").insert("br");
-	d3.select(".para").insert("p").text("Click on next slide for frequency of crimes happening over each month.");
+	d3.select(".para").insert("p").text("Click on next slide for frequency of crimes");
+	d3.select(".para").insert("p").text("happening over each month.");
 	
     d3.select(".chart")
 		.selectAll(".bar-offenseCount")
