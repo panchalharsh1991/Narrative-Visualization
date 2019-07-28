@@ -109,7 +109,7 @@ function calculateScales4(){
 }
 
 function initializeChartArea() {
-	d3.select("#heading").selectAll(*).remove();	
+	d3.select("#heading").selectAll("*").remove();	
 	d3.select("#para").selectAll("*").remove();
 	d3.select(".chart").selectAll("*").remove();
     var chart = d3.select(".chart")
