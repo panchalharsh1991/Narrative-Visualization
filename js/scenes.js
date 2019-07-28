@@ -981,7 +981,7 @@ function animateScene0() {
 	d3.select(".para").insert("p").text("This website contains narrative visualization presenting data related to crimes happened in Boston. Crime incident reports are provided by Boston Police Department (BPD) to document the initial details surrounding an incident to which BPD officers respond.");
 	d3.select(".para").insert("p").text("This data presented in this website is from June 14, 2015 and continue to September 3, 2018.");
 	d3.select(".para").insert("p").text("The narrative visualization is divided into two parts. The first part presents different bar charts showing number of crimes based on types, crimes over the month, day and hour to understand whether the frequency of crimes change over the month, day or hour?");
-	d3.select(".para").insert("p").text("The second part allows a user to explore the data by type of the crime over hours of a day.");
+	d3.select(".para").insert("p").text("The second part allows a reader to explore the data by type of the crime over hours of a day.");
 	d3.select(".para").insert("p").text("Use page numbers shown in the top left to navigate to different scenes in this narrative visualization.");
 }
 
