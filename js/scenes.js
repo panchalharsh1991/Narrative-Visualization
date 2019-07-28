@@ -634,7 +634,7 @@ function chart(csv) {
 		.range(["steelblue"])
 		.domain(keys);
 
-	update(d3.select("#offense").property("value"), 1000)
+	update(d3.select("#offense").property("value"), 0)
 
 	function update(input, speed) {
 
@@ -687,10 +687,10 @@ function chart(csv) {
 		bars.enter().append("rect")
 			.classed("bar-offenses",true)
 			//.transition().duration(speed)
-			.attr("transform", "translate(" + (6+margin.left) + "," + (300+margin.top) + ")")
+			.attr("transform", "translate(" + (6+margin.left) + "," + (margin.top) + ")")
 			.attr("width", x.bandwidth()/2 - 1)
 			.merge(bars)
-			.transition().duration(1000)		
+			.transition().duration(speed)		
 			.attr("x", d => x(d.data.Hour))
 			.attr("y", d => y(d[1]))
 			.attr("height", d => y(d[0]) - y(d[1]));
