@@ -33,11 +33,7 @@ function loadcsvdata( dataloaded ) {
 				offensesByMonth[dataobj.month] = { month: dataobj.month, index: dataobj.month_index, offenseCount: 0};
 
 		offensesByMonth[dataobj.month].offenseCount++;
-		
-		/*d3.values(offenseGroups)
-		.sort(function(x, y){
-				return d3.ascending(x.offenseCount, y.offenseCount);
-		});*/		
+	
         return dataobj;
 
     }).then(function(data) {
