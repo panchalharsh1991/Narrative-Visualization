@@ -682,7 +682,7 @@ function chart(csv) {
 			.attr("width", x.bandwidth()/2 - 1)
 			.merge(bars)
 			.transition().duration(speed)
-			.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+			.attr("transform", "translate(" + (6+margin.left) + "," + margin.top + ")")
 			.attr("x", d => x(d.data.Hour))
 			.attr("y", d => y(d[1]))
 			.attr("height", d => y(d[0]) - y(d[1]))
