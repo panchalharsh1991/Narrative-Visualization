@@ -603,7 +603,7 @@ function chart(csv) {
 		width = +svg.attr("width") - margin.left - margin.right,
 		height = +svg.attr("height") - margin.top - margin.bottom;
 	
-	svg.selectAll("#selection").style("visibility","visible");
+	svg.selectAll("#selection").attr("visibility","");
 
 	var x = d3.scaleBand()
 		.range([margin.left, width - margin.right])
