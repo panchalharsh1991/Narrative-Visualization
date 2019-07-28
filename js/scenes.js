@@ -185,7 +185,7 @@ function showOffenseCountBars() {
 		.attr("width",158)
 		.attr("height",60)
 		.attr("fill","lightgray")
-		.transition.duration(1000);
+		.transition().duration(1000);
 	
 	d3.select(".chart")
 		.append("text")
@@ -235,7 +235,7 @@ function showOffenseCountBars() {
 		.attr("width",140)
 		.attr("height",40)
 		.attr("fill","lightgray")
-		.transition.duration(1000);
+		.transition().duration(1000);
 	
 	d3.select(".chart")
 		.append("text")
