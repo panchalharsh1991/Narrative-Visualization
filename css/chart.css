@@ -11,7 +11,7 @@ div {
     fill: steelblue;
 }
 
-.chart .about text {
+.chart text {
     font: 11px sans-serif;
     text-anchor: end;
 }
