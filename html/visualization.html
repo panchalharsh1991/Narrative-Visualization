@@ -8,7 +8,18 @@
 <div class = "about" style="width: 600px;font-family: sans-serif">
   <h1 align="left">Narrative Visualization</h1>
   
-  <h2>Structure of Visualization</h2>
+  <h2>Messaging</h2>
+  
+  <p>After analyzing dataset for crimes reported from 2015 - 2018 in Boston, it can be summaried:</p>
+  <ul>
+    <li>Larceny is by far the most common type of serious crime.</li>
+    <li>Serious crimes are most likely to occur in the afternoon and evening.</li>
+	<li>Serious crimes are most likely to occur on Friday and least likely to occur on Sunday.</li>
+	<li>Serious crimes are most likely to occur in the summer and early fall, and least likely to occur 
+		in the winter (with the exeption of January, which has a crime rate more similar to the summer).</li>
+  </ul>
+  
+  <h2>Visual Structure</h2>
 
   <p>This narrative visualization follows a "martini glass" structure consisting of four author-driven
   scenes followed by a last scene in which the reader is allowed to explore the dataset.</p>
@@ -25,6 +36,16 @@
 
   <p>Scenes can be navigated with page buttons at the top of the display which shows the current scene
     number highlighted and allows the readed to move to a different scenes in the story.</p>
+
+	<h2>Annotations</h2>
+  <p>Annotations are added with the data point in the story 
+	to explain the significance of the data. It helps the reader to explain key points from the chart.</p>
+
+  <p>Annotations for each scene are added at the start of the scene, and removed during transitions so that the reader is
+    drawn to the new annotation and data point in the story.</p>
+
+  <p>Annotations use the same template - lightgray rectangle with black text and a line directed near to data point on the
+    chart.</p>
 
   <h2>Parameters</h2>
   The common parameters for all scenes are as follows:
@@ -45,6 +66,13 @@
     <li><b>Offense Type Selection</b> - The reader can select one of the offense to visualize data over the hours of the day</li>
     <li><b>Sorted Data Checkbox</b> - The reader can use this checkbox to sort the data in descending order of frequency of the crime</li>
   </ul>
+  
+  <p>The scene number drives many of the other parameters such as charts, annotations 
+	and explnation text with every chart.</p>
+  <p>The reader uses scene numbers to navigate between different scenes, and transitions 
+	are implemented through out the visualization.</p>
+  <p>For the reader-driven scene, there are two parameters: selection and checkbox. The visualization
+    must track what is selected and whether checkbox is checked or not to show appropriate data to reader.</p>
 
   <h2>Triggers</h2>
   <p>The first trigger is the at completion of the HTML page load, which invokes the functions to initialize the visualization and introduction scene.</p>
@@ -53,13 +81,6 @@
   <p>The user advances through the presentation by clicking scene numbers shown in the top left corner.</p>
   <p>On the reader-driven scene, selecting an offense type triggers chart to be updated with relevant data
 	and selection of sorted data checkbox, sorts the data in descending order.</p>
-  
-  <h2>Annotations</h2>
-  <p>Annotations are added with the data point in the story 
-	to explain the significance of the data. It helps the reader to explain key points from the chart.</p>
-
-  <p>Annotations for each scene are added at the start of the scene, and removed during transitions so that the reader is
-    drawn to the new annotation and data point in the story.</p>
   
   <h2>Acknowledgements</h2>
   <ul>
