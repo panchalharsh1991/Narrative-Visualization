@@ -21,7 +21,7 @@ div {
 }
 
 .col-xs-3{
-	position:absolute;
+	position:relative;
     width:500px;
     height:100px;
     bottom:0px;
