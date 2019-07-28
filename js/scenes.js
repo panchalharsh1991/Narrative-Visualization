@@ -617,11 +617,13 @@ function chart(csv) {
 		.rangeRound([height - margin.bottom, margin.top])
 
 	var xAxis = svg.append("g")
-		.attr("transform", `translate(0,${height - margin.bottom})`)
+		.attr("transform", "translate(" + (margin.left) + "," + (margin.top + chart_dimensions.height) + ")")
+		//.attr("transform", `translate(0,${height - margin.bottom})`)
 		.attr("class", "x-axis")
 
 	var yAxis = svg.append("g")
-		.attr("transform", `translate(${margin.left},0)`)
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+		//.attr("transform", `translate(${margin.left},0)`)
 		.attr("class", "y-axis")
 
 	var z = d3.scaleOrdinal()
