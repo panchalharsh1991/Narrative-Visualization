@@ -620,8 +620,10 @@ function chart(csv) {
 	var offenses = [...new Set(csv.map(d => d.Offense_Code_Group))];
 	
 	d3.select("#chart-div").insert("div").classed("selection",true);
-	d3.select(".selection").insert("p").text("Select Offense:");
+	d3.select(".selection").insert("br");
+	d3.select(".selection").insert("h4").text("Select Offense:");
 	d3.select(".selection").insert("select").classed("offense",true);
+	d3.select(".selection").insert("input").attr("checked",false).attr("type","checkbox").classed("sort",true).text("Sort data");
 
 	var options = d3.select(".offense").selectAll("option")
 		.data(offenses)
@@ -634,8 +636,6 @@ function chart(csv) {
 		height = canvas.height - (margin.top + margin.bottom);
 		//width = +svg.attr("width") - margin.left - margin.right,
 		//height = +svg.attr("height") - margin.top - margin.bottom;
-	
-	d3.selectAll("#selection").style("visibility","visible");
 
 	var x = d3.scaleBand()
 		.range([0, chart_dimensions.width])
@@ -683,6 +683,10 @@ function chart(csv) {
 			.attr("dy", "0.35em")
 			.style("text-anchor", "start");
 			
+		data.sort(d3.select(".sort").property("checked")
+			? (a, b) => b.total - a.total
+			: (a, b) => offenses.indexOf(a.Offense_Code_Group) - offenses.indexOf(b.Offense_Code_Group));
+		
 		x.domain(data.map(d => d.Hour));
 
 		svg.selectAll(".x-axis").transition().duration(1000)
@@ -734,7 +738,12 @@ function chart(csv) {
 	var select = d3.select(".offense")
 		.on("change", function() {
 			update(this.value, 1000)
-		})
+		});
+	
+	var checkbox = d3.select(".sort")
+		.on("click", function() {
+			update(select.property("value"), 1000)
+		});
 }
 }
 
