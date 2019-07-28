@@ -34,7 +34,7 @@ const y_offensesByMonthCount_axis = d3.scaleLinear();
 const yAxis4 = d3.axisLeft();
 
 function initializeVisualization() {
-	animateScene0();
+	loadScene0();
 	d3.select("#b0").classed("active",true);
     loadcsvdata( dataloaded );
 }
