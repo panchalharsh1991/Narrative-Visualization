@@ -602,6 +602,8 @@ function chart(csv) {
 		margin = {top: 35, left: 35, bottom: 0, right: 0},
 		width = +svg.attr("width") - margin.left - margin.right,
 		height = +svg.attr("height") - margin.top - margin.bottom;
+	
+	svg.selectAll("#selection").style("visibility","visible");
 
 	var x = d3.scaleBand()
 		.range([margin.left, width - margin.right])
@@ -642,8 +644,6 @@ function chart(csv) {
 
 		svg.selectAll(".x-axis").transition().duration(speed)
 			.call(d3.axisBottom(x).tickSizeOuter(0));
-			
-		svg.selectAll(".selection").style("visibility","visible");
 
 		var group = svg.selectAll("g.layer")
 			.data(d3.stack().keys(keys)(data), d => d.key)
@@ -664,7 +664,7 @@ function chart(csv) {
 		bars.enter().append("rect")
 			.attr("width", x.bandwidth())
 			.merge(bars)
-		.transition().duration(speed)
+			.transition().duration(speed)
 			.attr("x", d => x(d.data.Hour))
 			.attr("y", d => y(d[1]))
 			.attr("height", d => y(d[0]) - y(d[1]))
