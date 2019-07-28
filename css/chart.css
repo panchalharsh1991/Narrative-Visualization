@@ -7,27 +7,11 @@ div {
     display: block;
 }
 
-.bar-papers-rect {
+.rect-offenseCount {
     fill: steelblue;
 }
 
-/*.y-axis-papers line {
-    stroke: orange;
-}
-
-.y-axis-papers path {
-    stroke: orange;
-}
-
-.y-axis-papers text {
-    fill: orange;
-}
-
-#yAxisPapersLabel {
-    fill: orange;
-}
-*/
-.bar-papers-rect:hover {
+.rect-offenseCount:hover {
     fill: lightsteelblue;
 }
 
