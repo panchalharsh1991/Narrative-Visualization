@@ -124,6 +124,15 @@ function initializeChartArea() {
 
 function createOffenseCountBars() {
 var div = d3.select("body").append("div");
+
+	d3.select("#chart-div").insert("div").classed("heading",true);
+	d3.select(".heading").insert("h2").text("Types of Serious Crimes").style("text-anchor", "start");
+	d3.select("#chart-div").insert("div").classed("para",true);
+	d3.select(".para").insert("p").text("The graph shows crimes reported over 3 years and their frequency by type of a crime.");
+	d3.select(".para").insert("br");
+	d3.select(".para").insert("p").text("Larceny is by far the most common serious crime, and homicides are pretty rare.");
+	d3.select(".para").insert("br");
+	d3.select(".para").insert("p").text("Click on next slide for frequency of crimes happening over each month.");
 	
     d3.select(".chart")
 		.selectAll(".bar-offenseCount")
@@ -758,12 +767,11 @@ function animateScene0() {
 	d3.select("#b3").classed("active",false);
 	d3.select("#b4").classed("active",false);
 	d3.select("#b5").classed("active",false);
-	d3.selectAll("#selection").style("visibility","hidden");
+	//d3.selectAll("#selection").style("visibility","hidden");
 	d3.select("#chart-div").insert("div").classed("heading",true);
-	d3.select(".heading").insert("h2").text("Introduction").style("text-anchor", "middle");
-	d3.select(".heading").attr("transform", "translate(" + (6+margin.left) + "," + (margin.top) + ")");
+	d3.select(".heading").insert("h2").text("Introduction").style("text-anchor", "start");
 	d3.select("#chart-div").insert("div").classed("para",true);
-	d3.select(".para").insert("p").text("This website contains narrative visualization presenting data related to crimes happned in Boston.Crime incident reports are provided by Boston Police Department (BPD) to document the initial details surrounding an incident to which BPD officers respond.")
+	d3.select(".para").insert("p").text("This website contains narrative visualization presenting data related to crimes happned in Boston.Crime incident reports are provided by Boston Police Department (BPD) to document the initial details surrounding an incident to which BPD officers respond.");
 	d3.select(".para").insert("p").text("This data presented in this website is from June 14, 2015 and continue to September 3, 2018.");
 	d3.select(".para").insert("p").text("The narrative visualization is divided into two parts. The first part presents different bar charts showing number of crimes based on types, crimes over the month, day and hour to understand whether the frequency of crimes change over the month, day or hour?");
 	d3.select(".para").insert("p").text("The second part allows a user to explore the data by type of the crime over hours of a day.");
