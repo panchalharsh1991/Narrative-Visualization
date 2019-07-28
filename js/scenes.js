@@ -613,11 +613,13 @@ function chart(csv) {
 	d3.selectAll("#selection").style("visibility","visible");
 
 	var x = d3.scaleBand()
-		.range([margin.left, width - margin.right])
-		.padding(0.1)
+		.range([0, chart_dimensions.width])
+		//.range([margin.left, width - margin.right])
+		.padding(0.1);
 
 	var y = d3.scaleLinear()
-		.rangeRound([height - margin.bottom, margin.top])
+		.rangeRound([chart_dimensions.height, 0]);
+		.rangeRound([height - margin.bottom, margin.top]);
 
 	var xAxis = svg.append("g")
 		.attr("transform", "translate(" + (margin.left) + "," + (margin.top + chart_dimensions.height) + ")")
