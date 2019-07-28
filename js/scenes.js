@@ -174,7 +174,7 @@ function showOffenseCountBars() {
 		.attr("y1",720)
 		.attr("x2",190)
 		.attr("y2",800)
-		.attr("stroke-width",0.5)
+		.attr("stroke-width",0.75)
 		.attr("stroke","gray");
 		
 	d3.select(".chart")
@@ -221,9 +221,9 @@ function showOffenseCountBars() {
 		.classed("scene-1-line-2",true)
 		.attr("x1",670)
 		.attr("y1",420)
-		.attr("x2",680)
+		.attr("x2",670)
 		.attr("y2",500)
-		.attr("stroke-width",0.5)
+		.attr("stroke-width",0.75)
 		.attr("stroke","gray");
 		
 	d3.select(".chart")
