@@ -36,8 +36,12 @@ const y_offensesByMonthCount_axis = d3.scaleLinear();
 const yAxis4 = d3.axisLeft();
 
 function calculateScales1(){
-	frame = 1;
-	toggleActive();
+	d3.select("#b0").classed("Active",false);
+	d3.select("#b1").classed("Active",true);
+	d3.select("#b2").classed("Active",false);
+	d3.select("#b3").classed("Active",false);
+	d3.select("#b4").classed("Active",false);
+	d3.select("#b5").classed("Active",false);
 	d3.selectAll("#selection").style("visibility","hidden");
 	const referenceData = d3.values(offenseGroups);
 	console.log(referenceData);
@@ -50,8 +54,12 @@ function calculateScales1(){
 }
 
 function calculateScales2(){
-	frame = 2;
-	toggleActive();
+	d3.select("#b0").classed("Active",false);
+	d3.select("#b1").classed("Active",false);
+	d3.select("#b2").classed("Active",true);
+	d3.select("#b3").classed("Active",false);
+	d3.select("#b4").classed("Active",false);
+	d3.select("#b5").classed("Active",false);
 	d3.selectAll("#selection").style("visibility","hidden");
 	const referenceData4 = d3.values(offensesByMonth);
 	console.log(referenceData4);
@@ -64,8 +72,12 @@ function calculateScales2(){
 }
 
 function calculateScales3(){
-	frame = 3;
-	toggleActive();
+	d3.select("#b0").classed("Active",false);
+	d3.select("#b1").classed("Active",false);
+	d3.select("#b2").classed("Active",false);
+	d3.select("#b3").classed("Active",true);
+	d3.select("#b4").classed("Active",false);
+	d3.select("#b5").classed("Active",false);
 	d3.selectAll("#selection").style("visibility","hidden");
 	const referenceData2 = d3.values(offensesByDay);
 	console.log(referenceData2);
@@ -78,8 +90,12 @@ function calculateScales3(){
 }
 
 function calculateScales4(){
-	frame = 4;
-	toggleActive();
+	d3.select("#b0").classed("Active",false);
+	d3.select("#b1").classed("Active",false);
+	d3.select("#b2").classed("Active",false);
+	d3.select("#b3").classed("Active",false);
+	d3.select("#b4").classed("Active",true);
+	d3.select("#b5").classed("Active",false);
 	d3.selectAll("#selection").style("visibility","hidden");
 	const referenceData3 = d3.values(offensesByHour);
 	console.log(referenceData3);
@@ -582,8 +598,12 @@ function showMonthsAxis() {
 }
 
 function prepareAggData(){
-	frame = 5;
-	toggleActive();
+	d3.select("#b0").classed("Active",false);
+	d3.select("#b1").classed("Active",false);
+	d3.select("#b2").classed("Active",false);
+	d3.select("#b3").classed("Active",false);
+	d3.select("#b4").classed("Active",false);
+	d3.select("#b5").classed("Active",true);
 
 d3.csv("../agg_crime.csv").then(d => chart(d))
 
