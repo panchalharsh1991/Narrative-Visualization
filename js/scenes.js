@@ -169,20 +169,31 @@ function showOffenseCountBars() {
 		
 	d3.select(".chart")
 		.append("line")
-		.attr("x1",107)
-		.attr("y1",750)
-		.attr("x2",107)
-		.attr("y2",830)
+		.classed("scene-1-line",true)
+		.attr("x1",190)
+		.attr("y1",720)
+		.attr("x2",190)
+		.attr("y2",800)
 		.attr("stroke-width",1)
 		.attr("stroke","gray");
 		
 	d3.select(".chart")
 		.append("rect")
-		.attr("x",95)
-		.attr("y",830)
-		.attr("width",50)
-		.attr("height",30)
-		.attr("fill","gray");
+		.classed("scene-1-rect",true)
+		.attr("x",120)
+		.attr("y",660)
+		.attr("width",140)
+		.attr("height",60)
+		.attr("fill","lightgray");
+	
+	d3.select(".chart")
+		.append("text")
+		.classed("scene-1-text",true)
+		.attr("x",120)
+		.attr("y",660)
+		.attr("dy",".35em")
+		.text("Type of crimes with low frequency")
+		.attr("fill","black");
 }
 
 function createOffenseCountAxis() {
