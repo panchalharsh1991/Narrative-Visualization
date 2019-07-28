@@ -646,7 +646,7 @@ function chart(csv) {
 			return d
 		})
 		console.log(data);
-		y.domain([0, d3.max(data, d => d3.sum(keys, k => +d[k]))]).nice();
+		y.domain([0, d3.max(data, d => d3.sum(keys, k => +d[k]))]);
 
 		svg.selectAll(".y-axis").transition().duration(speed)
 			.call(d3.axisLeft(y).ticks(null, "s"))
