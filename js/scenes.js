@@ -625,7 +625,7 @@ function chart(csv) {
 	d3.select(".selection").insert("select").classed("offense",true);
 	d3.select(".selection").insert("br");
 	d3.select(".selection").insert("br");
-	d3.select(".selection").insert("input").attr("checked",true).attr("type","checkbox").classed("sort",true);
+	d3.select(".selection").insert("input").classed("sort",true).attr("type","checkbox").attr("checked",false);
 	d3.select(".selection").insert("label").text("Sorted data");
 
 	var options = d3.select(".offense").selectAll("option")
