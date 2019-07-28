@@ -768,22 +768,7 @@ function chart(csv) {
 			.attr("fill", d => z(d.key));
 
 		var bars = svg.selectAll("g.layer").selectAll("rect")
-			.data(d => d, e => e.data.Hour)
-			.on("mouseover", function (d) {
-			//console.log(d3.event.pageX + ":" + d3.event.pageY);
-			div.transition()
-            .duration(200)
-            .style("opacity", .9);
-			div.html(d.total)
-			.style("position","absolute")
-            .style("left", (d3.event.pageX) + "px")
-            .style("top", (d3.event.pageY - 28) + "px");
-			})
-			.on("mouseout", function (d) {
-			div.transition()
-            .duration(1000)
-            .style("opacity", 0);
-			});
+			.data(d => d, e => e.data.Hour);
 
 		bars.exit().remove();
 		
@@ -807,6 +792,20 @@ function chart(csv) {
 			//.attr("x", d => x(d.data.Hour))
 			//.attr("y", d => y(d[1]))
 			//.attr("height", d => y(d[0]) - y(d[1]))
+			
+		var text = svg.selectAll(".text")
+			.data(data, d => d.Hour);
+
+		text.exit().remove();
+
+		text.enter().append("text")
+			.attr("class", "text")
+			.attr("text-anchor", "middle")
+			.merge(text)
+			.transition().duration(speed)
+			.attr("x", d => x(d.Hour) + x.bandwidth() / 2)
+			.attr("y", d => y(d.total) - 5)
+			.text(d => d.total);
 	}
 
 	var select = d3.select(".offense")
