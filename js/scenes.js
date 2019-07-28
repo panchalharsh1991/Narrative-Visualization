@@ -358,7 +358,7 @@ var div = d3.select("body").append("div");
 	d3.select("#chart-div").insert("div").classed("parascenes",true).style('width','300px').style('height','180px');
 	d3.select(".parascenes").insert("p").text("The graph shows crimes reported over 3 years and their frequency over days of the week.");
 	d3.select(".parascenes").insert("br");
-	d3.select(".parascenes").insert("p").text("There is some variation across days of the week, with Friday having the highest crime rate and Sunday having the lowest.");
+	d3.select(".parascenes").insert("p").text("There is a little variation across days of the week, with Friday having the highest crime rate and Sunday having the lowest.");
 	d3.select(".parascenes").insert("br");
 	d3.select(".parascenes").insert("p").text("Click on next slide for frequency of crimes happening over hours of a day.");
 	
@@ -468,7 +468,7 @@ var div = d3.select("body").append("div");
 	d3.select("#chart-div").insert("div").classed("parascenes",true).style('width','300px').style('height','180px');
 	d3.select(".parascenes").insert("p").text("The graph shows crimes reported over 3 years and their frequency over hours of a day.");
 	d3.select(".parascenes").insert("br");
-	d3.select(".parascenes").insert("p").text("Crimes rates are low between 1-8 in the morning, and gradually rise throughout the day, peaking around 6 pm. There is some variation across days of the week, with Friday having the highest crime rate and Sunday having the lowest.");
+	d3.select(".parascenes").insert("p").text("Crime rates are low between 1-7 in the morning, and gradually rise throughout the day, peaking around 6 pm. There is some variation across days of the week, with Friday having the highest crime rate and Sunday having the lowest.");
 	d3.select(".parascenes").insert("br");
 	d3.select(".parascenes").insert("p").text("Click on next slide for exploring data by your self.");
 	
@@ -501,6 +501,96 @@ function showOffensesByHourCountBars() {
         .attr("y", function (d) {
             return (chart_dimensions.height - y_offensesByHourCount(d.offenseCount));
         });
+		
+	d3.select(".chart")
+		.append("line")
+		.classed("scene-4-line",true)
+		.attr("x1",190)
+		.attr("y1",720)
+		.attr("x2",190)
+		.attr("y2",800)
+		.attr("stroke-width",0.75)
+		.attr("stroke","gray");
+		
+	d3.select(".chart")
+		.append("rect")
+		.classed("scene-4-rect",true)
+		.attr("x",110)
+		.attr("y",660)
+		.attr("width",158)
+		.attr("height",60)
+		.attr("fill","lightgray")
+		.transition().duration(1000);
+	
+	d3.select(".chart")
+		.append("text")
+		.classed("scene-4-text",true)
+		.attr("x",237)
+		.attr("y",675)
+		.style("font-size","11px")
+		.attr("dy",".35em")
+		.text("The frequency of crimes")
+		.attr("fill","black");
+		
+	d3.select(".chart")
+		.append("text")
+		.classed("scene-4-text-1",true)
+		.attr("x",257)
+		.attr("y",690)
+		.attr("dy",".35em")
+		.style("font-size","11px")
+		.text("are comparatively low")
+		.attr("fill","black");
+	
+	d3.select(".chart")
+		.append("text")
+		.classed("scene-4-text-2",true)
+		.attr("x",267)
+		.attr("y",705)
+		.style("font-size","11px")
+		.attr("dy",".35em")
+		.text("in the morning hours")
+		.attr("fill","black");	
+		
+	d3.select(".chart")
+		.append("line")
+		.classed("scene-4-line-2",true)
+		.attr("x1",670)
+		.attr("y1",420)
+		.attr("x2",670)
+		.attr("y2",500)
+		.attr("stroke-width",0.75)
+		.attr("stroke","gray");
+		
+	d3.select(".chart")
+		.append("rect")
+		.classed("scene-4-rect-2",true)
+		.attr("x",531)
+		.attr("y",380)
+		.attr("width",140)
+		.attr("height",40)
+		.attr("fill","lightgray")
+		.transition().duration(1000);
+	
+	d3.select(".chart")
+		.append("text")
+		.classed("scene-4-text-3",true)
+		.attr("x",650)
+		.attr("y",392)
+		.style("font-size","11px")
+		.attr("dy",".35em")
+		.text("Frequency picks around")
+		.attr("fill","black");
+		
+	d3.select(".chart")
+		.append("text")
+		.classed("scene-4-text-4",true)
+		.attr("x",660)
+		.attr("y",407)
+		.attr("dy",".35em")
+		.style("font-size","11px")
+		.text("6 PM")
+		.attr("fill","black");
 }
 
 function createOffensesByHourCountAxis() {
@@ -645,7 +735,7 @@ function showOffensesByMonthCountBars() {
 	d3.select(".chart")
 		.append("text")
 		.classed("scene-2-text-2",true)
-		.attr("x",647)
+		.attr("x",602)
 		.attr("y",115)
 		.attr("dy",".35em")
 		.style("font-size","11px")
@@ -655,7 +745,7 @@ function showOffensesByMonthCountBars() {
 	d3.select(".chart")
 		.append("text")
 		.classed("scene-2-text-3",true)
-		.attr("x",680)
+		.attr("x",560)
 		.attr("y",130)
 		.attr("dy",".35em")
 		.style("font-size","11px")
