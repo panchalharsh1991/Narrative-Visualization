@@ -8,18 +8,6 @@ const chart_dimensions = {
     height: canvas.height - (margin.top + margin.bottom)
 };
 
-let brush;
-
-var frame = -1;	
-
-var animateFunctions = [
-    [animateScene0, null],
-    [animateScene1, deanimateScene1],
-    [animateScene2,deanimateScene2],
-    [animateScene3,deanimateScene3],
-    [animateScene4,deanimateScene4]
-];
-
 const offenseGroups = {};
 const offensesByDay = {};
 const offensesByHour = {};
@@ -105,17 +93,17 @@ function createOffenseCountBars() {
 var div = d3.select("body").append("div");
 	
     d3.select(".chart")
-		.selectAll(".bar-papers-group")
+		.selectAll(".bar-offenseCount")
         .data(d3.values(offenseGroups))
         .enter()
         .append("g")
-        .classed("bar-papers-group",true)
+        .classed("bar-offenseCount",true)
         .attr("transform",
             function (d) {
                 return "translate(" + (margin.left + (20 + x_offenses(d.offense)-x_offenses.bandwidth()/2)) + ", " + margin.top + ")";
             })
         .append("rect")
-        .classed("bar-papers-rect",true)
+        .classed("rect-offenseCount",true)
         .attr("x", x_offenses.bandwidth()/2)
         .attr("y", chart_dimensions.height)
 		.attr("width", x_offenses.bandwidth()/2 - 1)
@@ -140,7 +128,7 @@ var div = d3.select("body").append("div");
 
 function showOffenseCountBars() {
 
-    d3.selectAll(".bar-papers-rect")
+    d3.selectAll(".bar-offenseCount")
         .transition()
         .duration(1000)
         .attr("height", function (d) {
@@ -156,13 +144,13 @@ function createOffenseCountAxis() {
         .tickSize(10).ticks(20);
 
     d3.select(".chart").append("g")
-        .attr("id", "yAxisPapersG")
-        .classed("y-axis-papers",true)
+        .attr("id", "yAxis")
+        .classed("y-axis",true)
         .attr("transform", "translate(" + margin.left + "," + (margin.top + chart_dimensions.height + margin.bottom) + ")")
         .call(yAxis);
 
     d3.select("svg").append("text")
-        .attr("id", "yAxisPapersLabel")
+        .attr("id", "yAxisLabel")
         .attr("transform",
             "translate(8," + (margin.top + chart_dimensions.height + margin.bottom + chart_dimensions.height / 2) + ")" +
             ", rotate(-90)")
@@ -171,7 +159,7 @@ function createOffenseCountAxis() {
 }
 
 function showOffenseCountAxis() {
-    d3.select("#yAxisPapersG")
+    d3.select("#yAxis")
         .transition()
         .duration(1000)
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
@@ -183,7 +171,7 @@ function showOffenseCountAxis() {
         .attr("dy", "0.35em")
         .style("text-anchor", "start");
 
-    d3.select("#yAxisPapersLabel")
+    d3.select("#yAxisLabel")
         .transition()
         .duration(1000)
         .attr("transform",
@@ -196,7 +184,7 @@ function showOffenseAxis() {
         .ticks(d3.keys(offenseGroups));
 
     d3.select(".chart").append("g")
-        .attr("id", "xAxisG")
+        .attr("id", "xAxis")
         .classed("x axis",true)
         .attr("transform", "translate(" + margin.left + "," + (margin.top + chart_dimensions.height) + ")")
         .call(xAxis)
@@ -224,7 +212,7 @@ function wrap(text, width) {
         word,
         line = [],
         lineNumber = 0,
-        lineHeight = 1.1, // ems
+        lineHeight = 1.1,
         y = text.attr("y"),
         dy = parseFloat(text.attr("dy")),
         tspan = text.text(null).append("tspan").attr("x", -20).attr("y", y).attr("dy", dy + "em")
@@ -245,17 +233,17 @@ function createOffensesByDayCountBars() {
 var div = d3.select("body").append("div");
 	
     d3.select(".chart")
-		.selectAll(".bar-papers-group")
+		.selectAll(".bar-offenseCount")
         .data(d3.values(offensesByDay))
         .enter()
         .append("g")
-        .classed("bar-papers-group",true)
+        .classed("bar-offenseCount",true)
         .attr("transform",
             function (d) {
                 return "translate(" + (margin.left + (25 + x_days(d.day)-x_days.bandwidth()/2)) + ", " + margin.top + ")";
             })
         .append("rect")
-        .classed("bar-papers-rect",true)
+        .classed("rect-offenseCount",true)
         .attr("x", x_days.bandwidth()/2)
         .attr("y", chart_dimensions.height)
 		.attr("width", x_days.bandwidth()/2 - 1)
@@ -279,7 +267,7 @@ var div = d3.select("body").append("div");
 
 function showOffensesByDayCountBars() {
 
-    d3.selectAll(".bar-papers-rect")
+    d3.selectAll(".rect-offenseCount")
         .transition()
         .duration(1000)
         .attr("height", function (d) {
@@ -295,13 +283,13 @@ function createOffensesByDayCountAxis() {
         .tickSize(10).ticks(20);
 
     d3.select(".chart").append("g")
-        .attr("id", "yAxisPapersG")
-        .classed("y-axis-papers",true)
+        .attr("id", "yAxis")
+        .classed("y-axis",true)
         .attr("transform", "translate(" + margin.left + "," + (margin.top + chart_dimensions.height + margin.bottom) + ")")
         .call(yAxis2);
 
     d3.select("svg").append("text")
-        .attr("id", "yAxisPapersLabel")
+        .attr("id", "yAxisLabel")
         .attr("transform",
             "translate(8," + (margin.top + chart_dimensions.height + margin.bottom + chart_dimensions.height / 2) + ")" +
             ", rotate(-90)")
@@ -310,7 +298,7 @@ function createOffensesByDayCountAxis() {
 }
 
 function showOffensesByDayCountAxis() {
-    d3.select("#yAxisPapersG")
+    d3.select("#yAxis")
         .transition()
         .duration(1000)
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
@@ -322,7 +310,7 @@ function showOffensesByDayCountAxis() {
         .attr("dy", "0.35em")
         .style("text-anchor", "start");
 
-    d3.select("#yAxisPapersLabel")
+    d3.select("#yAxisLabel")
         .transition()
         .duration(1000)
         .attr("transform",
@@ -335,7 +323,7 @@ function showDaysAxis() {
         .ticks(d3.keys(offensesByDay));
 
     d3.select(".chart").append("g")
-        .attr("id", "xAxisG")
+        .attr("id", "xAxis")
         .classed("x axis",true)
         .attr("transform", "translate(" + (margin.left) + "," + (margin.top + chart_dimensions.height) + ")")
         .call(xAxis)
@@ -359,17 +347,17 @@ function createOffensesByHourCountBars() {
 var div = d3.select("body").append("div");
 	
     d3.select(".chart")
-		.selectAll(".bar-papers-group")
+		.selectAll(".bar-offenseCount")
         .data(d3.values(offensesByHour))
         .enter()
         .append("g")
-        .classed("bar-papers-group",true)
+        .classed("bar-offenseCount",true)
         .attr("transform",
             function (d) {
                 return "translate(" + (margin.left + (8 + x_hours(d.hour)-x_hours.bandwidth()/2)) + ", " + margin.top + ")";
             })
         .append("rect")
-        .classed("bar-papers-rect",true)
+        .classed("rect-offenseCount",true)
         .attr("x", x_hours.bandwidth()/2)
         .attr("y", chart_dimensions.height)
 		.attr("width", x_hours.bandwidth()/2 - 1)
@@ -393,7 +381,7 @@ var div = d3.select("body").append("div");
 
 function showOffensesByHourCountBars() {
 
-    d3.selectAll(".bar-papers-rect")
+    d3.selectAll(".rect-offenseCount")
         .transition()
         .duration(1000)
         .attr("height", function (d) {
@@ -409,13 +397,13 @@ function createOffensesByHourCountAxis() {
         .tickSize(10).ticks(20);
 
     d3.select(".chart").append("g")
-        .attr("id", "yAxisPapersG")
-        .classed("y-axis-papers",true)
+        .attr("id", "yAxis")
+        .classed("y-axis",true)
         .attr("transform", "translate(" + margin.left + "," + (margin.top + chart_dimensions.height + margin.bottom) + ")")
         .call(yAxis3);
 
     d3.select("svg").append("text")
-        .attr("id", "yAxisPapersLabel")
+        .attr("id", "yAxisLabel")
         .attr("transform",
             "translate(8," + (margin.top + chart_dimensions.height + margin.bottom + chart_dimensions.height / 2) + ")" +
             ", rotate(-90)")
@@ -424,7 +412,7 @@ function createOffensesByHourCountAxis() {
 }
 
 function showOffensesByHourCountAxis() {
-    d3.select("#yAxisPapersG")
+    d3.select("#yAxis")
         .transition()
         .duration(1000)
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
@@ -436,7 +424,7 @@ function showOffensesByHourCountAxis() {
         .attr("dy", "0.35em")
         .style("text-anchor", "start");
 
-    d3.select("#yAxisPapersLabel")
+    d3.select("#yAxisLabel")
         .transition()
         .duration(1000)
         .attr("transform",
@@ -449,7 +437,7 @@ function showHoursAxis() {
         .ticks(d3.keys(offensesByHour));
 
     d3.select(".chart").append("g")
-        .attr("id", "xAxisG")
+        .attr("id", "xAxis")
         .classed("x axis",true)
         .attr("transform", "translate(" + (margin.left) + "," + (margin.top + chart_dimensions.height) + ")")
         .call(xAxis)
@@ -473,17 +461,17 @@ function createOffensesByMonthCountBars() {
 var div = d3.select("body").append("div");
 	
     d3.select(".chart")
-		.selectAll(".bar-papers-group")
+		.selectAll(".bar-offenseCount")
         .data(d3.values(offensesByMonth))
         .enter()
         .append("g")
-        .classed("bar-papers-group",true)
+        .classed("bar-offenseCount",true)
         .attr("transform",
             function (d) {
                 return "translate(" + (margin.left + (16 + x_months(d.month)-x_months.bandwidth()/2)) + ", " + margin.top + ")";
             })
         .append("rect")
-        .classed("bar-papers-rect",true)
+        .classed("rect-offenseCount",true)
         .attr("x", x_months.bandwidth()/2)
         .attr("y", chart_dimensions.height)
 		.attr("width", x_months.bandwidth()/2 - 1)
@@ -507,7 +495,7 @@ var div = d3.select("body").append("div");
 
 function showOffensesByMonthCountBars() {
 
-    d3.selectAll(".bar-papers-rect")
+    d3.selectAll(".rect-offenseCount")
         .transition()
         .duration(1000)
         .attr("height", function (d) {
@@ -523,13 +511,13 @@ function createOffensesByMonthCountAxis() {
         .tickSize(10).ticks(20);
 
     d3.select(".chart").append("g")
-        .attr("id", "yAxisPapersG")
-        .classed("y-axis-papers",true)
+        .attr("id", "yAxis")
+        .classed("y-axis",true)
         .attr("transform", "translate(" + margin.left + "," + (margin.top + chart_dimensions.height + margin.bottom) + ")")
         .call(yAxis4);
 
     d3.select("svg").append("text")
-        .attr("id", "yAxisPapersLabel")
+        .attr("id", "yAxisLabel")
         .attr("transform",
             "translate(8," + (margin.top + chart_dimensions.height + margin.bottom + chart_dimensions.height / 2) + ")" +
             ", rotate(-90)")
@@ -538,7 +526,7 @@ function createOffensesByMonthCountAxis() {
 }
 
 function showOffensesByMonthCountAxis() {
-    d3.select("#yAxisPapersG")
+    d3.select("#yAxis")
         .transition()
         .duration(1000)
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
@@ -550,7 +538,7 @@ function showOffensesByMonthCountAxis() {
         .attr("dy", "0.35em")
         .style("text-anchor", "start");
 
-    d3.select("#yAxisPapersLabel")
+    d3.select("#yAxisLabel")
         .transition()
         .duration(1000)
         .attr("transform",
@@ -563,7 +551,7 @@ function showMonthsAxis() {
         .ticks(d3.keys(offensesByMonth));
 
     d3.select(".chart").append("g")
-        .attr("id", "xAxisG")
+        .attr("id", "xAxis")
         .classed("x axis",true)
         .attr("transform", "translate(" + (margin.left) + "," + (margin.top + chart_dimensions.height) + ")")
         .call(xAxis)
@@ -708,16 +696,9 @@ function chart(csv) {
 }
 
 
-function animateScene( forward ) {
-    if (frame > (animateFunctions.length-1)) return;
-
-    const animateFunction = animateFunctions[frame][(forward?0:1)];
-    if (animateFunction)
-        animateFunction();
-}
-
 function animateScene0() {
-	
+	initializeChartArea();
+	showIntroduction();
 }
 
 function animateScene1() {
