@@ -683,19 +683,25 @@ function chart(csv) {
 			.data(d => d, e => e.data.Hour);
 
 		bars.exit().remove();
-
+		
 		bars.enter().append("rect")
 			//.transition().duration(speed)
-			.attr("transform",
-            function (d) {
-                return "translate(" + (margin.left + (x(d.data.Hour))) + ", " + margin.top + ")";
-            })
-			//.attr("transform", "translate(" + (6+margin.left) + "," + margin.top + ")")
+			.attr("transform", "translate(" + (6+margin.left) + "," + margin.top + ")")
 			.attr("width", x.bandwidth()/2 - 1)
 			.merge(bars)
 			.transition().duration(1000)		
 			.attr("x", d => x(d.data.Hour))
 			.attr("y", d => y(d[1]))
+			.attr("height", 0);
+		
+		bars.enter().append("rect")
+			//.transition().duration(speed)
+			//.attr("transform", "translate(" + (6+margin.left) + "," + margin.top + ")")
+			//.attr("width", x.bandwidth()/2 - 1)
+			//.merge(bars)
+			//.transition().duration(1000)		
+			//.attr("x", d => x(d.data.Hour))
+			//.attr("y", d => y(d[1]))
 			.attr("height", d => y(d[0]) - y(d[1]))
 	}
 
