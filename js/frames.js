@@ -1,5 +1,6 @@
 function initializeVisualization() {
 	animateScene0();
+	d3.select("#b0").classed("active",true);
 	d3.selectAll("#selection").style("visibility","hidden");
     loadcsvdata( dataloaded );
 }
