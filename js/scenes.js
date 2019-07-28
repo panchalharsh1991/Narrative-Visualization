@@ -623,6 +623,7 @@ function prepareAggData(){
 	d3.select("#b3").classed("active",false);
 	d3.select("#b4").classed("active",false);
 	d3.select("#b5").classed("active",true);
+	initializeChartArea();
 
 d3.csv("../agg_crime.csv").then(d => chart(d))
 
