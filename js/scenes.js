@@ -659,7 +659,7 @@ function chart(csv) {
 			
 		x.domain(data.map(d => d.Hour));
 
-		svg.selectAll(".x-axis").transition().duration(speed)
+		svg.selectAll(".x-axis").transition().duration(1000)
 			.call(d3.axisBottom(x).tickSizeOuter(0))
 			.selectAll("text")
 			.attr("x", -3)
@@ -688,7 +688,7 @@ function chart(csv) {
 			//.transition().duration(speed)
 			.attr("width", x.bandwidth()/2 - 1)
 			.merge(bars)
-			.transition().duration(speed)
+			.transition().duration(1000)
 			.attr("transform", "translate(" + (6+margin.left) + "," + margin.top + ")")
 			.attr("x", d => x(d.data.Hour))
 			.attr("y", d => y(d[1]))
