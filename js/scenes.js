@@ -728,8 +728,13 @@ function chart(csv) {
 }
 
 function animateScene0() {
+	initializeChartArea();
 	d3.selectAll("#selection").style("visibility","hidden");
-	d3.select("#chart-div").insert("p").text("Introduction");
+	d3.select(".chart").insert("h2").text("Introduction").style("text-anchor", "start");
+	d3.select(".chart").insert("div").classed("para",true);
+	d3.select(".para").insert("p").text("Crime incident reports are provided by Boston Police Department (BPD) to document the initial details surrounding an incident to which BPD officers respond.");
+	d3.select(".para").insert("p").text(" This is a dataset containing records from the new crime incident report system, which includes a reduced set of fields focused on capturing the type of incident as well as when and where it occurred. Records begin in June 14, 2015 and continue to September 3, 2018.");
+	d3.select(".para").insert("p").text("What types of crimes are most common? Where are different types of crimes most likely to occur? Does the frequency of crimes change over the hour? day? Week?");
 }
 
 function animateScene1() {
