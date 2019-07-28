@@ -19,3 +19,14 @@ div {
     font: 11px sans-serif;
     text-anchor: end;
 }
+
+.row2{
+	position:absolute;
+    width:900px;
+    height:500px;
+    background:#063;
+    bottom:0px;
+    right:25%;
+    left:50%;
+    margin-left:-150px;
+}
