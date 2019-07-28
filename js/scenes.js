@@ -643,8 +643,8 @@ function chart(csv) {
 		data.forEach(function(d) {
 			d.total = d3.sum(keys, k => +d[k])
 			return d
-		})
-		console.log(data);
+		});
+		
 		y.domain([0, d3.max(data, d => d3.sum(keys, k => +d[k]))]);
 
 		svg.selectAll(".y-axis").transition().duration(speed)
@@ -679,7 +679,7 @@ function chart(csv) {
 
 		bars.enter().append("rect")
 			//.transition().duration(speed)
-			.attr("width", x.bandwidth())
+			.attr("width", x.bandwidth()/2 - 1)
 			.merge(bars)
 			.transition().duration(speed)
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
