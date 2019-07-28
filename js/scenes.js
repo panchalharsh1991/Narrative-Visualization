@@ -650,6 +650,7 @@ function chart(csv) {
 		svg.selectAll(".y-axis").transition().duration(speed)
 			//.call(d3.axisLeft(y).ticks(null, "s"))
 			.call(d3.axisLeft(y).tickSize(10).ticks(20))
+			.selectAll("text")
 			.attr("x", -50)
 			.attr("y", 0)
 			.attr("dx", 0)
@@ -659,7 +660,13 @@ function chart(csv) {
 		x.domain(data.map(d => d.Hour));
 
 		svg.selectAll(".x-axis").transition().duration(speed)
-			.call(d3.axisBottom(x).tickSizeOuter(0));
+			.call(d3.axisBottom(x).tickSizeOuter(0))
+			.selectAll("text")
+			.attr("x", -3)
+			.attr("y", 13)
+			.attr("dx", 0)
+			.attr("dy", "0.35em")
+			.style("text-anchor", "start");
 
 		var group = svg.selectAll("g.layer")
 			.data(d3.stack().keys(keys)(data), d => d.key)
