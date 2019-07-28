@@ -687,21 +687,13 @@ function chart(csv) {
 		bars.enter().append("rect")
 			.classed("bar-offenses",true)
 			//.transition().duration(speed)
-			.attr("transform", "translate(" + (6+margin.left) + "," + margin.top + ")")
+			.attr("transform", "translate(" + (6+margin.left) + "," + (300+margin.top) + ")")
 			.attr("width", x.bandwidth()/2 - 1)
 			.merge(bars)
 			.transition().duration(1000)		
 			.attr("x", d => x(d.data.Hour))
-			.attr("y", d => chart_dimensions.height)
-			.attr("height", 0);
-		
-		d3.selectAll(".bar-offenses")
-			.attr("height", function (d) {
-					return y(d[1]);
-			})
-			.attr("y", function (d) {
-					return d => y(d[0]) - y(d[1]);
-			});
+			.attr("y", d => y(d[1]))
+			.attr("height", d => y(d[0]) - y(d[1]));
 		
 			//.transition().duration(speed)
 			//.attr("transform", "translate(" + (6+margin.left) + "," + margin.top + ")")
