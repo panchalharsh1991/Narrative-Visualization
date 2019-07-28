@@ -184,11 +184,9 @@ function showOffenseCountBars() {
 		.attr("y",660)
 		.attr("width",140)
 		.attr("height",60)
-		.attr("fill","lightgray")
-		.text("Type of crimes with low frequency - Homicide and burglaries except residential")
-		.attr("fill","black");
+		.attr("fill","lightgray");
 	
-	/*d3.select(".chart")
+	d3.select(".chart")
 		.append("text")
 		.classed("scene-1-text",true)
 		.attr("x",240)
@@ -197,21 +195,23 @@ function showOffenseCountBars() {
 		.text("Type of crimes with")
 		.attr("fill","black");
 		
-	d3.select(".scene-1-text")
+	d3.select(".chart")
 		.append("text")
+		.classed("scene-1-text-1",true)
 		.attr("x",240)
 		.attr("y",680)
 		.attr("dy",".35em")
 		.text("low frequency - Homicide and")
 		.attr("fill","black");
 	
-	d3.select(".scene-1-text")
+	d3.select(".chart")
 		.append("text")
+		.classed("scene-1-text-2",true)
 		.attr("x",240)
 		.attr("y",690)
 		.attr("dy",".35em")
 		.text("burglaries except residential")
-		.attr("fill","black");	*/
+		.attr("fill","black");	
 }
 
 function createOffenseCountAxis() {
