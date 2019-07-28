@@ -685,16 +685,24 @@ function chart(csv) {
 		bars.exit().remove();
 		
 		bars.enter().append("rect")
+			.classed("bar-offenses",true)
 			//.transition().duration(speed)
 			.attr("transform", "translate(" + (6+margin.left) + "," + margin.top + ")")
 			.attr("width", x.bandwidth()/2 - 1)
 			.merge(bars)
 			.transition().duration(1000)		
 			.attr("x", d => x(d.data.Hour))
-			.attr("y", d => y(d[1]))
+			.attr("y", d => chart_dimensions.height)
 			.attr("height", 0);
 		
-		bars.enter().append("rect")
+		bars.selectAll(".bar-offenses")
+			.attr("height", function (d) {
+					return y(d[1]);
+			})
+			.attr("y", function (d) {
+					return d => y(d[0]) - y(d[1]);
+			});
+		
 			//.transition().duration(speed)
 			//.attr("transform", "translate(" + (6+margin.left) + "," + margin.top + ")")
 			//.attr("width", x.bandwidth()/2 - 1)
@@ -702,7 +710,7 @@ function chart(csv) {
 			//.transition().duration(1000)		
 			//.attr("x", d => x(d.data.Hour))
 			//.attr("y", d => y(d[1]))
-			.attr("height", d => y(d[0]) - y(d[1]))
+			//.attr("height", d => y(d[0]) - y(d[1]))
 	}
 
 	var select = d3.select("#offense")
