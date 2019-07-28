@@ -696,7 +696,7 @@ function chart(csv) {
 }
 
 function showIntroduction(){
-	d3.select("#chart-id").append("p").text("Introduction");
+	d3.select("#chart-div").insert("p").text("Introduction");
 }
 
 function animateScene0() {
