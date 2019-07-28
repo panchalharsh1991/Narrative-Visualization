@@ -648,7 +648,8 @@ function chart(csv) {
 		y.domain([0, d3.max(data, d => d3.sum(keys, k => +d[k]))]);
 
 		svg.selectAll(".y-axis").transition().duration(speed)
-			.call(d3.axisLeft(y).ticks(null, "s"))
+			//.call(d3.axisLeft(y).ticks(null, "s"))
+			.call(d3.axisLeft(y).tickSize(10).ticks(20));
 			
 		x.domain(data.map(d => d.Hour));
 
@@ -672,9 +673,10 @@ function chart(csv) {
 		bars.exit().remove();
 
 		bars.enter().append("rect")
+			.transition().duration(speed)
 			.attr("width", x.bandwidth())
 			.merge(bars)
-			.transition().duration(speed)
+			//.transition().duration(speed)
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 			.attr("x", d => x(d.data.Hour))
 			.attr("y", d => y(d[1]))
