@@ -695,7 +695,7 @@ function chart(csv) {
 			.attr("y", d => chart_dimensions.height)
 			.attr("height", 0);
 		
-		bars.selectAll(".bar-offenses")
+		d3.selectAll(".bar-offenses")
 			.attr("height", function (d) {
 					return y(d[1]);
 			})
