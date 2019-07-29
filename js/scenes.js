@@ -895,7 +895,7 @@ function chart(csv) {
 	d3.select(".heading").insert("div").classed("parascenes",true).style('width','300px').style('height','180px');
 	d3.select(".parascenes").insert("p").text("Select type of a crime to see its frequency over the hours of a day."); 
 	d3.select(".heading").insert("br");
-	d3.select(".parascenes").insert("p").text("You can select Sorted Data checkbox to sort the data in descending order of frequency.");
+	d3.select(".parascenes").insert("p").text("You can select Sorted data checkbox to sort the data in descending order of frequency.");
 	
 	d3.select(".parascenes").insert("div").classed("selection",true);
 	d3.select(".selection").insert("br");
