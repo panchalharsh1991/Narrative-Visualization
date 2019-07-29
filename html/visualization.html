@@ -34,11 +34,11 @@
   <p>Scenes can be navigated with page buttons at the top of the display which shows the current scene
     number highlighted and allows the reader to move to a different scene in the story:</p>	
 	<ul>
-	<li>Scene-0: Introduction about the visualization.</li>
+	<li>Scene-0: Introduction to the visualization.</li>
 	<li>Scene-1: The first scene shows a number of crimes reported by types.</li>
 	<li>Scene-2: The second scene shows a number of crimes reported by months.</li>
 	<li>Scene-3: The third scene shows a number of crimes reported by day of a week.</li>
-	<li>Scene-4: The fourth scene shows a number of crimes reported by hour of a day.</li>
+	<li>Scene-4: The fourth scene shows a number of crimes reported by an hour of a day.</li>
 	<li>Scene-5: The fifth scene shows the same kind of data as the fourth scene but here, 
 	the reader has the ability to see data by every offense type 
 	and sort it to see when those crimes are most likely to occur in a day.</li>
@@ -59,7 +59,7 @@ to explain the significance of the data. It helps the reader to explain key poin
   <ul>
     <li><b>Scene number</b> - scenes are rendered in the same window, and scene number is a parameter
     that drives the presentation.</li>
-    <li><b>Chart axis and Text</b> - these elements are parameters which changes as per the selected scene.</li>
+    <li><b>Chart axis and Text</b> - these elements are parameters which change as per the selected scene.</li>
   </ul>
 
   Parameters specific to the author-driven scenes (1 - 4) are: 
@@ -82,8 +82,8 @@ are implemented throughout the visualization.</p>
     must track what is selected and whether the checkbox is checked or not to show appropriate data to the reader.</p>
 
   <h2>Triggers</h2>
-  <p>The first trigger is the at completion of the HTML page load, which invokes the functions to initialize the visualization and introduction scene.</p>
-  <p>This is followed by the preparing data for different charts from CSV file.</p>
+  <p>The first trigger is the at the completion of the HTML page load, which invokes the functions to initialize the visualization and introduction scene.</p>
+  <p>This is followed by preparing data for different charts from the CSV file.</p>
 
   <p>The user navigates through the presentation by clicking scene numbers shown in the top left corner.</p>
   <p>On the reader-driven scene, selecting an offense type triggers chart to be updated with relevant data
