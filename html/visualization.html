@@ -10,19 +10,19 @@
   
   <h2>Messaging</h2>
   
-  <p>After analyzing dataset for crimes reported from 2015 - 2018 in Boston, it can be summaried:</p>
+  <p>After analyzing dataset for crimes reported from 2015 - 2018 in Boston, it can be summarized:</p>
   <ul>
     <li>Larceny is by far the most common type of serious crime.</li>
     <li>Serious crimes are most likely to occur in the afternoon and evening.</li>
 	<li>Serious crimes are most likely to occur on Friday and least likely to occur on Sunday.</li>
 	<li>Serious crimes are most likely to occur in the summer and early fall, and least likely to occur 
-		in the winter (with the exeption of January, which has a crime rate more similar to the summer).</li>
+		in the winter (except for January, which has a crime rate more similar to the summer).</li>
   </ul>
   
   <h2>Visual Structure</h2>
 
   <p>This narrative visualization follows a "martini glass" structure consisting of four author-driven
-  scenes followed by a last scene in which the reader is allowed to explore the dataset.</p>
+  scenes followed by a last scene in which the reader can explore the dataset.</p>
   
   <p>This narrative visualization uses a hybrid structure and consists of scenes,
     annotations, parameters, and triggers.</p>
@@ -35,13 +35,24 @@
   scenes.
 
   <p>Scenes can be navigated with page buttons at the top of the display which shows the current scene
-    number highlighted and allows the readed to move to a different scenes in the story.</p>
+    number highlighted and allows the reader to move to a different scene in the story:</p>		
+	<ul>
+		<li>Scene-0 : Introduction about the visualization</li>
+		<li>Scene-1 : First scene shows number of crimes reported by types.</li>
+		<li>Scene-2 : Second scene shows number of crimes reported by months.</li>
+		<li>Scene-3 : Third scene shows number of crimes reported by day of a week.</li>
+		<li>Scene-4 : Fourth scene shows number of crimes reported by hour of a day.</li>
+		<li>Scene-5 : Fifth scene shows same kind of data as fourth scene but here, 
+		the reader has ability to see data by every offense type 
+		and sort it to see when those crimes are most likely to occur in a day.</li>
+	</ul>
+
 
 	<h2>Annotations</h2>
   <p>Annotations are added with the data point in the story 
 	to explain the significance of the data. It helps the reader to explain key points from the chart.</p>
 
-  <p>Annotations for each scene are added at the start of the scene, and removed during transitions so that the reader is
+  <p>Annotations for each scene are added at the start of the scene and removed during transitions so that the reader is
     drawn to the new annotation and data point in the story.</p>
 
   <p>Annotations use the same template - lightgray rectangle with black text and a line directed near to data point on the
@@ -63,14 +74,14 @@
  
   Parameters specific to the reader-drive scene (5th) are:
   <ul>
-    <li><b>Offense Type Selection</b> - The reader can select one of the offense to visualize data over the hours of the day</li>
+    <li><b>Offense Type Selection</b> - The reader can select one of the offenses to visualize data over the hours of the day</li>
     <li><b>Sorted Data Checkbox</b> - The reader can use this checkbox to sort the data in descending order of frequency of the crime</li>
   </ul>
   
   <p>The scene number drives many of the other parameters such as charts, annotations 
-	and explnation text with every chart.</p>
+	and explanation text with every chart.</p>
   <p>The reader uses scene numbers to navigate between different scenes, and transitions 
-	are implemented through out the visualization.</p>
+	are implemented throughout the visualization.</p>
   <p>For the reader-driven scene, there are two parameters: selection and checkbox. The visualization
     must track what is selected and whether checkbox is checked or not to show appropriate data to reader.</p>
 
